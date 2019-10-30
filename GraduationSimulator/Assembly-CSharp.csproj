@@ -62,10 +62,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Collectables\Book.cs" />
+    <Compile Include="Assets\Scripts\Collectables\Credit.cs" />
+    <Compile Include="Assets\Scripts\Collectables\ILookAtHandler.cs" />
+    <Compile Include="Assets\Scripts\Courses\Course.cs" />
+    <Compile Include="Assets\Scripts\Courses\CourseFactory.cs" />
+    <Compile Include="Assets\Scripts\Courses\HackingCourse.cs" />
+    <Compile Include="Assets\Scripts\Courses\PsychologyCourse.cs" />
+    <Compile Include="Assets\Scripts\Courses\ScienceCourse.cs" />
+    <Compile Include="Assets\Scripts\Door.cs" />
+    <Compile Include="Assets\Scripts\DoorTrigger.cs" />
+    <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\FPSCam.cs" />
     <Compile Include="Assets\Scripts\Patrol.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Teacher.cs" />
+    <Compile Include="Assets\Scripts\UI\CourseMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\InfoBox.cs" />
+    <Compile Include="Assets\Scripts\UI\Menu.cs" />
+    <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/marti/Documents/NTNU/3601 - Game Programming/GraduationSimulator/GraduationSimulator/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

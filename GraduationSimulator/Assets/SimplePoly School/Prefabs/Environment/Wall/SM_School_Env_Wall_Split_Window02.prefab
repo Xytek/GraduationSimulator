@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 415920}
   - component: {fileID: 13791124}
+  - component: {fileID: 8847331491931346657}
   m_Layer: 0
   m_Name: SM_School_Env_Wall_Split_Window
   m_TagString: Untagged
@@ -115,6 +116,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 1.4999999, z: -0.000000007450581}
     m_Extent: {x: 1.4999999, y: 1.4999999, z: 0.10999999}
   m_DirtyAABB: 0
+--- !u!65 &8847331491931346657
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130010}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.9999998, y: 2.9999998, z: 0.22000012}
+  m_Center: {x: 0, y: 1.4999999, z: -0.00000007301766}
 --- !u!1 &155040
 GameObject:
   m_ObjectHideFlags: 0
