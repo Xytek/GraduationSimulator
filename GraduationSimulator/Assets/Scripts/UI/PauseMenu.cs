@@ -13,7 +13,7 @@ public class PauseMenu : Menu
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (PauseMenuIsActive)
-            {
+            {                
                 Resume();
             }
             else

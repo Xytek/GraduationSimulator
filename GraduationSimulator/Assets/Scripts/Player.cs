@@ -1,16 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float _speed = 5f;      // Player movement speed
+    [SerializeField]
+    private float _speed = 5f;      // Player movement speed
     private int _credits = 0;
-    private int _energy;
+    private float _startEnergy = 1000;
+    private float _energy;
+
+    [Header("UI Elements")]
+    public Image energyBar;
+    public Text creditText;
 
     public float lookDistance = 10f;
     [HideInInspector]
     public ILookAtHandler lastLookAtObject = null;
+
+    private void Awake()
+    {
+        _energy = _startEnergy;
+        creditText.text = _credits.ToString();
+    }
 
     void Start()
     {
@@ -72,6 +85,14 @@ public class Player : MonoBehaviour
         {
             lastLookAtObject.OnLookatInteraction(rayCastHit.point, rayDirection);
         }
+
+        DecreaseEnergy(0.1f);
+
+        if(_energy <= 0)
+        {
+            Die();
+        }
+
     }
 
     public void ResetLastLookAtObject()
@@ -82,7 +103,25 @@ public class Player : MonoBehaviour
     public void IncreaseCreditCount()
     {
         _credits++;
-        // change UI-counter
+        creditText.text = _credits.ToString();
         Debug.Log("You have " + _credits + " credits, congratulations!");
     }
+
+    public void DecreaseEnergy(float decrease)
+    {        
+        _energy -= decrease;
+        energyBar.fillAmount = _energy / _startEnergy;        
+    }
+
+    public void IncreaseEnergy(float increase)
+    {
+        _energy += increase;
+        energyBar.fillAmount = _energy / _startEnergy;
+    }
+
+    public void Die()
+    {
+        Debug.Log("oh no, you died ...");
+    }
+
 }
