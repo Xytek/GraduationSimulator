@@ -8,12 +8,13 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _speed = 5f;      // Player movement speed
     private int _credits = 0;
-    private float _startEnergy = 1000;
+    private float _startEnergy = 100;
     private float _energy;
 
     [Header("UI Elements")]
     public Image energyBar;
     public Text creditText;
+    public GameObject noEnergyScreen;
 
     public float lookDistance = 10f;
     [HideInInspector]
@@ -86,7 +87,7 @@ public class Player : MonoBehaviour
             lastLookAtObject.OnLookatInteraction(rayCastHit.point, rayDirection);
         }
 
-        DecreaseEnergy(0.1f);
+        DecreaseEnergy(1 * Time.deltaTime);
 
         if(_energy <= 0)
         {
@@ -121,7 +122,7 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("oh no, you died ...");
+        noEnergyScreen.SetActive(true);
     }
 
 }

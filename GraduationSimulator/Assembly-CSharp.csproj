@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\FPSCam.cs" />
     <Compile Include="Assets\Scripts\Patrol.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\SemesterTimer.cs" />
     <Compile Include="Assets\Scripts\Teacher.cs" />
     <Compile Include="Assets\Scripts\UI\CourseMenu.cs" />
     <Compile Include="Assets\Scripts\UI\InfoBox.cs" />
