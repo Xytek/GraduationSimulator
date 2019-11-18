@@ -19,6 +19,8 @@ public class FieldOfView : MonoBehaviour
     private int _edgeResolveIterations = 4;                 // The accuracy when finding edges
     private float _edgeDistTreshold = 0.5f;  // The distance between two points when looking for an edge. Ensures they're both on the same object, as opposed to one in the background
     private Mesh _fowMesh;                                  // The mesh we're creating for the field of view
+    private Patrol _patrol;
+    
 
     private struct EdgeInfo         // Struct used when finding the edge of an obstacle
     {
@@ -50,6 +52,7 @@ public class FieldOfView : MonoBehaviour
     {
         _fowMesh = new Mesh(); // Continuously updated in LateUpdate
         _viewMeshFilter.mesh = _fowMesh;
+        _patrol = GetComponent<Patrol>();
 
         StartCoroutine(FindTargetsWithDelay());
     }
@@ -81,7 +84,11 @@ public class FieldOfView : MonoBehaviour
                 float distToTarget = Vector3.Distance(transform.position, target.position);
 
                 if (!Physics.Raycast(transform.position, dirToTarget, distToTarget, _obstacleMask))
+                {
                     visibleTargets.Add(target);
+                    if(visibleTargets != null)
+                        _patrol.ChaseTarget(visibleTargets);
+                }
             }
         }
     }
