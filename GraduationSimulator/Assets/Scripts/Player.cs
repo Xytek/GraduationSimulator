@@ -10,15 +10,16 @@ public class Player : MonoBehaviour
     private int _credits = 0;
     private float _startEnergy = 100;
     private float _energy;
+    private bool isFrozen;
+    public float lookDistance = 10f;
+    [HideInInspector]
+    public ILookAtHandler lastLookAtObject = null;
 
     [Header("UI Elements")]
     public Image energyBar;
     public Text creditText;
     public GameObject noEnergyScreen;
-
-    public float lookDistance = 10f;
-    [HideInInspector]
-    public ILookAtHandler lastLookAtObject = null;
+    public SemesterTimer timer;    
 
     private void Awake()
     {
@@ -87,8 +88,11 @@ public class Player : MonoBehaviour
             lastLookAtObject.OnLookatInteraction(rayCastHit.point, rayDirection);
         }
 
-        DecreaseEnergy(1 * Time.deltaTime);
-
+        if (!isFrozen)
+        {
+            DecreaseEnergy(1 * Time.deltaTime);
+        }
+        
         if(_energy <= 0)
         {
             Die();
@@ -108,13 +112,27 @@ public class Player : MonoBehaviour
     }
     public void DecreaseCreditCount()
     {
-        _credits--;
-        creditText.text = _credits.ToString();
+        if(_credits > 0)
+        {
+            _credits--;
+            creditText.text = _credits.ToString();
+        } else
+        {
+            Debug.Log("You don't have enough money");
+        }        
+        
     }
     public void DecreaseCreditCount(int amount)
     {
-        _credits-=amount;
-        creditText.text = _credits.ToString();
+        if (_credits-amount > 0)
+        {
+            _credits -= amount;
+            creditText.text = _credits.ToString();
+        }
+        else
+        {
+            Debug.Log("You don't have enough money");
+        }        
     }
 
     public void DecreaseEnergy(float decrease)
@@ -129,6 +147,22 @@ public class Player : MonoBehaviour
         energyBar.fillAmount = _energy / _startEnergy;
     }
 
+    public void Freeze()
+    {
+        timer.Deactivate();
+        isFrozen = true;
+        GetComponentInChildren<FPSCam>().enabled = false;
+        Cursor.lockState = CursorLockMode.None;        
+    }
+
+    public void Unfreeze()
+    {
+        timer.Activate();
+        isFrozen = false;
+        GetComponentInChildren<FPSCam>().enabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     public void Die()
     {
         noEnergyScreen.SetActive(true);
@@ -137,20 +171,19 @@ public class Player : MonoBehaviour
     public void ActivateScienceCourse()
     {
         DecreaseCreditCount(5);
-        CourseFactory.GetCourse(CourseFactory.CourseTypes.science).Activate();
-        //Resume();
+        CourseFactory.GetCourse(CourseFactory.CourseTypes.science).Activate();        
     }
 
     public void ActivatePsychologyCourse()
     {
-        CourseFactory.GetCourse(CourseFactory.CourseTypes.psychology).Activate();
-        //Resume();
+        DecreaseCreditCount(5);
+        CourseFactory.GetCourse(CourseFactory.CourseTypes.psychology).Activate();        
     }
 
     public void ActivateHackingCourse()
     {
-        CourseFactory.GetCourse(CourseFactory.CourseTypes.psychology).Activate();
-        //Resume();
+        DecreaseCreditCount(5);
+        CourseFactory.GetCourse(CourseFactory.CourseTypes.psychology).Activate();        
     }
 
 }

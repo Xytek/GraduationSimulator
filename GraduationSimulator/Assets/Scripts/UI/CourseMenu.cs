@@ -5,7 +5,7 @@ using UnityEngine;
 public class CourseMenu : Menu
 {
     public static bool CourseMenuIsOpen = false;
-    public GameObject CourseMenuUI;
+    public GameObject CourseMenuUI;    
 
     // Update is called once per frame
     void Update()
@@ -24,15 +24,14 @@ public class CourseMenu : Menu
 
     public override void Pause()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        // freeze Szene
+        player.Freeze();
         CourseMenuIsOpen = true;
         CourseMenuUI.SetActive(true);
     }
 
     public override void Resume()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        player.Unfreeze();
         CourseMenuIsOpen = false;
         CourseMenuUI.SetActive(false);
     }    

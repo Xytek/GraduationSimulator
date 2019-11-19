@@ -25,12 +25,14 @@ public class PauseMenu : Menu
 
     public override void Pause()
     {
+        player.Freeze();
         PauseMenuIsActive = true;
         CourseMenuUI.SetActive(true);
     }
 
     public override void Resume()
     {
+        player.Unfreeze();
         PauseMenuIsActive = false;
         CourseMenuUI.SetActive(false);
     }
