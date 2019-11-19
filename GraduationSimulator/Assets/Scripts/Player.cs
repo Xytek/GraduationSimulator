@@ -104,8 +104,17 @@ public class Player : MonoBehaviour
     public void IncreaseCreditCount()
     {
         _credits++;
+        creditText.text = _credits.ToString();        
+    }
+    public void DecreaseCreditCount()
+    {
+        _credits--;
         creditText.text = _credits.ToString();
-        Debug.Log("You have " + _credits + " credits, congratulations!");
+    }
+    public void DecreaseCreditCount(int amount)
+    {
+        _credits-=amount;
+        creditText.text = _credits.ToString();
     }
 
     public void DecreaseEnergy(float decrease)
@@ -123,6 +132,25 @@ public class Player : MonoBehaviour
     public void Die()
     {
         noEnergyScreen.SetActive(true);
+    }
+
+    public void ActivateScienceCourse()
+    {
+        DecreaseCreditCount(5);
+        CourseFactory.GetCourse(CourseFactory.CourseTypes.science).Activate();
+        //Resume();
+    }
+
+    public void ActivatePsychologyCourse()
+    {
+        CourseFactory.GetCourse(CourseFactory.CourseTypes.psychology).Activate();
+        //Resume();
+    }
+
+    public void ActivateHackingCourse()
+    {
+        CourseFactory.GetCourse(CourseFactory.CourseTypes.psychology).Activate();
+        //Resume();
     }
 
 }

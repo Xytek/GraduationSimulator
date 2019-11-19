@@ -35,23 +35,5 @@ public class CourseMenu : Menu
         Cursor.lockState = CursorLockMode.Locked;
         CourseMenuIsOpen = false;
         CourseMenuUI.SetActive(false);
-    }
-
-    public void ActivateScienceCourse()
-    {        
-        CourseFactory.GetCourse(CourseFactory.CourseTypes.science).Activate();
-        Resume();
-    }
-
-    public void ActivatePsychologyCourse()
-    {        
-        CourseFactory.GetCourse(CourseFactory.CourseTypes.psychology).Activate();
-        Resume();
-    }
-
-    public void ActivateHackingCourse()
-    {
-        CourseFactory.GetCourse(CourseFactory.CourseTypes.psychology).Activate();
-        Resume();
-    }
+    }    
 }

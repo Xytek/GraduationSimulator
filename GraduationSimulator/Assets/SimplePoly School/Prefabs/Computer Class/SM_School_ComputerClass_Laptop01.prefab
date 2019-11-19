@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 421528}
   - component: {fileID: 3319020}
   - component: {fileID: 2388202}
+  - component: {fileID: 4014085265803442883}
   m_Layer: 0
   m_Name: SM_School_ComputerClass_Laptop01
   m_TagString: Untagged
@@ -78,3 +79,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4014085265803442883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4c4d24d2cc40945b9daba7a2873041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _locked: 0
+  coin: {fileID: 6905672459627602088, guid: 7e6af60c74153dd44ae1817492d85932, type: 3}
