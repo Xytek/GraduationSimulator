@@ -7,8 +7,7 @@ public class Coffee : Collectable, ILookAtHandler
 
     private int _coffeeStrength = 10;
     public void OnLookatEnter()
-    {
-        Debug.Log("looking at coffi");        
+    {              
     }
 
     public void OnLookatExit()

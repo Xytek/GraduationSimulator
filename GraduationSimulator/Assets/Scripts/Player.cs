@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -10,10 +11,9 @@ public class Player : MonoBehaviour
     private int _credits = 0;
     private float _startEnergy = 100;
     private float _energy;
-    private bool isFrozen;
+    private bool _isFrozen;
+    private ILookAtHandler _lastLookAtObject = null;
     public float lookDistance = 10f;
-    [HideInInspector]
-    public ILookAtHandler lastLookAtObject = null;
 
     [Header("UI Elements")]
     public Image energyBar;
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _energy = _startEnergy;
-        creditText.text = _credits.ToString();
+        creditText.text = _credits.ToString();        
     }
 
     void Start()
@@ -56,44 +56,44 @@ public class Player : MonoBehaviour
             if (currentLookAtObject != null)
             {
                 // if this is the first time the player looks at a valid object
-                if (lastLookAtObject == null)
+                if (_lastLookAtObject == null)
                 {
                     currentLookAtObject.OnLookatEnter();
-                    lastLookAtObject = currentLookAtObject;
+                    _lastLookAtObject = currentLookAtObject;
                 }
                 // if it's not the first time and the player is looking at a different object
-                else if (currentLookAtObject != lastLookAtObject)
+                else if (currentLookAtObject != _lastLookAtObject)
                 {
-                    lastLookAtObject.OnLookatExit();
+                    _lastLookAtObject.OnLookatExit();
                     currentLookAtObject.OnLookatEnter();
-                    lastLookAtObject = currentLookAtObject;
+                    _lastLookAtObject = currentLookAtObject;
                 }
             }
             // if the player doesn't look at a valid object right now but has looked at one before
-            else if (lastLookAtObject != null)
+            else if (_lastLookAtObject != null)
             {
-                lastLookAtObject.OnLookatExit();
-                lastLookAtObject = null;
+                _lastLookAtObject.OnLookatExit();
+                _lastLookAtObject = null;
             }
         }
-        else if (lastLookAtObject != null)
+        else if (_lastLookAtObject != null)
         {
-            lastLookAtObject.OnLookatExit();
-            lastLookAtObject = null;
+            _lastLookAtObject.OnLookatExit();
+            _lastLookAtObject = null;
         }
 
         // call the interaction method if the user presses the left mouse button
-        if (Input.GetMouseButtonDown(0) && lastLookAtObject != null)
+        if (Input.GetMouseButtonDown(0) && _lastLookAtObject != null)
         {
-            lastLookAtObject.OnLookatInteraction(rayCastHit.point, rayDirection);
+            _lastLookAtObject.OnLookatInteraction(rayCastHit.point, rayDirection);
         }
 
-        if (!isFrozen)
+        if (!_isFrozen)
         {
             DecreaseEnergy(1 * Time.deltaTime);
         }
-        
-        if(_energy <= 0)
+
+        if (_energy <= 0)
         {
             Die();
         }
@@ -102,43 +102,40 @@ public class Player : MonoBehaviour
 
     public void ResetLastLookAtObject()
     {
-        lastLookAtObject = null;
+        _lastLookAtObject = null;
+    }
+
+    public int GetCreditCount()
+    {
+        return _credits;
     }
 
     public void IncreaseCreditCount()
     {
         _credits++;
-        creditText.text = _credits.ToString();        
+        creditText.text = _credits.ToString();
     }
     public void DecreaseCreditCount()
     {
-        if(_credits > 0)
+        if (_credits > 0)
         {
             _credits--;
             creditText.text = _credits.ToString();
-        } else
-        {
-            Debug.Log("You don't have enough money");
-        }        
-        
+        }
     }
     public void DecreaseCreditCount(int amount)
     {
-        if (_credits-amount > 0)
+        if (_credits - amount > 0)
         {
             _credits -= amount;
             creditText.text = _credits.ToString();
         }
-        else
-        {
-            Debug.Log("You don't have enough money");
-        }        
     }
 
     public void DecreaseEnergy(float decrease)
-    {        
+    {
         _energy -= decrease;
-        energyBar.fillAmount = _energy / _startEnergy;        
+        energyBar.fillAmount = _energy / _startEnergy;
     }
 
     public void IncreaseEnergy(float increase)
@@ -150,15 +147,15 @@ public class Player : MonoBehaviour
     public void Freeze()
     {
         timer.Deactivate();
-        isFrozen = true;
+        _isFrozen = true;
         GetComponentInChildren<FPSCam>().enabled = false;
-        Cursor.lockState = CursorLockMode.None;        
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void Unfreeze()
     {
         timer.Activate();
-        isFrozen = false;
+        _isFrozen = false;
         GetComponentInChildren<FPSCam>().enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -168,22 +165,9 @@ public class Player : MonoBehaviour
         noEnergyScreen.SetActive(true);
     }
 
-    public void ActivateScienceCourse()
-    {
-        DecreaseCreditCount(5);
-        CourseFactory.GetCourse(CourseFactory.CourseTypes.science).Activate();        
+    public void ActivateCourse(CourseFactory.CourseTypes type, int price)
+    {        
+        CourseFactory.GetCourse(type).Activate();
+        DecreaseCreditCount(price);
     }
-
-    public void ActivatePsychologyCourse()
-    {
-        DecreaseCreditCount(5);
-        CourseFactory.GetCourse(CourseFactory.CourseTypes.psychology).Activate();        
-    }
-
-    public void ActivateHackingCourse()
-    {
-        DecreaseCreditCount(5);
-        CourseFactory.GetCourse(CourseFactory.CourseTypes.psychology).Activate();        
-    }
-
 }

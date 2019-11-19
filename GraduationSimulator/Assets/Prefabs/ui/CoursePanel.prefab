@@ -76,7 +76,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5
+  m_Text: 
 --- !u!1 &2383553599160783901
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 5591975433780594239}
   - component: {fileID: 5591975433780594177}
   - component: {fileID: 5591975433780594176}
+  - component: {fileID: 8911799536628646061}
   m_Layer: 5
   m_Name: CoursePanel
   m_TagString: Untagged
@@ -229,6 +230,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8911799536628646061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5591975433780594238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7301e94478598dc44828ccf750d43f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 0
+  priceText: {fileID: 5030965793746751528}
+  updateButton: {fileID: 772722568918590487}
 --- !u!1 &5591975434102224237
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,3 +607,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5591975435454411261}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &772722568918590487 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5126208063684580842, guid: c2e85614d18055e4f98cd5f6e85f5b3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5591975435454411261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

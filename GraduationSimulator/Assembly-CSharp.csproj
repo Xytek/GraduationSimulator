@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CoursePanel.cs" />
     <Compile Include="Assets\Scripts\Collectables\Book.cs" />
     <Compile Include="Assets\Scripts\Collectables\Coffee.cs" />
     <Compile Include="Assets\Scripts\Collectables\Collectable.cs" />
