@@ -12,4 +12,12 @@ public class HackingCourse : Course
     {
         Debug.Log("Hacking Course activated!");
     }
+    public override void FirstUpgrade()
+    {
+        
+    }
+    public override void SecondUpgrade()
+    {
+
+    }
 }

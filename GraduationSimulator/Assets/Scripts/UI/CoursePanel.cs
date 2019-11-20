@@ -10,7 +10,7 @@ public class CoursePanel : MonoBehaviour
     public int price;
     public Text priceText;
     public Button updateButton;
-    public CourseFactory.CourseTypes type;    
+    public CourseFactory.CourseTypes type;
 
     public void UpdatePriceText()
     {

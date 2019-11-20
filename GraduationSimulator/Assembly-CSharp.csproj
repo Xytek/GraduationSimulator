@@ -62,7 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CoursePanel.cs" />
     <Compile Include="Assets\Scripts\Collectables\Book.cs" />
     <Compile Include="Assets\Scripts\Collectables\Coffee.cs" />
     <Compile Include="Assets\Scripts\Collectables\Collectable.cs" />
@@ -76,7 +75,6 @@
     <Compile Include="Assets\Scripts\Courses\ScienceCourse.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\DoorTrigger.cs" />
-    <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnemySight.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\FieldOfView.cs" />
@@ -86,9 +84,12 @@
     <Compile Include="Assets\Scripts\SemesterTimer.cs" />
     <Compile Include="Assets\Scripts\Teacher.cs" />
     <Compile Include="Assets\Scripts\UI\CourseMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\CoursePanel.cs" />
     <Compile Include="Assets\Scripts\UI\InfoBox.cs" />
     <Compile Include="Assets\Scripts\UI\Menu.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
+    <None Include="Assets\Materials\Shaders\GlowOutline.shader" />
+    <None Include="Assets\Materials\Shaders\Outline.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/marti/Documents/NTNU/3601 - Game Programming/GraduationSimulator/GraduationSimulator/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

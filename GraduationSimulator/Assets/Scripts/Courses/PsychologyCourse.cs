@@ -14,7 +14,10 @@ public class PsychologyCourse : Course
         Debug.Log("Psychology Course activated!");
     }
 
-    public void Use()
+    public override void FirstUpgrade()
+    {        
+    }
+    public override void SecondUpgrade()
     {
 
     }

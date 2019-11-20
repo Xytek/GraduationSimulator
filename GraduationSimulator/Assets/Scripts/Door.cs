@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {    
-    private DoorTrigger _doorCollider;
+    private DoorTrigger _doorTrigger;
     private int _id;
+    private bool _locked;
+
     [SerializeField]
     private Animator _animator;
 
@@ -13,8 +15,8 @@ public class Door : MonoBehaviour
     void Start()
     {
         // find matching DoorTrigger
-        _doorCollider = GetComponentInChildren<DoorTrigger>();
-        _id = _doorCollider.GetId();
+        _doorTrigger = GetComponentInChildren<DoorTrigger>();
+        _id = _doorTrigger.GetId();
 
         // subscribe to DoorTrigger-Events
         EventManager.StartListening("DoorTriggerEnter", OpenDoor);

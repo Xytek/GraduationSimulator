@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DoorTrigger : MonoBehaviour
-{    
+{
     [SerializeField]
     private bool _locked = false;
     private int _id;
@@ -22,39 +22,30 @@ public class DoorTrigger : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {        
+    {
         if (!_locked)
-        {            
+        {
             EventParams eventParams = new EventParams();
             eventParams.id = _id;
             eventParams.color = Color.red;
             EventManager.TriggerEvent("DoorTriggerEnter", eventParams);
         }
         else
-        {            
+        {
             // Fire LockedDoorTriggered
             EventParams eventParams = new EventParams();
             eventParams.text = "You don't have permission to enter this room.";
-            EventManager.TriggerEvent("LockedDoorTriggerEnter", eventParams);
+            EventManager.TriggerEvent("LockedElement", eventParams);
         }
     }
 
     // Triggers Event on collision
     private void OnTriggerExit(Collider other)
-    {        
-        if (!_locked)
-        {
-            EventParams eventParams = new EventParams();
-            eventParams.id = _id;
-            eventParams.color = Color.yellow;
-            EventManager.TriggerEvent("DoorTriggerExit", eventParams);
-        }
-        else
-        {
-            EventParams eventParams = new EventParams();
-            eventParams.text = "";
-            EventManager.TriggerEvent("LockedDoorTriggerExit", eventParams);
-        }
+    {
+        EventParams eventParams = new EventParams();
+        eventParams.id = _id;
+        eventParams.color = Color.yellow;
+        EventManager.TriggerEvent("DoorTriggerExit", eventParams);
     }
 
     public void Unlock(EventParams e)

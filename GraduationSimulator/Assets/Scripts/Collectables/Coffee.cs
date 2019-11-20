@@ -2,20 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coffee : Collectable, ILookAtHandler
+public class Coffee : Collectable
 {
-
     private int _coffeeStrength = 10;
-    public void OnLookatEnter()
-    {              
-    }
-
-    public void OnLookatExit()
-    {        
-    }
-
-    public void OnLookatInteraction(Vector3 lookAtPosition, Vector3 lookAtDirection)
+    public void OnTriggerEnter(Collider other)
     {
+        // delete all parts of the coffee-mug
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);

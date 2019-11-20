@@ -19,12 +19,15 @@ public class Player : MonoBehaviour
     public Image energyBar;
     public Text creditText;
     public GameObject noEnergyScreen;
-    public SemesterTimer timer;    
+    public SemesterTimer timer;
+
+    private List<CourseFactory.CourseTypes> courses;
 
     private void Awake()
     {
         _energy = _startEnergy;
-        creditText.text = _credits.ToString();        
+        creditText.text = _credits.ToString();
+        courses = new List<CourseFactory.CourseTypes>();
     }
 
     void Start()
@@ -167,7 +170,23 @@ public class Player : MonoBehaviour
 
     public void ActivateCourse(CourseFactory.CourseTypes type, int price)
     {        
-        CourseFactory.GetCourse(type).Activate();
-        DecreaseCreditCount(price);
+        bool alreadyExists = false;
+        if (courses != null)
+        {
+            foreach (CourseFactory.CourseTypes course in courses)
+            {
+                if (course == type)
+                {
+                    alreadyExists = true;
+                    return;
+                }                
+            }
+        }
+        if(!alreadyExists)
+        {            
+            courses.Add(type);
+            CourseFactory.GetCourse(type).Activate();
+            DecreaseCreditCount(price);
+        }
     }
 }

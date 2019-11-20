@@ -8,21 +8,25 @@ public class InfoBox : MonoBehaviour
     public Text txt;
     public GameObject blackboard;
     void Start()
-    {
-        EventManager.StartListening("LockedDoorTriggerEnter", LockedDoorEnter);
-        EventManager.StartListening("LockedDoorTriggerExit", LockedDoorExit);
+    {        
+        EventManager.StartListening("LockedElement", ActivateBlackboard);
+    }
+    private void OnDestroy()
+    {           
+        EventManager.StopListening("LockedElement", ActivateBlackboard);
     }
 
-    void LockedDoorEnter(EventParams e)
+    void ActivateBlackboard(EventParams e)
+    {                
+        UpdateInfotext(e.text);
+        StartCoroutine(Wait5Seconds());        
+    }
+
+    IEnumerator Wait5Seconds()
     {
         blackboard.SetActive(true);
-        UpdateInfotext(e.text);
-    }
-
-    void LockedDoorExit(EventParams e)
-    {
+        yield return new WaitForSeconds(5);
         blackboard.SetActive(false);
-        UpdateInfotext(e.text);
     }
 
     private void UpdateInfotext(string text)

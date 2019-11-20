@@ -10,21 +10,38 @@ public class Laptop : Collectable, ILookAtHandler
     private int creditAmount;    
     private float radius;
 
+    Shader standardShader;
+    Shader outlineShader;
+    Renderer renderer;
+
     public Laptop()
     {
         used = false;
         creditAmount = 6;
         radius = 1f;
     }
+    void Awake()
+    {
+        renderer = GetComponent<Renderer>();
+        standardShader = Shader.Find("Standard");
+        outlineShader = Shader.Find("Custom/Outline");
+    }
+
 
     public void OnLookatEnter()
     {
-        
+        if (!used)
+        {
+            renderer.material.shader = outlineShader;
+        }        
     }
 
     public void OnLookatExit()
     {
-
+        if (!used)
+        {
+            renderer.material.shader = standardShader;
+        }
     }
 
     public void OnLookatInteraction(Vector3 lookAtPosition, Vector3 lookAtDirection)
@@ -42,24 +59,23 @@ public class Laptop : Collectable, ILookAtHandler
                 pos.y = center.y;
                 pos.z = center.z + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
 
-                // set the rotation of the credit (facing the laptop)
-                //Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
+                // set the rotation of the credit (facing the laptop)                
                 Quaternion rot = Quaternion.Euler(0, Random.Range(0, 360), 0);
                 // create the credit
                 Instantiate(creditPrefab, pos, rot);
             }
             used = true;
+            renderer.material.shader = standardShader;
         }
         else if (used)
         {
             return;
         }
         else
-        {           
-            // change to more general locked trigger
+        {                       
             EventParams eventParams = new EventParams();
             eventParams.text = "You don't have permission to use this laptop.";
-            EventManager.TriggerEvent("LockedDoorTriggerEnter", eventParams);
+            EventManager.TriggerEvent("LockedElement", eventParams);
         }
     }    
 }
