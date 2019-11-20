@@ -4,24 +4,6 @@ using System.Collections.Generic;
 
 public class FieldOfView : MonoBehaviour
 {
-    // Public because used by editor
-    public float viewRadius;
-    [Range(0, 360)] public float viewAngle;
-    public List<Transform> visibleTargets = new List<Transform>();
-
-    [SerializeField] private float _viewDelay;              // How long the player must be in view to be seen
-
-    [SerializeField] private LayerMask _targetMask;         // A layer of the things the object can react to
-    [SerializeField] private LayerMask _obstacleMask;       // A layer of things blocking the vision
-
-    [SerializeField] private MeshFilter _viewMeshFilter;    // Holds a mesh we'll create later on
-    private float _meshResolution = 1f;                     // Higher = more triangles for the mesh
-    private int _edgeResolveIterations = 4;                 // The accuracy when finding edges
-    private float _edgeDistTreshold = 0.5f;  // The distance between two points when looking for an edge. Ensures they're both on the same object, as opposed to one in the background
-    private Mesh _fowMesh;                                  // The mesh we're creating for the field of view
-    private Patrol _patrol;
-    
-
     private struct EdgeInfo         // Struct used when finding the edge of an obstacle
     {
         public Vector3 pointA;      // Closest point to the edge ON the obstacle
@@ -48,14 +30,34 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
-    private void Start()
+    // Public because used by editor
+    public float viewRadius;
+    [Range(0, 360)] public float viewAngle;
+    public List<Transform> visibleTargets = new List<Transform>();
+
+    [SerializeField] private float _viewDelay;              // How long the player must be in view to be seen
+
+    [SerializeField] private LayerMask _targetMask;         // A layer of the things the object can react to
+    [SerializeField] private LayerMask _obstacleMask;       // A layer of things blocking the vision
+
+    [SerializeField] private MeshFilter _viewMeshFilter;    // Holds a mesh we'll create later on
+    private float _meshResolution = 1f;                     // Higher = more triangles for the mesh
+    private int _edgeResolveIterations = 4;                 // The accuracy when finding edges
+    private float _edgeDistTreshold = 0.5f;  // The distance between two points when looking for an edge. Ensures they're both on the same object, as opposed to one in the background
+    private Mesh _fowMesh;                                  // The mesh we're creating for the field of view
+    private Patrol _patrol;
+    private Rigidbody _r;
+
+    
+   
+    private void Awake()
     {
         _fowMesh = new Mesh(); // Continuously updated in LateUpdate
         _viewMeshFilter.mesh = _fowMesh;
-        _patrol = GetComponent<Patrol>();
-
         StartCoroutine(FindTargetsWithDelay());
     }
+
+
 
     private void LateUpdate()
     {
@@ -86,7 +88,7 @@ public class FieldOfView : MonoBehaviour
                 if (!Physics.Raycast(transform.position, dirToTarget, distToTarget, _obstacleMask))
                 {
                     visibleTargets.Add(target);
-                    if(visibleTargets != null)
+                    if(visibleTargets != null && _patrol)       // Some weird bug was that even when I assigned patrol it wouldn't accept it until it had failed once. And somehow it works even if I never assign it. Some sorcery going on
                         _patrol.ChaseTarget(visibleTargets);
                 }
             }

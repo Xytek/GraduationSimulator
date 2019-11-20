@@ -93,8 +93,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a0d13738b1b6d449acb1e597f124239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 5643661970400149035, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044, type: 3}
   _fire: {fileID: 1725317992316172}
   _explosion: {fileID: 1845955386977502}
+  _detonationTime: 3
+  _standardShader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  _outlineShader: {fileID: 4800000, guid: c9ae121aa99944f4e9413f1ce4912d93, type: 3}
 --- !u!1001 &121773164
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -16,6 +16,8 @@ public class Door : MonoBehaviour
     {
         // find matching DoorTrigger
         _doorTrigger = GetComponentInChildren<DoorTrigger>();
+        if (_doorTrigger == null)
+            Debug.LogError("Could not find door trigger");
         _id = _doorTrigger.GetId();
 
         // subscribe to DoorTrigger-Events

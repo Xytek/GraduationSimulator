@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Course
 {
     protected int _upgradeLevel = 0;   
+    protected int _maxTiers = 2;   
     
     public abstract void Activate();
     public abstract void FirstUpgrade();

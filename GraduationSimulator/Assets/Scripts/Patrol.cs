@@ -10,12 +10,14 @@ public class Patrol : MonoBehaviour
     private NavMeshAgent _agent;                            // Used for AI commands and initiated in Start()
     private bool chasing;                                   // Checks if you're chasing a target
 
-    void Start()
+    private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
+        if (_agent == null)
+            Debug.LogError("Couldn't find agent");
     }
 
-    void Update()
+    private void Update()
     {
         // Ensures you only change destination when you're not already on a path, and you're close to your goal
         if (!_agent.pathPending && _agent.remainingDistance < 0.5f)

@@ -24,6 +24,7 @@ MonoBehaviour:
     m_Bits: 1024
   _viewMeshFilter: {fileID: 2391733048716025585, guid: e7649e8ad883f4146b13e67f22429841,
     type: 3}
+  _patrol: {fileID: 0}
 --- !u!320 &6407436939120334713
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -260,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewRadius: 10
-  viewAngle: 60
+  viewAngle: 180
   visibleTargets: []
   _viewDelay: 0.2
   _targetMask:
@@ -270,6 +271,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   _viewMeshFilter: {fileID: 2391733049186033645}
+  _patrol: {fileID: 0}
 --- !u!1001 &1678524700
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class DoorTrigger : MonoBehaviour
 {
-    [SerializeField]
-    private bool _locked = false;
+    [SerializeField] private bool _locked = false;
     private int _id;
     private static int _doorCounter = 0;
 
@@ -13,7 +12,7 @@ public class DoorTrigger : MonoBehaviour
     {
         _doorCounter++;
         _id = _doorCounter;
-        EventManager.StartListening("ScienceCourseUnlocked", Unlock);
+        EventManager.StartListening("FirstScienceCourseUnlocked", Unlock);
     }
 
     public int GetId()
