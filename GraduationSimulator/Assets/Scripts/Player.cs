@@ -6,9 +6,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    private float _speed = 5f;      // Player movement speed
-    private int _credits = 0;
+    [SerializeField] private float _speed = 5f;      // Player movement speed
+    [SerializeField] private int _credits = 0;
     private float _startEnergy = 100;
     private float _energy;
     private bool _isFrozen;
