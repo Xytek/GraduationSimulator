@@ -90,7 +90,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: SM_School_Cha_Staff_Male01
+    path: Body
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -178,7 +178,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R
+    path: Body/Hip/UpperLeg_R
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -257,7 +257,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -345,7 +345,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L
+    path: Body/Hip/UpperLeg_L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -433,7 +433,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -503,7 +503,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L/Foot_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L/Foot_L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -564,7 +564,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: SM_School_Cha_Staff_Male01/Hip/Spine
+    path: Body/Hip/Spine
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -625,7 +625,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R/Foot_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R/Foot_R
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -757,7 +757,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: SM_School_Cha_Staff_Male01/Hip/Spine
+    path: Body/Hip/Spine
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -791,7 +791,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R/Foot_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R/Foot_R
   m_ScaleCurves:
   - curve:
       serializedVersion: 2
@@ -869,7 +869,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L
+    path: Body/Hip/UpperLeg_L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -903,7 +903,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L
   m_FloatCurves: []
   m_PPtrCurves: []
   m_SampleRate: 60
@@ -1404,7 +1404,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: SM_School_Cha_Staff_Male01/Hip/Spine
+    path: Body/Hip/Spine
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1495,7 +1495,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: SM_School_Cha_Staff_Male01/Hip/Spine
+    path: Body/Hip/Spine
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1586,7 +1586,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: SM_School_Cha_Staff_Male01/Hip/Spine
+    path: Body/Hip/Spine
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1761,7 +1761,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: SM_School_Cha_Staff_Male01
+    path: Body
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1798,7 +1798,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: SM_School_Cha_Staff_Male01
+    path: Body
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1835,7 +1835,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: SM_School_Cha_Staff_Male01
+    path: Body
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1926,7 +1926,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R
+    path: Body/Hip/UpperLeg_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2017,7 +2017,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R
+    path: Body/Hip/UpperLeg_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2108,7 +2108,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R
+    path: Body/Hip/UpperLeg_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2190,7 +2190,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2272,7 +2272,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2354,7 +2354,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2445,7 +2445,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L
+    path: Body/Hip/UpperLeg_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2536,7 +2536,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L
+    path: Body/Hip/UpperLeg_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2627,7 +2627,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L
+    path: Body/Hip/UpperLeg_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2718,7 +2718,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2809,7 +2809,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2900,7 +2900,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2973,7 +2973,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L/Foot_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L/Foot_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3046,7 +3046,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L/Foot_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L/Foot_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3119,7 +3119,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L/Foot_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L/Foot_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3183,7 +3183,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: SM_School_Cha_Staff_Male01/Hip/Spine
+    path: Body/Hip/Spine
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3247,7 +3247,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: SM_School_Cha_Staff_Male01/Hip/Spine
+    path: Body/Hip/Spine
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3311,7 +3311,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: SM_School_Cha_Staff_Male01/Hip/Spine
+    path: Body/Hip/Spine
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3348,7 +3348,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R/Foot_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R/Foot_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3385,7 +3385,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R/Foot_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R/Foot_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3422,7 +3422,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R/Foot_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R/Foot_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3486,7 +3486,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R/Foot_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R/Foot_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3550,7 +3550,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R/Foot_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R/Foot_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3614,7 +3614,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R/Foot_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R/Foot_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3651,7 +3651,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L
+    path: Body/Hip/UpperLeg_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3688,7 +3688,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L
+    path: Body/Hip/UpperLeg_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3725,7 +3725,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L
+    path: Body/Hip/UpperLeg_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3762,7 +3762,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3799,7 +3799,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3836,7 +3836,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -3847,7 +3847,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3857,7 +3857,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3867,7 +3867,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3877,7 +3877,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R
+    path: Body/Hip/UpperLeg_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3887,7 +3887,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R
+    path: Body/Hip/UpperLeg_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3897,7 +3897,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R
+    path: Body/Hip/UpperLeg_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3907,7 +3907,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: SM_School_Cha_Staff_Male01
+    path: Body
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3917,7 +3917,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: SM_School_Cha_Staff_Male01
+    path: Body
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3927,7 +3927,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: SM_School_Cha_Staff_Male01
+    path: Body
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3937,7 +3937,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L
+    path: Body/Hip/UpperLeg_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3947,7 +3947,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L
+    path: Body/Hip/UpperLeg_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3957,7 +3957,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L
+    path: Body/Hip/UpperLeg_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3967,7 +3967,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L/Foot_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L/Foot_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3977,7 +3977,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L/Foot_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L/Foot_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3987,7 +3987,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_L/LowerLeg_L/Foot_L
+    path: Body/Hip/UpperLeg_L/LowerLeg_L/Foot_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3997,7 +3997,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4007,7 +4007,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4017,7 +4017,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4057,7 +4057,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: SM_School_Cha_Staff_Male01/Hip/Spine
+    path: Body/Hip/Spine
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4067,7 +4067,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: SM_School_Cha_Staff_Male01/Hip/Spine
+    path: Body/Hip/Spine
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4077,7 +4077,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: SM_School_Cha_Staff_Male01/Hip/Spine
+    path: Body/Hip/Spine
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4087,7 +4087,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R/Foot_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R/Foot_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4097,7 +4097,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R/Foot_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R/Foot_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4107,7 +4107,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: SM_School_Cha_Staff_Male01/Hip/UpperLeg_R/LowerLeg_R/Foot_R
+    path: Body/Hip/UpperLeg_R/LowerLeg_R/Foot_R
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 1
