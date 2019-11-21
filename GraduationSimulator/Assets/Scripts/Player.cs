@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speed = 5f;     // Player movement speed
     [SerializeField] private int _credits = 0;
     [SerializeField] private GameObject _vial;        // Amount of vials for science explosions you hold 
-    private int _vialCount = 0;        // Amount of vials for science explosions you hold 
+    private int _vialCount = 3;        // Amount of vials for science explosions you hold 
     private float _startEnergy = 100;
     private float _energy;
     private bool _isFrozen;
@@ -54,7 +54,6 @@ public class Player : MonoBehaviour
         Vector3 rayOrigin = transform.position;
         Vector3 rayDirection = transform.forward;
         RaycastHit rayCastHit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         // send raycast
         if (Physics.Raycast(rayOrigin, rayDirection, out rayCastHit, lookDistance))
         {
@@ -86,15 +85,17 @@ public class Player : MonoBehaviour
             }
             
         }
+        // Logic for placing vials
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out rayCastHit, lookDistance))
         {
             if (_unlocked2cc                                   // You have the skill
             && Input.GetKeyDown(KeyCode.Alpha1)                // You press 1
             && _vialCount > 0                                  // You have vials
             && rayCastHit.transform.gameObject.tag == "Floor") // You're looking at the floor
-            {
-                GameObject vial = Instantiate(_vial, rayCastHit.point, Quaternion.identity);
-                vial.GetComponent<Vial>().used = true;
+            { 
+                Instantiate(_vial, rayCastHit.point, Quaternion.identity);
+                _vialCount--;
             }
         }
 

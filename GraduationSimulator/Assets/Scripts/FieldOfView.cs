@@ -52,12 +52,12 @@ public class FieldOfView : MonoBehaviour
    
     private void Awake()
     {
+        _patrol = GetComponent<Patrol>();
+        //if (_patrol == null) Debug.LogError("Couldn't find patrol");
         _fowMesh = new Mesh(); // Continuously updated in LateUpdate
         _viewMeshFilter.mesh = _fowMesh;
         StartCoroutine(FindTargetsWithDelay());
     }
-
-
 
     private void LateUpdate()
     {
@@ -69,29 +69,35 @@ public class FieldOfView : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(_viewDelay);
-            FindVisibleTargets();
+            FindTargets();
         }
     }
 
-    private void FindVisibleTargets() // Will do more with this one later to decide various behaviours
+    private void FindTargets() // Will do more with this one later to decide various behaviours
     {
-        visibleTargets.Clear();
-        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, _targetMask);
-        for (int i = 0; i < targetsInViewRadius.Length; i++)
+        visibleTargets.Clear();       // Reset the list of targets for every check 
+        // All targets within a sphere around the object
+        Collider[] targetsInRadius = Physics.OverlapSphere(transform.position, viewRadius, _targetMask);
+        // For every target in the sphere (used as ears)
+        for (int i = 0; i < targetsInRadius.Length; i++)
         {
-            Transform target = targetsInViewRadius[i].transform;
+            Transform target = targetsInRadius[i].transform;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
-            if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+            // If they can hear a vial (science explosion) then they'll prioritize that and run there
+            if (target.tag == "Vial" && _patrol && target.gameObject.GetComponent<TriggeredVial>().HasDetonated())
             {
-                float distToTarget = Vector3.Distance(transform.position, target.position);
-
-                if (!Physics.Raycast(transform.position, dirToTarget, distToTarget, _obstacleMask))
+                _patrol.ChaseVial(target);
+                return;
+            }
+            // Check if the target is within the field of view
+            if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+                // Check that there are no obstacles between them
+                if (!Physics.Raycast(transform.position, dirToTarget, Vector3.Distance(transform.position, target.position), _obstacleMask))
                 {
                     visibleTargets.Add(target);
                     if(visibleTargets != null && _patrol)       // Some weird bug was that even when I assigned patrol it wouldn't accept it until it had failed once. And somehow it works even if I never assign it. Some sorcery going on
                         _patrol.ChaseTarget(visibleTargets);
                 }
-            }
         }
     }
 

@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class Patrol : MonoBehaviour
 {
     [SerializeField] Transform[] _checkpoints = default;    // An array holding the checkpoints the teacher will go to
-    private int _nextCheckpoint;                            // Holds the next checkpoint the teacher should go to
     private NavMeshAgent _agent;                            // Used for AI commands and initiated in Start()
+    private int _nextCheckpoint;                            // Holds the next checkpoint the teacher should go to
     private bool chasing;                                   // Checks if you're chasing a target
 
     private void Awake()
@@ -48,13 +48,27 @@ public class Patrol : MonoBehaviour
         _nextCheckpoint = (_nextCheckpoint + 1) % _checkpoints.Length;
     }
 
-    public void ChaseTarget(List<Transform> visibleTargets)
+    public void ChaseVial(Transform vial)
     {
         if (!chasing)
         {
             _agent.speed = 5;
             chasing = true;
         }
+        _agent.SetDestination(vial.position);
+
+        if (_agent.remainingDistance < 2f)
+            _agent.isStopped = true;
+    }
+
+
+    public void ChaseTarget(List<Transform> visibleTargets)
+    {
+        //if (!chasing)
+        //{
+        //    _agent.speed = 5;
+        //    chasing = true;
+        //}
 
         Transform target;
         // If there's more than one target, find the highest priority one
@@ -63,7 +77,8 @@ public class Patrol : MonoBehaviour
         else
             target = visibleTargets[0];
 
-        _agent.SetDestination(target.position);
+        if(target.tag != "Vial")
+           _agent.SetDestination(target.position);
 
         if (_agent.remainingDistance < 2f)
         {

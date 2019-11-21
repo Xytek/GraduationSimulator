@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Collectables\Book.cs" />
     <Compile Include="Assets\Scripts\Collectables\Coffee.cs" />
     <Compile Include="Assets\Scripts\Collectables\Collectable.cs" />
+    <Compile Include="Assets\Scripts\Collectables\CollectibleVial.cs" />
     <Compile Include="Assets\Scripts\Collectables\Credit.cs" />
     <Compile Include="Assets\Scripts\Collectables\ILookAtHandler.cs" />
     <Compile Include="Assets\Scripts\Collectables\Laptop.cs" />
@@ -73,7 +74,7 @@
     <Compile Include="Assets\Scripts\Courses\HackingCourse.cs" />
     <Compile Include="Assets\Scripts\Courses\PsychologyCourse.cs" />
     <Compile Include="Assets\Scripts\Courses\ScienceCourse.cs" />
-    <Compile Include="Assets\Scripts\Courses\Skills\Vial.cs" />
+    <Compile Include="Assets\Scripts\Courses\Skills\TriggeredVial.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\DoorTrigger.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />

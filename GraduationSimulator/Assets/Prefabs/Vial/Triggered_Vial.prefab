@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 33838784914370546}
   - component: {fileID: 23520593585583526}
   - component: {fileID: 1400383175}
-  m_Layer: 0
-  m_Name: Vial
-  m_TagString: Untagged
+  - component: {fileID: 132951917310632664}
+  - component: {fileID: 1410631861772366729}
+  m_Layer: 11
+  m_Name: Triggered_Vial
+  m_TagString: Vial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1257193002279952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.3, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 6, z: 2}
+  m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children:
   - {fileID: 4563803038714126}
   - {fileID: 4274653171853056}
@@ -90,15 +92,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 1257193002279952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a0d13738b1b6d449acb1e597f124239, type: 3}
+  m_Script: {fileID: 11500000, guid: d7726ab2120f2de40aeb1115b8c39e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 5643661970400149035, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044, type: 3}
   _fire: {fileID: 1725317992316172}
   _explosion: {fileID: 1845955386977502}
   _detonationTime: 3
-  _standardShader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  _outlineShader: {fileID: 4800000, guid: c9ae121aa99944f4e9413f1ce4912d93, type: 3}
+--- !u!54 &132951917310632664
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257193002279952}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 126
+  m_CollisionDetection: 1
+--- !u!65 &1410631861772366729
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257193002279952}
+  m_Material: {fileID: 13400000, guid: 071ab0c51ede6e643a59793dc5956ba7, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.3, z: 2}
+  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!1001 &121773164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108,11 +136,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1725317912486240, guid: e55149ba6f4d00741984987e258c3378, type: 3}
       propertyPath: m_Name
-      value: Magic fire pro orange
+      value: Fire
       objectReference: {fileID: 0}
     - target: {fileID: 1725317912486240, guid: e55149ba6f4d00741984987e258c3378, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4274653050354540, guid: e55149ba6f4d00741984987e258c3378, type: 3}
       propertyPath: m_LocalPosition.x
@@ -207,7 +235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1845955007268882, guid: 67a684e320da6e7439421a07e3fa265c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4563802948693442, guid: 67a684e320da6e7439421a07e3fa265c, type: 3}
       propertyPath: m_LocalPosition.x
