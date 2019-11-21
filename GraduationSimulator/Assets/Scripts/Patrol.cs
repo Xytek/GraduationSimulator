@@ -37,13 +37,13 @@ public class Patrol : MonoBehaviour
     private void GoToNextCheckpoint()
     {
         // If no checkpoints have been added to the array it will exit the function
-        if (_checkpoints.Length == 0)
+        if (_checkpoints.Length == 0 || isPanicking())
         {
             Debug.LogError("No checkpoints");
             return;
         }
 
-        StartPatrol();
+        StatePatrol();
 
         // Set the agent destination to the next checkpoint in the array
         _agent.destination = _checkpoints[_nextCheckpoint].position;
@@ -54,48 +54,28 @@ public class Patrol : MonoBehaviour
 
     public void ChaseVial(Transform vial)
     {
-        StartChase();
+        if (isPanicking())
+            return;
+
+        StateChase();
         _agent.SetDestination(vial.position);
-
-        if (_agent.remainingDistance < 1f)
-        {
+        float distance = Vector3.Distance(this.gameObject.transform.position, vial.position);
+        if (distance < 1f)
            StartCoroutine(WaitAtVial(vial));
-        }
     }
 
-    #region Animator states
-    private void StartChase()
-    {
-        _anim.SetBool("isPanicking", false);
-        _anim.SetBool("isPatrolling", false);
-        _anim.SetBool("isChasing", true);
-    }
 
-    private void StartPatrol()
-    {
-        _anim.SetBool("isPanicking", false);
-        _anim.SetBool("isPatrolling", true);
-        _anim.SetBool("isChasing", false);
-    }
-
-    private void StartPanick()
-    {
-        _anim.SetBool("isPanicking", true);
-        _anim.SetBool("isPatrolling", false);
-        _anim.SetBool("isChasing", false);
-    }
-    #endregion
 
     private IEnumerator WaitAtVial(Transform vial)
     {
-        StartPanick();
+        StatePanick();
         _agent.isStopped = true;
         FaceTarget(vial.position);
         yield return new WaitForSeconds(5f);
         if (vial != null)
             vial.GetComponent<TriggeredVial>().DestroyVial();
         _agent.isStopped = false;
-        StartPatrol();
+        StatePatrol();
     }
 
     private void FaceTarget(Vector3 destination)
@@ -107,7 +87,10 @@ public class Patrol : MonoBehaviour
 
     public void ChaseTarget(List<Transform> visibleTargets)
     {
-        StartChase();
+        if (isPanicking())
+            return;
+
+        StateChase();
 
         Transform target;
         // If there's more than one target, find the highest priority one
@@ -157,4 +140,70 @@ public class Patrol : MonoBehaviour
         return priorityTarget; 
     }
 
+ 
+
+    #region Animator states
+    private void StateChase()
+    {
+        _anim.SetBool("isChasing", true);
+        _anim.SetBool("isPanicking", false);
+        _anim.SetBool("isPatrolling", false);
+        _anim.SetBool("isIdle", false);
+    }
+
+    private void StatePatrol()
+    {
+        _anim.SetBool("isPatrolling", true);
+        _anim.SetBool("isPanicking", false);
+        _anim.SetBool("isChasing", false);
+        _anim.SetBool("isIdle", false);
+    }
+
+    private void StatePanick()
+    {
+        _anim.SetBool("isPanicking", true);
+        _anim.SetBool("isPatrolling", false);
+        _anim.SetBool("isChasing", false);
+        _anim.SetBool("isIdle", false);
+    }
+    private void StateIdle()
+    {
+        _anim.SetBool("isIdle", true);
+        _anim.SetBool("isPanicking", false);
+        _anim.SetBool("isPatrolling", false);
+        _anim.SetBool("isChasing", false);
+    }
+
+    private void StateDoor()
+    {
+        _anim.SetTrigger("openDoor");
+    }
+
+    private void StateDetention()
+    {
+        _anim.SetTrigger("giveDetention");
+    }
+
+    private bool isPanicking()
+    {
+        return _anim.GetBool("isPanicking");
+    }
+
+    #endregion
+
+    #region Freeze and resume
+    bool wasIdling;
+    public void Freeze()
+    {
+        wasIdling = _anim.GetBool("isIdling");
+        _anim.SetBool("isIdling", true);
+        _agent.isStopped = true;
+    }
+    public void Resume()
+    {
+        if (!wasIdling)
+            _anim.SetBool("isIdling", false);
+        _agent.isStopped = false;
+    }
+    #endregion
 }
