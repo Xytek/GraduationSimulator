@@ -3,51 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CourseMenu : Menu
-{
-    public static bool CourseMenuIsOpen = false;
-    public GameObject CourseMenuUI;
+{    
+    public CoursePanel[] coursePanels;
 
-    private CoursePanel[] coursePanels;
-
-    public void Awake()
+    public new void Activate()
     {
-        // get all the panels for the different courses, also the ones that are currently diabled
-        coursePanels = GetComponentsInChildren<CoursePanel>(true);
+        base.Activate();        
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ActivateAffordableCourses(Player player)
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        foreach(CoursePanel panel in coursePanels)
         {
-            if (CourseMenuIsOpen)
-            {
-                Resume();
-            } else
-            {
-                Pause();
+            if (panel.CheckIfAffordable(player))
+            {                
+                panel.ChangeLvl(1);
             }
-        }       
-    }
-
-    public override void Pause()
-    {
-        player.Freeze();      
-        CourseMenuIsOpen = true;
-        CourseMenuUI.SetActive(true);
-
-        // check if the player can afford a course        
-        foreach (CoursePanel panel in coursePanels)
-        {
-            panel.UpdatePriceText();
-            panel.CheckIfAffordable(player);
+            
         }
     }
-
-    public override void Resume()
-    {
-        player.Unfreeze();
-        CourseMenuIsOpen = false;
-        CourseMenuUI.SetActive(false);
-    }       
 }

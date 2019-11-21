@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Menu: MonoBehaviour
+public class Menu : MonoBehaviour
 {
-    protected Player player;
-
-    public void Start()
+    protected bool IsActive;
+    public void Activate()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        IsActive = true;
+        this.gameObject.SetActive(true);
+    }
+    public void Deactivate()
+    {
+        IsActive = false;
+        this.gameObject.SetActive(false);
     }
 
-    public abstract void Pause();
-    public abstract void Resume();
+    public bool CheckIfActive()
+    {
+        return IsActive;
+    }
 }

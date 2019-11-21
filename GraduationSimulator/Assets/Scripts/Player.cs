@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
                 _lastLookAtObject.OnLookatExit();
                 _lastLookAtObject = null;
             }
-            
+
         }
         // Logic for placing vials
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
             && Input.GetKeyDown(KeyCode.Alpha1)                // You press 1
             && _vialCount > 0                                  // You have vials
             && rayCastHit.transform.gameObject.tag == "Floor") // You're looking at the floor
-            { 
+            {
                 Instantiate(_vial, rayCastHit.point, Quaternion.identity);
                 _vialCount--;
             }
@@ -205,25 +205,31 @@ public class Player : MonoBehaviour
         noEnergyScreen.SetActive(true);
     }
 
-    public void ActivateCourse(CourseFactory.CourseTypes type, int price)
-    {        
-        bool alreadyExists = false;
+    public void ActivateCourse(CourseData courseData)
+    {
+        bool alreadyActive = false;
         if (courses != null)
         {
             foreach (CourseFactory.CourseTypes course in courses)
             {
-                if (course == type)
+                if (course == courseData.type)
                 {
-                    alreadyExists = true;
+                    alreadyActive = true;
                     return;
-                }                
+                }
             }
         }
-        if(!alreadyExists)
-        {            
-            courses.Add(type);
-            CourseFactory.GetCourse(type).Activate();
-            DecreaseCreditCount(price);
+
+        if (alreadyActive)
+        {
+            courseData.UpgradeLevel++;
+            // fire Upgrade-Event
+        }
+        else
+        {
+            courses.Add(courseData.type);
+            CourseFactory.GetCourse(courseData.type).Activate();
+            DecreaseCreditCount(courseData.prices[courseData.UpgradeLevel]);
         }
     }
 }

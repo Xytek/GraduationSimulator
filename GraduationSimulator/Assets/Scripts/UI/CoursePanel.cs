@@ -6,31 +6,50 @@ using UnityEngine.UI;
 
 public class CoursePanel : MonoBehaviour
 {    
-    [SerializeField]
-    public int price;
+    public CourseData courseData;
+
+    [Header("UI Elements")]
+    public Text title;
+    public Button[] upgradeStatusButtons;
+    public Text description;    
     public Text priceText;
-    public Button updateButton;
-    public CourseFactory.CourseTypes type;
+    public Button upgradeButton;
+    public Image lockImage;
 
-    public void UpdatePriceText()
+    public void Start()
     {
-        priceText.text = price.ToString();
+        int uLvl = courseData.UpgradeLevel;
+        priceText.text = courseData.prices[uLvl].ToString();
+        title.text = courseData.type.ToString();
+        description.text = courseData.UpgradeDescriptions[uLvl];
     }
 
-    public void CheckIfAffordable(Player player)
-    {        
-        if (player.GetCreditCount() >= price)
+    public void ChangeLvl(int chosenLvl)
+    {
+        if(chosenLvl != courseData.UpgradeLevel)
         {
-            updateButton.interactable = true;
-            updateButton.onClick.AddListener(() => player.ActivateCourse(type, price));
-        } else
+            DeactivateUpgrade();
+        } else if(!upgradeButton.interactable)
         {
-            updateButton.interactable = false;            
+            ActivateUpgrade();
         }
+        priceText.text = courseData.prices[chosenLvl].ToString();
+        description.text = courseData.UpgradeDescriptions[chosenLvl];
     }
 
-    public int GetPrice()
+    public void ActivateUpgrade()
     {
-        return price;
-    }   
+        lockImage.enabled = false;
+        upgradeButton.interactable = true;
+    }
+    public void DeactivateUpgrade()
+    {
+        lockImage.enabled = true;
+        upgradeButton.interactable = false;
+    }
+
+    public bool CheckIfAffordable(Player player)
+    {
+        return player.GetCreditCount() >= courseData.prices[courseData.UpgradeLevel];        
+    }
 }
