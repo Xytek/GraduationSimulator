@@ -8,6 +8,7 @@ TagManager:
   - Line_Of_Sight
   - Checkpoint
   - Floor
+  - Vial
   layers:
   - Default
   - TransparentFX

@@ -57,10 +57,29 @@ public class Patrol : MonoBehaviour
         }
         _agent.SetDestination(vial.position);
 
-        if (_agent.remainingDistance < 2f)
-            _agent.isStopped = true;
+        if (_agent.remainingDistance < 3f)
+        {
+           StartCoroutine(WaitAtVial(vial));
+        }
     }
 
+    private IEnumerator WaitAtVial(Transform vial)
+    {
+        Debug.Log("WaitAtVial started");
+        _agent.isStopped = true;
+        FaceTarget(vial.position);
+        yield return new WaitForSeconds(5f);
+        if (vial != null)
+            vial.GetComponent<TriggeredVial>().DestroyVial();
+        _agent.isStopped = false;
+    }
+
+    private void FaceTarget(Vector3 destination)
+    {
+        Vector3 lookPos = destination - transform.position;
+        lookPos.y = 0;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookPos), 1f);
+    }
 
     public void ChaseTarget(List<Transform> visibleTargets)
     {

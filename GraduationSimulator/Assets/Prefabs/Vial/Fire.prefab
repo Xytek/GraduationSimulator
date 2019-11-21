@@ -19024,7 +19024,7 @@ GameObject:
   - component: {fileID: 198533276141313876}
   - component: {fileID: 199176809758892682}
   m_Layer: 0
-  m_Name: Magic fire pro orange
+  m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
