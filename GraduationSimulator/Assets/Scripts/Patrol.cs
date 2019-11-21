@@ -8,38 +8,42 @@ public class Patrol : MonoBehaviour
     [SerializeField] Transform[] _checkpoints = default;    // An array holding the checkpoints the teacher will go to
     private NavMeshAgent _agent;                            // Used for AI commands and initiated in Start()
     private int _nextCheckpoint;                            // Holds the next checkpoint the teacher should go to
-    private bool chasing;                                   // Checks if you're chasing a target
-
+    private Animator _anim;
+    private float _chasingSpeed = 5f;
+    private float _baseSpeed = 1f;
     private void Awake()
     {
+        _anim = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
-        if (_agent == null)
-            Debug.LogError("Couldn't find agent");
+
+        // Check that you found all required components
+        if (_anim == null) Debug.LogError("Couldn't find animator");
+        if (_agent == null) Debug.LogError("Couldn't find agent");
     }
 
     private void Update()
     {
         // Ensures you only change destination when you're not already on a path, and you're close to your goal
         if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
-        {
             GoToNextCheckpoint();
-        }
+
+        // Changes the teachers speed based on their state
+        if (_anim.GetBool("isChasing") && _agent.speed != _chasingSpeed)
+            _agent.speed = _chasingSpeed;
+        if (_anim.GetBool("isPatrolling") && _agent.speed != _baseSpeed)
+            _agent.speed = _baseSpeed;
     }
 
     private void GoToNextCheckpoint()
     {
-        if (chasing)
-        {
-            _agent.speed = 1;
-            chasing = false;
-        }
-
         // If no checkpoints have been added to the array it will exit the function
         if (_checkpoints.Length == 0)
         {
-            Debug.Log("No checkpoints");
+            Debug.LogError("No checkpoints");
             return;
         }
+
+        StartPatrol();
 
         // Set the agent destination to the next checkpoint in the array
         _agent.destination = _checkpoints[_nextCheckpoint].position;
@@ -50,28 +54,48 @@ public class Patrol : MonoBehaviour
 
     public void ChaseVial(Transform vial)
     {
-        if (!chasing)
-        {
-            _agent.speed = 5;
-            chasing = true;
-        }
+        StartChase();
         _agent.SetDestination(vial.position);
 
-        if (_agent.remainingDistance < 3f)
+        if (_agent.remainingDistance < 1f)
         {
            StartCoroutine(WaitAtVial(vial));
         }
     }
 
+    #region Animator states
+    private void StartChase()
+    {
+        _anim.SetBool("isPanicking", false);
+        _anim.SetBool("isPatrolling", false);
+        _anim.SetBool("isChasing", true);
+    }
+
+    private void StartPatrol()
+    {
+        _anim.SetBool("isPanicking", false);
+        _anim.SetBool("isPatrolling", true);
+        _anim.SetBool("isChasing", false);
+    }
+
+    private void StartPanick()
+    {
+        _anim.SetBool("isPanicking", true);
+        _anim.SetBool("isPatrolling", false);
+        _anim.SetBool("isChasing", false);
+    }
+    #endregion
+
     private IEnumerator WaitAtVial(Transform vial)
     {
-        Debug.Log("WaitAtVial started");
+        StartPanick();
         _agent.isStopped = true;
         FaceTarget(vial.position);
         yield return new WaitForSeconds(5f);
         if (vial != null)
             vial.GetComponent<TriggeredVial>().DestroyVial();
         _agent.isStopped = false;
+        StartPatrol();
     }
 
     private void FaceTarget(Vector3 destination)
@@ -83,11 +107,7 @@ public class Patrol : MonoBehaviour
 
     public void ChaseTarget(List<Transform> visibleTargets)
     {
-        //if (!chasing)
-        //{
-        //    _agent.speed = 5;
-        //    chasing = true;
-        //}
+        StartChase();
 
         Transform target;
         // If there's more than one target, find the highest priority one
@@ -99,6 +119,7 @@ public class Patrol : MonoBehaviour
         if(target.tag != "Vial")
            _agent.SetDestination(target.position);
 
+        // Game over comes here
         if (_agent.remainingDistance < 2f)
         {
             Debug.Log("You got caught");
