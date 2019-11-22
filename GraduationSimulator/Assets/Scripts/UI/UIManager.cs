@@ -5,13 +5,13 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public Player player;
+    public CourseData[] courseData;
 
     public Menu mainMenu;
     public Menu pauseMenu;
     public Menu courseMenu;
     private Menu activeMenu;
-
-
+    
 
     // function that starts a menu
     public void Update()
@@ -42,6 +42,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void StartGame()
+    {
+
+    }
+
     public void ChangeMenu(Menu newMenu)
     {
         if(activeMenu != null)
@@ -62,6 +67,10 @@ public class UIManager : MonoBehaviour
 
     public void Quit()
     {
+        foreach (CourseData data in courseData)
+        {
+            data.ResetUpgradeLvl();
+        }
         Debug.Log("Quit");
         Application.Quit(0);
     }  

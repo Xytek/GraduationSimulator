@@ -95,7 +95,8 @@ public class EventManager : MonoBehaviour
 
 public struct EventParams
 {
-    public int id;
+    public int number;
+    public CourseFactory.CourseTypes courseType;  
     public Color color;
     public string text;
 }

@@ -18,4 +18,4 @@ MonoBehaviour:
   - Makes you able to hack into computers.
   - Hack computers faster.
   prices: 0a0000000500000019000000
-  UpgradeLevel: 0
+  _upgradeLevel: 1

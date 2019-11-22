@@ -8,16 +8,8 @@ public class HackingCourse : Course
     {
 
     }
-    public override void Activate()
+    public override void Upgrade(CourseData data)
     {
         Debug.Log("Hacking Course activated!");
-    }
-    public override void FirstUpgrade()
-    {
-        
-    }
-    public override void SecondUpgrade()
-    {
-
     }
 }

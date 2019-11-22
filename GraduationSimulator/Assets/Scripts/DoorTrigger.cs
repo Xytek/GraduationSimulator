@@ -25,7 +25,7 @@ public class DoorTrigger : MonoBehaviour
         if (!_locked)
         {
             EventParams eventParams = new EventParams();
-            eventParams.id = _id;
+            eventParams.number = _id;
             eventParams.color = Color.red;
             EventManager.TriggerEvent("DoorTriggerEnter", eventParams);
         }
@@ -42,7 +42,7 @@ public class DoorTrigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         EventParams eventParams = new EventParams();
-        eventParams.id = _id;
+        eventParams.number = _id;
         eventParams.color = Color.yellow;
         EventManager.TriggerEvent("DoorTriggerExit", eventParams);
     }

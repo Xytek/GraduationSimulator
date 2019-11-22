@@ -14,42 +14,70 @@ public class CoursePanel : MonoBehaviour
     public Text description;    
     public Text priceText;
     public Button upgradeButton;
+    public Sprite activeSprite;
     public Image lockImage;
 
-    public void Start()
+    private int _selectedLvl;
+
+    public int GetCurrentUpdateLvl()
     {
-        int uLvl = courseData.UpgradeLevel;
-        priceText.text = courseData.prices[uLvl].ToString();
-        title.text = courseData.type.ToString();
-        description.text = courseData.UpgradeDescriptions[uLvl];
+        return courseData.UpgradeLevel;
     }
 
-    public void ChangeLvl(int chosenLvl)
+    public int GetSelectedLvl()
     {
-        if(chosenLvl != courseData.UpgradeLevel)
-        {
-            DeactivateUpgrade();
-        } else if(!upgradeButton.interactable)
-        {
-            ActivateUpgrade();
-        }
-        priceText.text = courseData.prices[chosenLvl].ToString();
-        description.text = courseData.UpgradeDescriptions[chosenLvl];
+        return _selectedLvl;
     }
+
+    public void Awake()
+    {
+        EventManager.StartListening("Upgrade", SetUpgradeLvlEvent);
+        _selectedLvl = courseData.UpgradeLevel;
+        priceText.text = courseData.prices[_selectedLvl].ToString();
+        title.text = courseData.type.ToString();
+        description.text = courseData.UpgradeDescriptions[_selectedLvl];        
+    }  
 
     public void ActivateUpgrade()
     {
         lockImage.enabled = false;
         upgradeButton.interactable = true;
     }
+
     public void DeactivateUpgrade()
     {
         lockImage.enabled = true;
         upgradeButton.interactable = false;
-    }
+    }    
 
     public bool CheckIfAffordable(Player player)
     {
         return player.GetCreditCount() >= courseData.prices[courseData.UpgradeLevel];        
+    }
+
+    public void SetUpgradeLvl()
+    {
+        for (int i = 0; i < courseData.UpgradeLevel; i++)
+        {
+            upgradeStatusButtons[i].GetComponent<Image>().sprite = activeSprite;
+        }
+    }
+    public void SetUpgradeLvlEvent(EventParams param)
+    {
+        SetUpgradeLvl();
+    }
+
+    public void ChangeLvl(int chosenLvl)
+    {
+        if (chosenLvl != courseData.UpgradeLevel)
+        {
+            DeactivateUpgrade();
+        }
+        else if (!upgradeButton.interactable)
+        {
+            ActivateUpgrade();
+        }
+        priceText.text = courseData.prices[chosenLvl].ToString();
+        description.text = courseData.UpgradeDescriptions[chosenLvl];
     }
 }

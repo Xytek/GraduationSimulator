@@ -18,4 +18,4 @@ MonoBehaviour:
   - Immunity to getting caught once
   - 
   prices: e8030000050000000a000000
-  UpgradeLevel: 0
+  _upgradeLevel: 1

@@ -207,29 +207,8 @@ public class Player : MonoBehaviour
 
     public void ActivateCourse(CourseData courseData)
     {
-        bool alreadyActive = false;
-        if (courses != null)
-        {
-            foreach (CourseFactory.CourseTypes course in courses)
-            {
-                if (course == courseData.type)
-                {
-                    alreadyActive = true;
-                    return;
-                }
-            }
-        }
-
-        if (alreadyActive)
-        {
-            courseData.UpgradeLevel++;
-            // fire Upgrade-Event
-        }
-        else
-        {
-            courses.Add(courseData.type);
-            CourseFactory.GetCourse(courseData.type).Activate();
-            DecreaseCreditCount(courseData.prices[courseData.UpgradeLevel]);
-        }
+        //courses.Add(courseData.type);
+        CourseFactory.GetCourse(courseData.type).Upgrade(courseData);
+        DecreaseCreditCount(courseData.prices[courseData.UpgradeLevel]);       
     }
 }

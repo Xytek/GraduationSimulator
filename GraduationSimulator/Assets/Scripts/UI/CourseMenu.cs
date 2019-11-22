@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class CourseMenu : Menu
 {    
-    public CoursePanel[] coursePanels;
-
-    public new void Activate()
-    {
-        base.Activate();        
-    }
+    public CoursePanel[] coursePanels;   
 
     public void ActivateAffordableCourses(Player player)
     {
@@ -17,9 +12,9 @@ public class CourseMenu : Menu
         {
             if (panel.CheckIfAffordable(player))
             {                
-                panel.ChangeLvl(1);
-            }
-            
+                panel.ChangeLvl(panel.GetCurrentUpdateLvl());
+                panel.SetUpgradeLvl();                
+            }            
         }
     }
 }

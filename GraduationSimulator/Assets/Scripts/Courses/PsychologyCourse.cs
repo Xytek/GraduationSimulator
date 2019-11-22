@@ -4,21 +4,9 @@ using UnityEngine;
 
 public class PsychologyCourse : Course
 {    
-    public PsychologyCourse()
-    {
 
-    }
-
-    public override void Activate()
+    public override void Upgrade(CourseData data)
     {         
         Debug.Log("Psychology Course activated!");
-    }
-
-    public override void FirstUpgrade()
-    {        
-    }
-    public override void SecondUpgrade()
-    {
-
     }
 }

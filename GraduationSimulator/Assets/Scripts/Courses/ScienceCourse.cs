@@ -4,32 +4,30 @@ using UnityEngine;
 
 public class ScienceCourse : Course
 {
-    public override void Activate()
+    private CourseData _courseData;
+    public override void Upgrade(CourseData data)
     {
-        if(_upgradeLevel < _maxTiers)
-            _upgradeLevel++;
-        switch (_upgradeLevel)
+        _courseData = data;
+        if (_courseData.UpgradeLevel <= _maxTiers)
         {
-            case 1:
-                EventManager.TriggerEvent("FirstScienceCourseUnlocked", new EventParams());
-                Debug.Log("level 1 in science achieved");
-                break;
-            case 2:
-                EventManager.TriggerEvent("SecondScienceCourseUnlocked", new EventParams());
-                Debug.Log("level 2 in science achieved");
-                break;
-            default:
-                Debug.LogError("There is no setting for upgrade level " + _upgradeLevel);
-                break;
-        }
-    }   
-    
-    public override void FirstUpgrade()
-    {
-        //ScienceDoor.Unlock();
-    }
-    public override void SecondUpgrade()
-    {
+            _courseData.UpgradeLevel++;
 
+            EventParams param = new EventParams();
+            param.courseType = _courseData.type;
+            param.number = _courseData.UpgradeLevel;
+            EventManager.TriggerEvent("CourseUpgrade", new EventParams());
+
+            switch (_courseData.UpgradeLevel)
+            {
+                case 1:                    
+                    EventManager.TriggerEvent("CourseUpgrade", new EventParams());
+                    Debug.Log("level 1 in science achieved");
+                    break;
+                case 2:                    
+                    EventManager.TriggerEvent("Upgrade", new EventParams());
+                    Debug.Log("level 2 in science achieved");
+                    break;                
+            }
+        }            
     }
 }

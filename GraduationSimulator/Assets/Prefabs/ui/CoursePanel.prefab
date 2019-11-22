@@ -419,6 +419,7 @@ MonoBehaviour:
   description: {fileID: 5591975435489974645}
   priceText: {fileID: 5030965793746751528}
   upgradeButton: {fileID: 772722568918590487}
+  activeSprite: {fileID: 21300000, guid: 188648386be76ac4da680542b6a21267, type: 3}
   lockImage: {fileID: 7137447155452121591}
 --- !u!1 &5591975434102224237
 GameObject:

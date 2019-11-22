@@ -27,7 +27,7 @@ public class Door : MonoBehaviour
 
     private void OpenDoor(EventParams e)
     {        
-        if (e.id == _id)
+        if (e.number == _id)
         {
             _animator.SetBool("IsOpen", true);
         }
@@ -35,7 +35,7 @@ public class Door : MonoBehaviour
 
     private void CloseDoor(EventParams e)
     {
-        if (e.id == _id)
+        if (e.number == _id)
         {            
             _animator.SetBool("IsOpen", false);
         }
