@@ -83,7 +83,7 @@ public class FieldOfView : MonoBehaviour
         {
             Transform target = targetsInRadius[i].transform;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
-            // If they can hear a vial (science explosion) then they'll prioritize that and run there
+            // If it's anywhere within the radius, rather than just the field of view, then this is run
             if (target.tag == "Vial" && _patrol && target.gameObject.GetComponent<TriggeredVial>().HasDetonated())
             {
                 _patrol.ChaseVial(target);

@@ -11,6 +11,7 @@ public class Patrol : MonoBehaviour
     private Animator _anim;
     private float _chasingSpeed = 5f;
     private float _baseSpeed = 1f;
+
     private void Awake()
     {
         _anim = GetComponent<Animator>();
@@ -52,32 +53,49 @@ public class Patrol : MonoBehaviour
         _nextCheckpoint = (_nextCheckpoint + 1) % _checkpoints.Length;
     }
 
-    public void ChaseVial(Transform vial)
+    public void ChaseTarget(List<Transform> visibleTargets)
     {
         if (isPanicking())
             return;
 
-        StateChase();
-        _agent.SetDestination(vial.position);
-        float distance = Vector3.Distance(this.gameObject.transform.position, vial.position);
-        if (distance < 1f)
-           StartCoroutine(WaitAtVial(vial));
+        Transform target = visibleTargets[0];
+        // If there's more than one target, find the highest priority one
+        if (visibleTargets.Count > 1)
+            target = PrioritizeTarget(visibleTargets);
+
+        //_agent.SetDestination(target.position);
+
+        switch (target.tag)
+        {
+            case "Vial":
+                ChaseVial(target);
+                break;
+            case "Player":
+                ChasePlayer(target);
+                break;
+            case "Apple":
+                ChaseApple(target);
+                break;
+            default:
+                Debug.LogError("Unknown target");
+                break;
+        }
+
+        
     }
 
-
-
-    private IEnumerator WaitAtVial(Transform vial)
+    private void ChasePlayer(Transform target)
     {
-        StatePanick();
-        _agent.isStopped = true;
-        FaceTarget(vial.position);
-        yield return new WaitForSeconds(5f);
-        if (vial != null)
-            vial.GetComponent<TriggeredVial>().DestroyVial();
-        _agent.isStopped = false;
-        StatePatrol();
+        StateChase();
+        _agent.SetDestination(target.position);
+        float distance = Vector3.Distance(transform.position, target.position);
+        if (distance < 2f)
+            Debug.Log("You got caught");
     }
 
+
+  
+    #region Help functions
     private void FaceTarget(Vector3 destination)
     {
         Vector3 lookPos = destination - transform.position;
@@ -85,28 +103,10 @@ public class Patrol : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookPos), 1f);
     }
 
-    public void ChaseTarget(List<Transform> visibleTargets)
+    private void StopAndLook(Transform t)
     {
-        if (isPanicking())
-            return;
-
-        StateChase();
-
-        Transform target;
-        // If there's more than one target, find the highest priority one
-        if (visibleTargets.Count > 1)
-            target = PrioritizeTarget(visibleTargets);
-        else
-            target = visibleTargets[0];
-
-        if(target.tag != "Vial")
-           _agent.SetDestination(target.position);
-
-        // Game over comes here
-        if (_agent.remainingDistance < 2f)
-        {
-            Debug.Log("You got caught");
-        }
+        _agent.isStopped = true;
+        FaceTarget(t.position);
     }
 
     private Transform PrioritizeTarget(List<Transform> visibleTargets)
@@ -115,7 +115,7 @@ public class Patrol : MonoBehaviour
         int priorityValue = 10;
 
         // This code goes through each target by tag and checks whether a higher priority target is already selected, and if not sets the current one
-        for (int i = 0; i<visibleTargets.Count; i++)
+        for (int i = 0; i < visibleTargets.Count; i++)
         {
             switch (visibleTargets[i].tag)
             {
@@ -137,41 +137,90 @@ public class Patrol : MonoBehaviour
             }
         }
 
-        return priorityTarget; 
+        return priorityTarget;
+    }
+    #endregion
+
+    #region Apple Skill
+    private void ChaseApple(Transform apple)
+    {
+        StatePatrol();
+        _agent.SetDestination(apple.position);
+        float distance = Vector3.Distance(transform.position, apple.position);
+        if (distance < 1f)
+            StartCoroutine(WaitAtApple(apple));
     }
 
- 
+    private IEnumerator WaitAtApple(Transform apple)
+    {
+        StateIdle();
+        StopAndLook(apple);
+        yield return new WaitForSeconds(5f);
+        StatePickUp();
+        yield return new WaitForSeconds(0.5f);
+        if (apple != null)
+            Destroy(apple.gameObject);//.GetComponent<Apple>().DestroyApple();
+        _agent.isStopped = false;
+    }
+    #endregion
+
+    #region Science skill vial with explosion
+    public void ChaseVial(Transform vial)
+    {
+        if (isPanicking())
+            return;
+
+        StateChase();
+        _agent.SetDestination(vial.position);
+        float distance = Vector3.Distance(this.gameObject.transform.position, vial.position);
+        if (distance < 1f)
+            StartCoroutine(WaitAtVial(vial));
+    }
+
+    private IEnumerator WaitAtVial(Transform vial)
+    {
+        TriggeredVial vialScript = vial.GetComponent<TriggeredVial>();
+        // Have the agent stop and look at the fire while panicking for 4 seconds
+        StatePanick();
+        StopAndLook(vial);
+        yield return new WaitForSeconds(4f);
+        // Turn off the fire and have the agent pick it up
+        vialScript.TurnOffFire();
+        StatePickUp();
+        yield return new WaitForSeconds(0.5f); // Time this one with the pick up animation so the vial goes away when he bends down to it
+        if (vial != null)
+            vialScript.DestroyVial();
+        _agent.isStopped = false;              // Let the agent move again and start patrolling
+        StatePatrol();
+    }
+    #endregion
 
     #region Animator states
     private void StateChase()
     {
+        foreach (AnimatorControllerParameter p in _anim.parameters)
+            _anim.SetBool(p.name, false);
         _anim.SetBool("isChasing", true);
-        _anim.SetBool("isPanicking", false);
-        _anim.SetBool("isPatrolling", false);
-        _anim.SetBool("isIdle", false);
     }
 
     private void StatePatrol()
     {
+        foreach (AnimatorControllerParameter p in _anim.parameters)
+            _anim.SetBool(p.name, false);
         _anim.SetBool("isPatrolling", true);
-        _anim.SetBool("isPanicking", false);
-        _anim.SetBool("isChasing", false);
-        _anim.SetBool("isIdle", false);
     }
 
     private void StatePanick()
     {
+        foreach (AnimatorControllerParameter p in _anim.parameters)
+            _anim.SetBool(p.name, false);
         _anim.SetBool("isPanicking", true);
-        _anim.SetBool("isPatrolling", false);
-        _anim.SetBool("isChasing", false);
-        _anim.SetBool("isIdle", false);
     }
     private void StateIdle()
     {
+        foreach (AnimatorControllerParameter p in _anim.parameters)
+            _anim.SetBool(p.name, false);
         _anim.SetBool("isIdle", true);
-        _anim.SetBool("isPanicking", false);
-        _anim.SetBool("isPatrolling", false);
-        _anim.SetBool("isChasing", false);
     }
 
     private void StateDoor()
@@ -182,6 +231,11 @@ public class Patrol : MonoBehaviour
     private void StateDetention()
     {
         _anim.SetTrigger("giveDetention");
+    }
+
+    private void StatePickUp()
+    {
+        _anim.SetTrigger("pickUp");
     }
 
     private bool isPanicking()

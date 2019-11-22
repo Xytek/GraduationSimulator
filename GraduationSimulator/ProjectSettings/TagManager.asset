@@ -9,6 +9,7 @@ TagManager:
   - Checkpoint
   - Floor
   - Vial
+  - Apple
   layers:
   - Default
   - TransparentFX

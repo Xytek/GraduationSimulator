@@ -24,6 +24,12 @@ public class TriggeredVial : MonoBehaviour
         Destroy(this.gameObject);           // Ensures the object doesn't stay forever
     }
 
+    public void TurnOffFire()
+    {
+        _fire.SetActive(false);
+        _explosion.SetActive(false);      
+    }
+
     public void DestroyVial()
     {
         Destroy(this.gameObject);          // So the teachers have a way to put it out
