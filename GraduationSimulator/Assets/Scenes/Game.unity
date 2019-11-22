@@ -1523,7 +1523,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &254606232
 GameObject:
@@ -8762,16 +8762,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patrol2
       objectReference: {fileID: 0}
-    - target: {fileID: 6104859543049832774, guid: 921ed8235032fb14abc5feafe0deaf78,
-        type: 3}
-      propertyPath: _checkpoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 1593671923}
-    - target: {fileID: 6104859543049832774, guid: 921ed8235032fb14abc5feafe0deaf78,
-        type: 3}
-      propertyPath: _checkpoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 546572776}
     - target: {fileID: 882193111081076077, guid: 921ed8235032fb14abc5feafe0deaf78,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8837,6 +8827,16 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6104859543049832774, guid: 921ed8235032fb14abc5feafe0deaf78,
+        type: 3}
+      propertyPath: _checkpoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1593671923}
+    - target: {fileID: 6104859543049832774, guid: 921ed8235032fb14abc5feafe0deaf78,
+        type: 3}
+      propertyPath: _checkpoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 546572776}
     - target: {fileID: 1373043201, guid: 921ed8235032fb14abc5feafe0deaf78, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -9040,16 +9040,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patrol1
       objectReference: {fileID: 0}
-    - target: {fileID: 6104859543049832774, guid: 921ed8235032fb14abc5feafe0deaf78,
-        type: 3}
-      propertyPath: _checkpoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 1267204227}
-    - target: {fileID: 6104859543049832774, guid: 921ed8235032fb14abc5feafe0deaf78,
-        type: 3}
-      propertyPath: _checkpoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 1373043201}
     - target: {fileID: 882193111081076077, guid: 921ed8235032fb14abc5feafe0deaf78,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9115,6 +9105,16 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6104859543049832774, guid: 921ed8235032fb14abc5feafe0deaf78,
+        type: 3}
+      propertyPath: _checkpoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1267204227}
+    - target: {fileID: 6104859543049832774, guid: 921ed8235032fb14abc5feafe0deaf78,
+        type: 3}
+      propertyPath: _checkpoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1373043201}
     - target: {fileID: 1373043201, guid: 921ed8235032fb14abc5feafe0deaf78, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -9272,31 +9272,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5643661970400149035, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
-        type: 3}
-      propertyPath: energyBar
-      value: 
-      objectReference: {fileID: 719200852}
-    - target: {fileID: 5643661970400149035, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
-        type: 3}
-      propertyPath: creditText
-      value: 
-      objectReference: {fileID: 1604268635}
-    - target: {fileID: 5643661970400149035, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
-        type: 3}
-      propertyPath: noEnergyScreen
-      value: 
-      objectReference: {fileID: 497688938}
-    - target: {fileID: 5643661970400149035, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
-        type: 3}
-      propertyPath: timer
-      value: 
-      objectReference: {fileID: 916027031}
-    - target: {fileID: 5643661970400149035, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
-        type: 3}
-      propertyPath: _credits
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 5643661970400149034, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9335,7 +9310,7 @@ PrefabInstance:
     - target: {fileID: 5643661970400149034, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5643661970400149034, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
         type: 3}
@@ -9351,6 +9326,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643661970400149035, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
+        type: 3}
+      propertyPath: energyBar
+      value: 
+      objectReference: {fileID: 719200852}
+    - target: {fileID: 5643661970400149035, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
+        type: 3}
+      propertyPath: creditText
+      value: 
+      objectReference: {fileID: 1604268635}
+    - target: {fileID: 5643661970400149035, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
+        type: 3}
+      propertyPath: noEnergyScreen
+      value: 
+      objectReference: {fileID: 497688938}
+    - target: {fileID: 5643661970400149035, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
+        type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 916027031}
+    - target: {fileID: 5643661970400149035, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
+        type: 3}
+      propertyPath: _credits
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5643661970400149033, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
         type: 3}
