@@ -128,7 +128,7 @@ public class Player : MonoBehaviour
     public void ResetLastLookAtObject()
     {
         _lastLookAtObject = null;
-    }
+    }    
 
     public int GetCreditCount()
     {
@@ -149,6 +149,7 @@ public class Player : MonoBehaviour
             creditText.text = _credits.ToString();
         }
     }
+
     public void DecreaseCreditCount(int amount)
     {
         if (_credits - amount > 0)
@@ -208,7 +209,7 @@ public class Player : MonoBehaviour
     public void ActivateCourse(CourseData courseData)
     {
         //courses.Add(courseData.type);
-        CourseFactory.GetCourse(courseData.type).Upgrade(courseData);
-        DecreaseCreditCount(courseData.prices[courseData.UpgradeLevel]);       
+        DecreaseCreditCount(courseData.prices[courseData.UpgradeLevel]);
+        CourseFactory.GetCourse(courseData.type).Upgrade(courseData);        
     }
 }

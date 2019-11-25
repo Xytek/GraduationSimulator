@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CourseMenu : Menu
-{    
-    public CoursePanel[] coursePanels;   
+{
+    public CoursePanel[] coursePanels;
 
-    public void ActivateAffordableCourses(Player player)
+    // updates affordability and level-selection of all courses
+    public void UpdateCoursePanels()
     {
-        foreach(CoursePanel panel in coursePanels)
+        foreach (CoursePanel panel in coursePanels)
         {
-            if (panel.CheckIfAffordable(player))
-            {                
-                panel.ChangeLvl(panel.GetCurrentUpdateLvl());
-                panel.SetUpgradeLvl();                
-            }            
+            panel.UpdatePanel();
         }
     }
 }

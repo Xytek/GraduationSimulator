@@ -5,19 +5,18 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CoursePanel : MonoBehaviour
-{    
+{
     public CourseData courseData;
+    public Player _player;
 
     [Header("UI Elements")]
-    public Text title;
-    public Button[] upgradeStatusButtons;
-    public Text description;    
+    public Text title;    
+    public Text description;
     public Text priceText;
-    public Button upgradeButton;
-    public Sprite activeSprite;
-    public Image lockImage;
-
+    public UpgradeButton upgradeButton;
+    
     private int _selectedLvl;
+    public UpgradeSelectButton[] upgradeSelectButtons;
 
     public int GetCurrentUpdateLvl()
     {
@@ -28,56 +27,65 @@ public class CoursePanel : MonoBehaviour
     {
         return _selectedLvl;
     }
-
+   
     public void Awake()
-    {
-        EventManager.StartListening("Upgrade", SetUpgradeLvlEvent);
+    {       
         _selectedLvl = courseData.UpgradeLevel;
         priceText.text = courseData.prices[_selectedLvl].ToString();
         title.text = courseData.type.ToString();
-        description.text = courseData.UpgradeDescriptions[_selectedLvl];        
-    }  
-
-    public void ActivateUpgrade()
-    {
-        lockImage.enabled = false;
-        upgradeButton.interactable = true;
+        description.text = courseData.UpgradeDescriptions[_selectedLvl];
     }
 
-    public void DeactivateUpgrade()
-    {
-        lockImage.enabled = true;
-        upgradeButton.interactable = false;
-    }    
+    
 
-    public bool CheckIfAffordable(Player player)
+    public bool CheckIfLvlIsAffordable(int level, int creditCount)
     {
-        return player.GetCreditCount() >= courseData.prices[courseData.UpgradeLevel];        
+        Debug.Log(level + "length: " + courseData.prices.Length);        
+        return creditCount >= courseData.prices[level];
     }
-
-    public void SetUpgradeLvl()
+    
+    // sets upgradeLvl for all upgrades
+    public void SetUpgradeLvls()
     {
         for (int i = 0; i < courseData.UpgradeLevel; i++)
         {
-            upgradeStatusButtons[i].GetComponent<Image>().sprite = activeSprite;
+            upgradeSelectButtons[i].LvlAchieved();
         }
-    }
-    public void SetUpgradeLvlEvent(EventParams param)
+    }    
+
+    private void SetSelected()
     {
-        SetUpgradeLvl();
+        for(int i=0; i<upgradeSelectButtons.Length; i++)
+        {
+            if (i == _selectedLvl)
+            {
+                upgradeSelectButtons[i].LvlSelected();
+            } else
+            {
+                upgradeSelectButtons[i].LvlUnselected();
+            }
+        }        
     }
 
-    public void ChangeLvl(int chosenLvl)
+    public void ChangeSelectedLvl(int chosenLvl)
     {
-        if (chosenLvl != courseData.UpgradeLevel)
+        if (chosenLvl == courseData.UpgradeLevel && CheckIfLvlIsAffordable(chosenLvl, _player.GetCreditCount()))
         {
-            DeactivateUpgrade();
+            upgradeButton.Activate();
         }
-        else if (!upgradeButton.interactable)
+        else
         {
-            ActivateUpgrade();
+            upgradeButton.Deactivate();
         }
+        _selectedLvl = chosenLvl;
         priceText.text = courseData.prices[chosenLvl].ToString();
         description.text = courseData.UpgradeDescriptions[chosenLvl];
+        SetSelected();
+    }
+
+    public void UpdatePanel()
+    {
+        ChangeSelectedLvl(courseData.UpgradeLevel);
+        SetUpgradeLvls();
     }
 }

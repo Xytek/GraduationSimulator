@@ -5,12 +5,12 @@ using UnityEngine;
 public class ScienceCourse : Course
 {
     private CourseData _courseData;
-    public override void Upgrade(CourseData data)
+    public new void Upgrade(CourseData data)
     {
         _courseData = data;
         if (_courseData.UpgradeLevel <= _maxTiers)
         {
-            _courseData.UpgradeLevel++;
+            base.Upgrade(data);
 
             EventParams param = new EventParams();
             param.courseType = _courseData.type;
@@ -19,14 +19,18 @@ public class ScienceCourse : Course
 
             switch (_courseData.UpgradeLevel)
             {
-                case 1:                    
-                    EventManager.TriggerEvent("CourseUpgrade", new EventParams());
+                case 1:                                    
+                    // open science door
                     Debug.Log("level 1 in science achieved");
                     break;
-                case 2:                    
-                    EventManager.TriggerEvent("Upgrade", new EventParams());
+                case 2:                 
+                    // enable vial
                     Debug.Log("level 2 in science achieved");
-                    break;                
+                    break;
+                case 3:
+                    // shorten vial coolDownTime
+                    Debug.Log("level 3 in science achieved");
+                    break;
             }
         }            
     }

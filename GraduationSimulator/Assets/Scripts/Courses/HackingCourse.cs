@@ -8,8 +8,4 @@ public class HackingCourse : Course
     {
 
     }
-    public override void Upgrade(CourseData data)
-    {
-        Debug.Log("Hacking Course activated!");
-    }
 }

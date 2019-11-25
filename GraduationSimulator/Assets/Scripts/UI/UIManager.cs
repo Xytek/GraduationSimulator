@@ -5,15 +5,20 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public Player player;
+
+    // just for the reset at quit()
     public CourseData[] courseData;
 
     public Menu mainMenu;
     public Menu pauseMenu;
     public Menu courseMenu;
     private Menu activeMenu;
-    
 
-    // function that starts a menu
+    public void Awake()
+    {
+        StartGame();
+    }
+    
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
@@ -25,7 +30,7 @@ public class UIManager : MonoBehaviour
             }
             else
             {
-                ((CourseMenu)courseMenu).ActivateAffordableCourses(player);
+                ((CourseMenu)courseMenu).UpdateCoursePanels();
                 ChangeMenu(courseMenu);                
             }
         } else if (Input.GetKeyDown(KeyCode.Escape))
@@ -39,12 +44,15 @@ public class UIManager : MonoBehaviour
             {
                 ChangeMenu(pauseMenu);
             }
-        }
+        }        
     }
 
     public void StartGame()
     {
-
+        //mainMenu.Activate();
+        // _player.Freeze();
+        courseMenu.Deactivate();
+        pauseMenu.Deactivate();
     }
 
     public void ChangeMenu(Menu newMenu)
