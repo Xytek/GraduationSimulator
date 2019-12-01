@@ -23,14 +23,10 @@ public class Player : MonoBehaviour
     public GameObject noEnergyScreen;
     public SemesterTimer timer;
 
-    private List<CourseFactory.CourseTypes> courses;
-
     private void Awake()
     {
         _energy = _startEnergy;
-        creditText.text = _credits.ToString();
-        courses = new List<CourseFactory.CourseTypes>();
-        EventManager.StartListening("FirstScienceCourseUnlocked", Unlock);
+        creditText.text = _credits.ToString();                
     }
 
     private void Unlock(EventParams e)
@@ -206,10 +202,8 @@ public class Player : MonoBehaviour
         noEnergyScreen.SetActive(true);
     }
 
-    public void ActivateCourse(CourseData courseData)
+    public void Pay(int amount)
     {
-        //courses.Add(courseData.type);
-        DecreaseCreditCount(courseData.prices[courseData.UpgradeLevel]);
-        CourseFactory.GetCourse(courseData.type).Upgrade(courseData);        
+        DecreaseCreditCount(amount);
     }
 }

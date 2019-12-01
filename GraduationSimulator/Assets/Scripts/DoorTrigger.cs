@@ -52,4 +52,9 @@ public class DoorTrigger : MonoBehaviour
         _locked = false;
     }
 
+    public void Unlock()
+    {
+        _locked = false;
+    }
+
 }

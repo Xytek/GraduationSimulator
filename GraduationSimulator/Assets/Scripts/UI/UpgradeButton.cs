@@ -6,12 +6,9 @@ using UnityEngine.UI;
 public class UpgradeButton : MonoBehaviour
 {
     public Image lockImage;
-    private Button upgradeButton;
+    public Button upgradeButton;
+    public Image checkImage;
 
-    public void Awake()
-    {
-        upgradeButton = GetComponent<Button>();
-    }
     public void Activate()
     {
         lockImage.enabled = false;
@@ -22,5 +19,12 @@ public class UpgradeButton : MonoBehaviour
     {
         lockImage.enabled = true;
         upgradeButton.interactable = false;
+    }
+
+    public void Used()
+    {
+        Debug.Log("used");
+        checkImage.enabled = true;
+        upgradeButton.enabled = false;
     }
 }
