@@ -4,32 +4,23 @@ using UnityEngine;
 
 public class ScienceCourse : Course
 {
-    public override void Activate()
+    public override void Upgrade()
     {
-        if(_upgradeLevel < _maxTiers)
-            _upgradeLevel++;
+        base.SendUpgrade();
         switch (_upgradeLevel)
         {
             case 1:
-                EventManager.TriggerEvent("FirstScienceCourseUnlocked", new EventParams());
                 Debug.Log("level 1 in science achieved");
+                EventManager.TriggerEvent("FirstScienceCourseUnlocked", new EventParams());
                 break;
             case 2:
-                EventManager.TriggerEvent("SecondScienceCourseUnlocked", new EventParams());
+                // activate ThrowVialAbility
                 Debug.Log("level 2 in science achieved");
                 break;
-            default:
-                Debug.LogError("There is no setting for upgrade level " + _upgradeLevel);
+            case 3:
+                // shorten vial coolDownTime
+                Debug.Log("level 3 in science achieved");
                 break;
         }
-    }   
-    
-    public override void FirstUpgrade()
-    {
-        //ScienceDoor.Unlock();
-    }
-    public override void SecondUpgrade()
-    {
-
     }
 }

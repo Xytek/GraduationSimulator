@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3765d7b264afcfa4eaaba08eb48fd00b, type: 3}
   m_Name: PsychologyCourseData
   m_EditorClassIdentifier: 
-  type: 1
+  type: 2
   UpgradeDescriptions:
   - Reduce the energy you lose when getting caught to half.
   - Immunity to getting caught once
   - 
-  prices: e8030000050000000a000000
-  UpgradeLevel: 0
+  prices: 0a000000050000000a000000
+  UpgradeLevel: 9

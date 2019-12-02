@@ -5,51 +5,116 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CoursePanel : MonoBehaviour
-{    
+{
     public CourseData courseData;
+    public Player _player;
 
     [Header("UI Elements")]
     public Text title;
-    public Button[] upgradeStatusButtons;
-    public Text description;    
+    public Text description;
     public Text priceText;
-    public Button upgradeButton;
-    public Image lockImage;
+    public UpgradeButton upgradeButton;
 
-    public void Start()
+    private int _selectedLvl;
+    public UpgradeSelectButton[] upgradeSelectButtons;
+
+    private int _upgradeLvl;    
+
+    public void Awake()
     {
-        int uLvl = courseData.UpgradeLevel;
-        priceText.text = courseData.prices[uLvl].ToString();
+        _upgradeLvl = 0;
+        _selectedLvl = _upgradeLvl;
+        UpdateUI(_selectedLvl);
+        EventManager.StartListening("CourseUpgrade", UpgradePanel);
+    }
+
+    public void UpdateUI(int lvl)
+    {
+        priceText.text = courseData.prices[lvl].ToString();
         title.text = courseData.type.ToString();
-        description.text = courseData.UpgradeDescriptions[uLvl];
+        description.text = courseData.UpgradeDescriptions[lvl];
     }
-
-    public void ChangeLvl(int chosenLvl)
+    public int GetUpgradeLevelArray()
     {
-        if(chosenLvl != courseData.UpgradeLevel)
+        int lvl = _upgradeLvl - 1;
+        if (lvl < 0)
         {
-            DeactivateUpgrade();
-        } else if(!upgradeButton.interactable)
-        {
-            ActivateUpgrade();
+            lvl = 0;
         }
-        priceText.text = courseData.prices[chosenLvl].ToString();
-        description.text = courseData.UpgradeDescriptions[chosenLvl];
+        return lvl;
     }
 
-    public void ActivateUpgrade()
+    public bool CheckIfLvlIsAffordable(int level, int creditCount)
     {
-        lockImage.enabled = false;
-        upgradeButton.interactable = true;
-    }
-    public void DeactivateUpgrade()
-    {
-        lockImage.enabled = true;
-        upgradeButton.interactable = false;
+        return creditCount >= courseData.prices[level];
     }
 
-    public bool CheckIfAffordable(Player player)
+    // sets upgradeLvl for all upgradedLvls
+    public void SetAllUpgradeLvls()
     {
-        return player.GetCreditCount() >= courseData.prices[courseData.UpgradeLevel];        
+        for (int i = 0; i < _upgradeLvl; i++)
+        {
+            upgradeSelectButtons[i].LvlAchieved();
+        }
+    }
+
+    private void SetLvlSelection()
+    {
+        for (int i = 0; i < upgradeSelectButtons.Length; i++)
+        {
+            if (i == _selectedLvl)
+            {
+                upgradeSelectButtons[i].LvlSelected();
+            }
+            else
+            {
+                upgradeSelectButtons[i].LvlUnselected();
+            }
+        }
+    }
+
+    public void ChangeSelectedLvl(int chosenLvl)
+    {
+        if(chosenLvl == 0 && CheckIfLvlIsAffordable(chosenLvl, _player.GetCreditCount()) && GetUpgradeLevelArray() < 1)
+        {
+            upgradeButton.Activate();
+        }
+        else if (chosenLvl == GetUpgradeLevelArray()+1 && CheckIfLvlIsAffordable(chosenLvl, _player.GetCreditCount()))
+        {
+            upgradeButton.Activate();
+        }
+        //else if (chosenLvl < GetArrayLvl())
+        //{
+        //    upgradeButton.Used();
+        //}
+        else
+        {
+            upgradeButton.Deactivate();
+        }
+        _selectedLvl = chosenLvl;
+        UpdateUI(chosenLvl);
+        SetLvlSelection();
+    }
+
+    public void UpdatePanel()
+    {        
+        ChangeSelectedLvl(_selectedLvl);
+        SetAllUpgradeLvls();
+    }
+
+    public void UpgradePanel(EventParams param)
+    {        
+        if (param.courseType == courseData.type)
+        {
+            _upgradeLvl = param.number;
+            if (_upgradeLvl < 3)
+            {
+                ChangeSelectedLvl(GetUpgradeLevelArray() + 1);
+            } else
+            {
+                ChangeSelectedLvl(GetUpgradeLevelArray());
+            }                        
+        }
+        SetAllUpgradeLvls();
     }
 }

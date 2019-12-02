@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class CourseFactory
-{    
-    public enum CourseTypes {science, psychology, hacking};
+{        
     public static Course GetCourse(CourseTypes courseName)
     {
         switch (courseName)
         {
-            case CourseTypes.science:
+            case CourseTypes.Science:
                 return new ScienceCourse();
-            case CourseTypes.psychology:
+            case CourseTypes.Psychology:
                 return new PsychologyCourse();
-            case CourseTypes.hacking:
+            case CourseTypes.Hacking:
                 return new HackingCourse();
+            case CourseTypes.Research:
+                return new ResearchCourse();
+            case CourseTypes.Sports:
+                return new SportCourse();
             default:
                 return null;
         }

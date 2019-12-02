@@ -23,14 +23,10 @@ public class Player : MonoBehaviour
     public GameObject noEnergyScreen;
     public SemesterTimer timer;
 
-    private List<CourseFactory.CourseTypes> courses;
-
     private void Awake()
     {
         _energy = _startEnergy;
-        creditText.text = _credits.ToString();
-        courses = new List<CourseFactory.CourseTypes>();
-        EventManager.StartListening("FirstScienceCourseUnlocked", Unlock);
+        creditText.text = _credits.ToString();                
     }
 
     private void Unlock(EventParams e)
@@ -128,7 +124,7 @@ public class Player : MonoBehaviour
     public void ResetLastLookAtObject()
     {
         _lastLookAtObject = null;
-    }
+    }    
 
     public int GetCreditCount()
     {
@@ -149,6 +145,7 @@ public class Player : MonoBehaviour
             creditText.text = _credits.ToString();
         }
     }
+
     public void DecreaseCreditCount(int amount)
     {
         if (_credits - amount > 0)
@@ -205,31 +202,8 @@ public class Player : MonoBehaviour
         noEnergyScreen.SetActive(true);
     }
 
-    public void ActivateCourse(CourseData courseData)
+    public void Pay(int amount)
     {
-        bool alreadyActive = false;
-        if (courses != null)
-        {
-            foreach (CourseFactory.CourseTypes course in courses)
-            {
-                if (course == courseData.type)
-                {
-                    alreadyActive = true;
-                    return;
-                }
-            }
-        }
-
-        if (alreadyActive)
-        {
-            courseData.UpgradeLevel++;
-            // fire Upgrade-Event
-        }
-        else
-        {
-            courses.Add(courseData.type);
-            CourseFactory.GetCourse(courseData.type).Activate();
-            DecreaseCreditCount(courseData.prices[courseData.UpgradeLevel]);
-        }
+        DecreaseCreditCount(amount);
     }
 }

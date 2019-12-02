@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3765d7b264afcfa4eaaba08eb48fd00b, type: 3}
   m_Name: ScienceCourseData
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   UpgradeDescriptions:
   - This upgrade gives you permission to enter the science lab.
   - This upgrade gives you the ability to make an explosion
   - Make an even faster explosion
   prices: 0a0000000500000002000000
-  UpgradeLevel: 0
+  UpgradeLevel: 3

@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4c4d24d2cc40945b9daba7a2873041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _locked: 0
+  locked: 1
   creditPrefab: {fileID: 0}
 --- !u!65 &150251908866009209
 BoxCollider:

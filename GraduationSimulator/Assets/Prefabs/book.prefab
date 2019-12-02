@@ -92,8 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0c01f8e0c574f4c884c24f32b642dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _locked: 0
-  _creditPrefab: {fileID: 4247729158750636677, guid: e34ba3ccf4e216547943eb447ac5f623,
+  locked: 1
+  creditPrefab: {fileID: 4247729158750636677, guid: e34ba3ccf4e216547943eb447ac5f623,
     type: 3}
 --- !u!65 &8923356891570960132
 BoxCollider:
