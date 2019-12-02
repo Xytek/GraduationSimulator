@@ -8,20 +8,21 @@ public class HackingCourse : Course
 {
     public override void Upgrade()
     {
-        base.SendUpgrade();
+        base.SendUpgrade();       
         switch (_upgradeLevel)
         {
-            case 1:
-                Debug.Log("level 1 in hacking achieved");
+            case 1:                
+                EventManager.TriggerEvent("Hacking1Unlocked", new EventParams());
                 break;
-            case 2:
-                // activate ThrowVialAbility
-                Debug.Log("level 2 in hacking achieved");
+            case 2:                
+                EventManager.TriggerEvent("Hacking2Unlocked", new EventParams());                
                 break;
             case 3:
-                // shorten vial coolDownTime
-                Debug.Log("level 3 in hacking achieved");
-                break;
+                // decrease usage-time of laptops
+                EventParams param = new EventParams();
+                param.number = 2;
+                EventManager.TriggerEvent("Hacking3Unlocked", param);
+                break;           
         }
     }
 }

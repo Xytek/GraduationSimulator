@@ -33,6 +33,5 @@ public abstract class Course
             EventManager.TriggerEvent("CourseUpgrade", param);
         }
     }
-
-    public abstract void Upgrade();    
+    public abstract void Upgrade();
 }

@@ -74,11 +74,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void Quit()
-    {
-        foreach (CourseData data in courseData)
-        {
-            data.ResetUpgradeLvl();
-        }
+    {     
         Debug.Log("Quit");
         Application.Quit(0);
     }  

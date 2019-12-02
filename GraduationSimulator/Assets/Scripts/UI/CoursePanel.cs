@@ -18,17 +18,7 @@ public class CoursePanel : MonoBehaviour
     private int _selectedLvl;
     public UpgradeSelectButton[] upgradeSelectButtons;
 
-    private int _upgradeLvl;
-
-    //public int GetCurrentUpdateLvl()
-    //{
-    //    return courseData.UpgradeLevel;
-    //}
-
-    //public int GetSelectedLvl()
-    //{
-    //    return _selectedLvl;
-    //}
+    private int _upgradeLvl;    
 
     public void Awake()
     {
@@ -44,7 +34,6 @@ public class CoursePanel : MonoBehaviour
         title.text = courseData.type.ToString();
         description.text = courseData.UpgradeDescriptions[lvl];
     }
-
     public int GetUpgradeLevelArray()
     {
         int lvl = _upgradeLvl - 1;
@@ -108,8 +97,8 @@ public class CoursePanel : MonoBehaviour
     }
 
     public void UpdatePanel()
-    {
-        ChangeSelectedLvl(GetUpgradeLevelArray());
+    {        
+        ChangeSelectedLvl(_selectedLvl);
         SetAllUpgradeLvls();
     }
 

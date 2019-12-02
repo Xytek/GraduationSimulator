@@ -15,9 +15,9 @@ public static class CourseFactory
             case CourseTypes.Hacking:
                 return new HackingCourse();
             case CourseTypes.Research:
-                return new HackingCourse();
+                return new ResearchCourse();
             case CourseTypes.Sports:
-                return new HackingCourse();
+                return new SportCourse();
             default:
                 return null;
         }

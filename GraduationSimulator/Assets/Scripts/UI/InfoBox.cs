@@ -19,13 +19,13 @@ public class InfoBox : MonoBehaviour
     void ActivateBlackboard(EventParams e)
     {                
         UpdateInfotext(e.text);
-        StartCoroutine(Wait5Seconds());        
+        StartCoroutine(ActivateAfterTime());        
     }
 
-    IEnumerator Wait5Seconds()
+    IEnumerator ActivateAfterTime()
     {
         blackboard.SetActive(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         blackboard.SetActive(false);
     }
 

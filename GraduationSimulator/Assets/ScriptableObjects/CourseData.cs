@@ -8,11 +8,5 @@ public class CourseData : ScriptableObject
 {
     public CourseTypes type;
     public string[] UpgradeDescriptions;
-    public int[] prices;
-    public int UpgradeLevel;
-    
-    public void ResetUpgradeLvl()
-    {
-        UpgradeLevel = 0;
-    }    
+    public int[] prices;    
 }
