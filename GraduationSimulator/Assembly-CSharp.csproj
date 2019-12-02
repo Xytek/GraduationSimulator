@@ -81,7 +81,9 @@
     <Compile Include="Assets\Scripts\Courses\Skills\TriggeredVial.cs" />
     <Compile Include="Assets\Scripts\Courses\SportCourse.cs" />
     <Compile Include="Assets\Scripts\Environment\Door.cs" />
-    <Compile Include="Assets\Scripts\Environment\DoorTrigger.cs" />
+    <Compile Include="Assets\Scripts\Environment\DoorTriggerInside.cs" />
+    <Compile Include="Assets\Scripts\Environment\DoorTriggerOutside.cs" />
+    <Compile Include="Assets\Scripts\Environment\ScienceDoor.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\Player\FPSCam.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />

@@ -1,49 +1,54 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Door : MonoBehaviour
 {    
-    private DoorTrigger _doorTrigger;
-    private int _id;
-    private bool _locked;
+    private bool _fromOutside;
+    private bool _fromInside;
 
-    [SerializeField]
-    private Animator _animator;
+    [SerializeField] protected bool _locked;
+    [SerializeField] protected Animator _animator;
 
-    // Start is called before the first frame update
-    void Start()
+    public Door()
     {
-        // find matching DoorTrigger
-        _doorTrigger = GetComponentInChildren<DoorTrigger>();
-        if (_doorTrigger == null)
-            Debug.LogError("Could not find door trigger");
-        _id = _doorTrigger.GetId();
-
-        // subscribe to DoorTrigger-Events
-        EventManager.StartListening("DoorTriggerEnter", OpenDoor);
-        EventManager.StartListening("DoorTriggerExit", CloseDoor);
+        _fromOutside = false;
+        _fromInside = false;
     }
 
-    private void OpenDoor(EventParams e)
-    {        
-        if (e.number == _id)
+    public bool FromOutside
+    {   
+        get { return _fromOutside; }
+        set { _fromOutside = value; }
+    }
+
+    public bool FromInside
+    {
+        get { return _fromInside; }
+        set { _fromInside = value; }
+    }
+
+    public void OpenDoor(string animatorBool)
+    {
+        if (!_locked)
         {
-            _animator.SetBool("IsOpen", true);
+            _animator.SetBool(animatorBool, true);
+        }
+        else
+        {
+            // Fire LockedDoorTriggered
+            EventParams eventParams = new EventParams();
+            eventParams.text = "You don't have permission to enter this room.";
+            EventManager.TriggerEvent("LockedElement", eventParams);
         }
     }
 
-    private void CloseDoor(EventParams e)
+    public void CloseDoor(string animatorBool)
     {
-        if (e.number == _id)
-        {            
-            _animator.SetBool("IsOpen", false);
+        if (!_locked)
+        {
+            _animator.SetBool(animatorBool, false);
         }
-    }
-
-    private void OnDestroy()
-    {
-        EventManager.StopListening("DoorTriggerEnter", OpenDoor);
-        EventManager.StopListening("DoorTriggerExit", CloseDoor);
     }
 }
