@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
 
     private bool _throwVialAvailable = false;
     private bool _throwAppleAvailable = false;
+    private bool _knockoutAvailable = false;
 
     [Header("UI Elements")]
     public Image energyBar;
@@ -121,6 +122,8 @@ public class Player : MonoBehaviour
         {
             _lastLookAtObject.OnLookatInteraction(rayCastHit.point, rayDirection);
         }
+
+        
 
         // drain energy if the user is not frozen
         if (!_isFrozen)

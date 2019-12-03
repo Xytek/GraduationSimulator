@@ -21,7 +21,7 @@ public class SportCourse : Course
                 EventManager.TriggerEvent("Sport2Unlocked", param);
                 break;
             case 3:
-                Debug.Log("thrd sport");
+                // stealth knock-out
                 EventManager.TriggerEvent("Sport3Unlocked", new EventParams());
                 break;
         }
