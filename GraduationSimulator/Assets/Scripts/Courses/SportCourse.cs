@@ -7,15 +7,18 @@ public class SportCourse : Course
     public override void Upgrade()
     {
         base.SendUpgrade();
+        EventParams param = new EventParams();
         switch (_upgradeLevel)
         {
             case 1:
-                Debug.Log("first sport");
-                EventManager.TriggerEvent("Sport1Unlocked", new EventParams());
+                // energy-Factor
+                param.floatNr = 0.5f;
+                EventManager.TriggerEvent("Sport1Unlocked", param);
                 break;
-            case 2:
-                Debug.Log("scnd sport");
-                EventManager.TriggerEvent("Sport2Unlocked", new EventParams());
+            case 2:             
+                // speed
+                param.floatNr = 10f;
+                EventManager.TriggerEvent("Sport2Unlocked", param);
                 break;
             case 3:
                 Debug.Log("thrd sport");

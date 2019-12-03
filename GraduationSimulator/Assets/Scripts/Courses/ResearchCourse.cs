@@ -18,7 +18,7 @@ public class ResearchCourse : Course
             case 3:
                 // decrease usage-time of laptops
                 EventParams param = new EventParams();
-                param.number = 2;
+                param.intNr = 2;
                 EventManager.TriggerEvent("Research3Unlocked", param);
                 break;
         }

@@ -62,15 +62,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ScriptableObjects\CourseData.cs" />
+    <Compile Include="Assets\ScriptableObjects\CourseData\CourseData.cs" />
     <Compile Include="Assets\Scripts\Collectables\Book.cs" />
     <Compile Include="Assets\Scripts\Collectables\Coffee.cs" />
     <Compile Include="Assets\Scripts\Collectables\Collectable.cs" />
-    <Compile Include="Assets\Scripts\Collectables\CollectibleVial.cs" />
     <Compile Include="Assets\Scripts\Collectables\Credit.cs" />
     <Compile Include="Assets\Scripts\Collectables\ILookAtHandler.cs" />
     <Compile Include="Assets\Scripts\Collectables\Interactable.cs" />
     <Compile Include="Assets\Scripts\Collectables\Laptop.cs" />
+    <Compile Include="Assets\Scripts\Courses\Abilities\IAbility.cs" />
+    <Compile Include="Assets\Scripts\Courses\Abilities\ThrowAbility.cs" />
+    <Compile Include="Assets\Scripts\Courses\Abilities\TriggeredApple.cs" />
+    <Compile Include="Assets\Scripts\Courses\Abilities\TriggeredVial.cs" />
     <Compile Include="Assets\Scripts\Courses\Course.cs" />
     <Compile Include="Assets\Scripts\Courses\CourseFactory.cs" />
     <Compile Include="Assets\Scripts\Courses\CourseTypes.cs" />
@@ -78,7 +81,6 @@
     <Compile Include="Assets\Scripts\Courses\PsychologyCourse.cs" />
     <Compile Include="Assets\Scripts\Courses\ResearchCourse.cs" />
     <Compile Include="Assets\Scripts\Courses\ScienceCourse.cs" />
-    <Compile Include="Assets\Scripts\Courses\Skills\TriggeredVial.cs" />
     <Compile Include="Assets\Scripts\Courses\SportCourse.cs" />
     <Compile Include="Assets\Scripts\Environment\Door.cs" />
     <Compile Include="Assets\Scripts\Environment\DoorTriggerInside.cs" />
@@ -88,15 +90,16 @@
     <Compile Include="Assets\Scripts\Player\FPSCam.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\UpgradePlayer.cs" />
-    <Compile Include="Assets\Scripts\SemesterTimer.cs" />
     <Compile Include="Assets\Scripts\Teachers\FieldOfView.cs" />
     <Compile Include="Assets\Scripts\Teachers\NPCList.cs" />
     <Compile Include="Assets\Scripts\Teachers\Patrol.cs" />
+    <Compile Include="Assets\Scripts\UI\CoolDownScript.cs" />
     <Compile Include="Assets\Scripts\UI\CourseMenu.cs" />
     <Compile Include="Assets\Scripts\UI\CoursePanel.cs" />
     <Compile Include="Assets\Scripts\UI\InfoBox.cs" />
     <Compile Include="Assets\Scripts\UI\Menu.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\SemesterTimer.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\UI\UpgradeButton.cs" />
     <Compile Include="Assets\Scripts\UI\UpgradeSelectButton.cs" />

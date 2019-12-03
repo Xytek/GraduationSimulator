@@ -9,17 +9,14 @@ public class ScienceCourse : Course
         base.SendUpgrade();
         switch (_upgradeLevel)
         {
-            case 1:
-                Debug.Log("level 1 in science achieved");
-                EventManager.TriggerEvent("FirstScienceCourseUnlocked", new EventParams());
+            case 1:                
+                EventManager.TriggerEvent("Science1Unlocked", new EventParams());
                 break;
-            case 2:
-                // activate ThrowVialAbility
-                Debug.Log("level 2 in science achieved");
+            case 2:                
+                EventManager.TriggerEvent("Science2Unlocked", new EventParams());
                 break;
             case 3:
-                // shorten vial coolDownTime
-                Debug.Log("level 3 in science achieved");
+                EventManager.TriggerEvent("Science3Unlocked", new EventParams());
                 break;
         }
     }

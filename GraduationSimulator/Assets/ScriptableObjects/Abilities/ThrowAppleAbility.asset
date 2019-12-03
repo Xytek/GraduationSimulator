@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3765d7b264afcfa4eaaba08eb48fd00b, type: 3}
-  m_Name: PsychologyCourseData
+  m_Script: {fileID: 11500000, guid: 9e82d0d17bd5d6943bb2daa5bf9013eb, type: 3}
+  m_Name: ThrowAppleAbility
   m_EditorClassIdentifier: 
+  coolDownTime: 5
+  throwObject: {fileID: 8096669265161026986, guid: 41b4d160526271540be6c7106ac2cba3,
+    type: 3}
   type: 2
-  UpgradeDescriptions:
-  - Reduce the energy you lose when getting caught to half.
-  - Immunity to getting caught once
-  - 
-  prices: 0a000000050000000a000000
-  UpgradeLevel: 9
