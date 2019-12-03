@@ -14,6 +14,7 @@ public class CoursePanel : MonoBehaviour
     public Text description;
     public Text priceText;
     public UpgradeButton upgradeButton;
+    public Image icon;
 
     private int _selectedLvl;
     public UpgradeSelectButton[] upgradeSelectButtons;
@@ -22,6 +23,7 @@ public class CoursePanel : MonoBehaviour
 
     public void Awake()
     {
+        icon.sprite = courseData.icon;
         _upgradeLvl = 0;
         _selectedLvl = _upgradeLvl;
         UpdateUI(_selectedLvl);

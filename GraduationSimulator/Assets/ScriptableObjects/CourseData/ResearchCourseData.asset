@@ -18,3 +18,4 @@ MonoBehaviour:
   - This upgrade enables you to get credits from books
   - Use books even faster.
   prices: 0a000000190000001e000000
+  icon: {fileID: 21300000, guid: 4b6665b99a19595479500dfad0cac910, type: 3}

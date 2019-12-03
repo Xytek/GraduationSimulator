@@ -10,11 +10,14 @@ public class PsychologyCourse : Course
         switch (_upgradeLevel)
         {
             case 1:
+                // unlock apples
                 EventManager.TriggerEvent("Psychology1Unlocked", new EventParams());
                 break;
             case 2:
-                // activate ThrowVialAbility         
-                EventManager.TriggerEvent("Psychology2Unlocked", new EventParams());
+                // decrease cooldown-times of apples
+                EventParams param = new EventParams();
+                param.intNr = 2;
+                EventManager.TriggerEvent("Psychology2Unlocked", param);
                 break;
             case 3:
                 // shorten vial coolDownTime                
