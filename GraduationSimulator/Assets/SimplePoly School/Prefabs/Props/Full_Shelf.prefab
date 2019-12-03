@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 2258493061591818131}
   - component: {fileID: 2258493061591818141}
   - component: {fileID: 2258493061591818140}
+  - component: {fileID: 6491482506797164357}
   m_Layer: 0
-  m_Name: SM_School_Library_Rack06
+  m_Name: Full_Shelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6491482506797164357
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2258493061591818130}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4400005, y: 2.1975002, z: 0.3000004}
+  m_Center: {x: 0.00000005960464, y: 1.0987499, z: -0.000000074505806}
