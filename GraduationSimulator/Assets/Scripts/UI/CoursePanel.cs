@@ -81,7 +81,7 @@ public class CoursePanel : MonoBehaviour
         {
             upgradeButton.Activate();
         }
-        else if (chosenLvl == GetUpgradeLevelArray()+1 && CheckIfLvlIsAffordable(chosenLvl, _player.GetCreditCount()))
+        else if (chosenLvl == _upgradeLvl && CheckIfLvlIsAffordable(chosenLvl, _player.GetCreditCount()))
         {
             upgradeButton.Activate();
         }
