@@ -236,11 +236,16 @@ public class Player : MonoBehaviour
     }
 
     public void Detention()
-    {
+    {        
         this.gameObject.transform.position = new Vector3(-6.5f, 1f, 4f);
         this.gameObject.transform.rotation = new Quaternion(0f,0f,0f,0f);
         _fpsCam.enabled = true;
         _isFrozen = false;
+
+        // trigger detention event for UI
+        EventParams param = new EventParams();
+        param.text = "You have been caught by your teacher, stay in detention for a while.";
+        EventManager.TriggerEvent("ShowInstructions", param);
     }
     #endregion
 }
