@@ -48,7 +48,6 @@ public class Player : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;   // Locks the cursor inside the game
     }
-
     private void Update()
     {
         // first person movement
@@ -70,6 +69,7 @@ public class Player : MonoBehaviour
             // if the player starts looking at a valid object, call its "start" mehtod
             // if the player stops looking at a valid object, call its "end" method
             if (currentLookAtObject != null)
+            {
                 // if this is the first time the player looks at a valid object
                 if (_lastLookAtObject == null)
                 {
@@ -83,16 +83,17 @@ public class Player : MonoBehaviour
                     currentLookAtObject.OnLookatEnter();
                     _lastLookAtObject = currentLookAtObject;
                 }
-                else if (_lastLookAtObject != null)
-                {
-                    _lastLookAtObject.OnLookatExit();
-                    _lastLookAtObject = null;
-                }
+            }
+            else if (_lastLookAtObject != null)
+            {
+                _lastLookAtObject.OnLookatExit();
+                _lastLookAtObject = null;
+            }
         }
         // Logic for placing vials            
-        else if (Physics.Raycast(ray, out rayCastHit, lookDistance))
+        if (Physics.Raycast(ray, out rayCastHit, lookDistance))
         {
-            if (rayCastHit.transform.gameObject.tag == "Floor") // You're looking at the floor   
+            if (rayCastHit.transform.gameObject.tag == "Floor") // You're looking at the floor  
                 if (_throwAppleAvailable && Input.GetKeyDown(KeyCode.Alpha1))
                 {
                     throwAppleAbility.Trigger(rayCastHit);
@@ -105,18 +106,9 @@ public class Player : MonoBehaviour
                 }
         }
 
-        // if the player doesn't look at a valid object right now but has looked at one before
-        else if (_lastLookAtObject != null)
-        {
-            _lastLookAtObject.OnLookatExit();
-            _lastLookAtObject = null;
-        }
-
         // call the interaction method if the user presses the left mouse button
         if (Input.GetMouseButtonDown(0) && _lastLookAtObject != null)
             _lastLookAtObject.OnLookatInteraction(rayCastHit.point, rayDirection);
-
-        
 
         // drain energy if the user is not frozen
         if (!_isFrozen)
