@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private bool _unlocked2cc = false;
     private ILookAtHandler _lastLookAtObject = null;
     public float lookDistance = 10f;
+    private FPSCam _fpsCam;
 
     [Header("UI Elements")]
     public Image energyBar;
@@ -26,7 +27,9 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _energy = _startEnergy;
-        creditText.text = _credits.ToString();                
+        creditText.text = _credits.ToString();
+        _fpsCam = GetComponentInChildren<FPSCam>();
+        if (_fpsCam == null) Debug.LogError("Couldn't find the fps cam");
     }
 
     private void Unlock(EventParams e)
@@ -45,7 +48,8 @@ public class Player : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
         Vector3 moveDirection = new Vector3(horizontal, 0f, vertical) * _speed * Time.deltaTime;
-        transform.Translate(moveDirection);
+        if (!_isFrozen)
+            transform.Translate(moveDirection);
 
         Vector3 rayOrigin = transform.position;
         Vector3 rayDirection = transform.forward;
@@ -185,7 +189,7 @@ public class Player : MonoBehaviour
     {
         timer.Deactivate();
         _isFrozen = true;
-        GetComponentInChildren<FPSCam>().enabled = false;
+        _fpsCam.enabled = false;
         Cursor.lockState = CursorLockMode.None;
     }
 
@@ -193,7 +197,7 @@ public class Player : MonoBehaviour
     {
         timer.Activate();
         _isFrozen = false;
-        GetComponentInChildren<FPSCam>().enabled = true;
+        _fpsCam.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -205,5 +209,20 @@ public class Player : MonoBehaviour
     public void Pay(int amount)
     {
         DecreaseCreditCount(amount);
+    }
+
+    public void StopAndLookAt(Transform target)
+    {
+        _isFrozen = true;
+        transform.LookAt(target.position);
+        transform.Rotate(-40, 0, 0);
+        _fpsCam.enabled = false;
+    }
+
+    public void Detention()
+    {
+        this.gameObject.transform.position = new Vector3(-6.5f, 1.2f, 4);
+        _isFrozen = false;
+        _fpsCam.enabled = true;
     }
 }

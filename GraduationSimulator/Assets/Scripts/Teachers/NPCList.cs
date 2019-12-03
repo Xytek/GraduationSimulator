@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class NPCList : MonoBehaviour
 {
-    [SerializeField] private List<Patrol> patrols;
+    public List<Patrol> patrols = new List<Patrol>();
 
-    private void Update()
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-            FreezeNPCs();
-        if (Input.GetKeyDown(KeyCode.R))
-            ResumeNPCs();
-
+        // Finds the first grandchild (which is a teacher) and adds its Patrol script to the list
+        foreach (Transform child in this.transform)
+        {
+            if (child.gameObject.activeSelf)
+            {
+            Transform grandChild = child.GetChild(0);
+            patrols.Add(grandChild.GetComponent<Patrol>());
+            }
+        }
     }
 
     public void FreezeNPCs()

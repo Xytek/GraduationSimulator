@@ -10,6 +10,7 @@ TagManager:
   - Floor
   - Vial
   - Apple
+  - NPCList
   layers:
   - Default
   - TransparentFX

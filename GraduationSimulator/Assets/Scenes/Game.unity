@@ -6106,7 +6106,7 @@ GameObject:
   - component: {fileID: 1066901043}
   m_Layer: 0
   m_Name: Teachers
-  m_TagString: Untagged
+  m_TagString: NPCList
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6139,9 +6139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7257886b974397468972e68b92b1e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrols:
-  - {fileID: 1218940241}
-  - {fileID: 1748449410}
+  patrols: []
 --- !u!1 &1077186675
 GameObject:
   m_ObjectHideFlags: 0
@@ -6180,7 +6178,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20, y: -200}
+  m_AnchoredPosition: {x: -20, y: -200.00009}
   m_SizeDelta: {x: 680, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1077186677
@@ -6325,18 +6323,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c472c6b295c34c741a5bb3c91649bd0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1218940241 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6104859543049832774, guid: 921ed8235032fb14abc5feafe0deaf78,
-    type: 3}
-  m_PrefabInstance: {fileID: 882193109756922149}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9af14bce5b6e65e4bab3846eb4a21f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1221349572
@@ -9211,18 +9197,6 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 834db60616348cc4a9c420e5c006bee5, type: 3}
---- !u!114 &1748449410 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6104859543049832774, guid: 921ed8235032fb14abc5feafe0deaf78,
-    type: 3}
-  m_PrefabInstance: {fileID: 2024886840}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9af14bce5b6e65e4bab3846eb4a21f3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1757293733
 GameObject:
   m_ObjectHideFlags: 0
@@ -9763,6 +9737,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patrol2
       objectReference: {fileID: 0}
+    - target: {fileID: 882193111081076066, guid: 921ed8235032fb14abc5feafe0deaf78,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6104859543049832774, guid: 921ed8235032fb14abc5feafe0deaf78,
         type: 3}
       propertyPath: _checkpoints.Array.data[0]
@@ -10120,6 +10099,26 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 882193111466402763, guid: 921ed8235032fb14abc5feafe0deaf78,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 882193111466402763, guid: 921ed8235032fb14abc5feafe0deaf78,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 882193111466402763, guid: 921ed8235032fb14abc5feafe0deaf78,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 882193111466402763, guid: 921ed8235032fb14abc5feafe0deaf78,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 888080601297676351, guid: 921ed8235032fb14abc5feafe0deaf78, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 921ed8235032fb14abc5feafe0deaf78, type: 3}
@@ -10301,7 +10300,7 @@ PrefabInstance:
     - target: {fileID: 5643661970400149034, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.5
+      value: 12.1
       objectReference: {fileID: 0}
     - target: {fileID: 5643661970400149034, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
         type: 3}
@@ -10311,7 +10310,7 @@ PrefabInstance:
     - target: {fileID: 5643661970400149034, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5643661970400149034, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
         type: 3}
@@ -10359,6 +10358,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 13400000, guid: 071ab0c51ede6e643a59793dc5956ba7,
         type: 2}
+    - target: {fileID: 5643661970400149012, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643661970400149012, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643661970400149012, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643661970400149012, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044, type: 3}
 --- !u!1 &5643661971608376181 stripped

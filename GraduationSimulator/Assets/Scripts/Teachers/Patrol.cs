@@ -7,11 +7,12 @@ public class Patrol : MonoBehaviour
 {
     [SerializeField] Transform[] _checkpoints = default;    // An array holding the checkpoints the teacher will go to
     private NavMeshAgent _agent;                            // Used for AI commands and initiated in Start()
-    private int _nextCheckpoint;                            // Holds the next checkpoint the teacher should go to
+    [SerializeField] private int _nextCheckpoint;                            // Holds the next checkpoint the teacher should go to
     private Animator _anim;
     private float _chasingSpeed = 5f;
     private float _baseSpeed = 1f;
-
+    private bool _pause;
+    private bool _caught;
     private void Awake()
     {
         _anim = GetComponent<Animator>();
@@ -44,7 +45,7 @@ public class Patrol : MonoBehaviour
             return;
         }
 
-        StatePatrol();
+        SetStateBool("isPatrolling");
 
         // Set the agent destination to the next checkpoint in the array
         _agent.destination = _checkpoints[_nextCheckpoint].position;
@@ -80,21 +81,35 @@ public class Patrol : MonoBehaviour
                 Debug.LogError("Unknown target");
                 break;
         }
-
-        
     }
 
     private void ChasePlayer(Transform target)
     {
-        StateChase();
+        if (_pause)
+            return;
+        SetStateBool("isChasing");
         _agent.SetDestination(target.position);
         float distance = Vector3.Distance(transform.position, target.position);
-        if (distance < 2f)
-            Debug.Log("You got caught");
+        if (distance < 3f && !_caught)
+            StartCoroutine(GotCaught(target));
+    }
+  
+    IEnumerator GotCaught(Transform player)
+    {
+        _caught = true;
+        Player playerScript = player.GetComponent<Player>();
+
+        // Have both the patrol and player stop and look at each other
+        playerScript.StopAndLookAt(this.gameObject.transform);
+        StopAndLook(player);
+        // Play the give detention animation and wait for it to finish
+        SetStateTrigger("giveDetention");
+        yield return new WaitForSeconds(5f);
+        playerScript.Detention();
+        _agent.isStopped = false;
+        _caught = false;
     }
 
-
-  
     #region Help functions
     private void FaceTarget(Vector3 destination)
     {
@@ -144,7 +159,7 @@ public class Patrol : MonoBehaviour
     #region Apple Skill
     private void ChaseApple(Transform apple)
     {
-        StatePatrol();
+        SetStateBool("isPatrolling");
         _agent.SetDestination(apple.position);
         float distance = Vector3.Distance(transform.position, apple.position);
         if (distance < 1f)
@@ -153,10 +168,10 @@ public class Patrol : MonoBehaviour
 
     private IEnumerator WaitAtApple(Transform apple)
     {
-        StateIdle();
+        SetStateBool("isIdling");
         StopAndLook(apple);
         yield return new WaitForSeconds(5f);
-        StatePickUp();
+        SetStateTrigger("pickUp");
         yield return new WaitForSeconds(0.5f);
         if (apple != null)
             Destroy(apple.gameObject);//.GetComponent<Apple>().DestroyApple();
@@ -170,7 +185,7 @@ public class Patrol : MonoBehaviour
         if (isPanicking())
             return;
 
-        StateChase();
+        SetStateBool("isChasing");
         _agent.SetDestination(vial.position);
         float distance = Vector3.Distance(this.gameObject.transform.position, vial.position);
         if (distance < 1f)
@@ -181,61 +196,31 @@ public class Patrol : MonoBehaviour
     {
         TriggeredVial vialScript = vial.GetComponent<TriggeredVial>();
         // Have the agent stop and look at the fire while panicking for 4 seconds
-        StatePanick();
+        SetStateBool("isPanicking");
         StopAndLook(vial);
         yield return new WaitForSeconds(4f);
         // Turn off the fire and have the agent pick it up
         vialScript.TurnOffFire();
-        StatePickUp();
+        SetStateTrigger("pickUp");
         yield return new WaitForSeconds(0.5f); // Time this one with the pick up animation so the vial goes away when he bends down to it
         if (vial != null)
             vialScript.DestroyVial();
         _agent.isStopped = false;              // Let the agent move again and start patrolling
-        StatePatrol();
+        SetStateBool("isPatrolling");
     }
     #endregion
 
     #region Animator states
-    private void StateChase()
+    private void SetStateBool(string state)
     {
         foreach (AnimatorControllerParameter p in _anim.parameters)
             _anim.SetBool(p.name, false);
-        _anim.SetBool("isChasing", true);
+        _anim.SetBool(state, true);
     }
-
-    private void StatePatrol()
+    
+    private void SetStateTrigger(string state)
     {
-        foreach (AnimatorControllerParameter p in _anim.parameters)
-            _anim.SetBool(p.name, false);
-        _anim.SetBool("isPatrolling", true);
-    }
-
-    private void StatePanick()
-    {
-        foreach (AnimatorControllerParameter p in _anim.parameters)
-            _anim.SetBool(p.name, false);
-        _anim.SetBool("isPanicking", true);
-    }
-    private void StateIdle()
-    {
-        foreach (AnimatorControllerParameter p in _anim.parameters)
-            _anim.SetBool(p.name, false);
-        _anim.SetBool("isIdle", true);
-    }
-
-    private void StateDoor()
-    {
-        _anim.SetTrigger("openDoor");
-    }
-
-    private void StateDetention()
-    {
-        _anim.SetTrigger("giveDetention");
-    }
-
-    private void StatePickUp()
-    {
-        _anim.SetTrigger("pickUp");
+        _anim.SetTrigger(state);
     }
 
     private bool isPanicking()
@@ -249,15 +234,17 @@ public class Patrol : MonoBehaviour
     bool wasIdling;
     public void Freeze()
     {
+        _pause = true;
+        _agent.isStopped = true;
         wasIdling = _anim.GetBool("isIdling");
         _anim.SetBool("isIdling", true);
-        _agent.isStopped = true;
     }
     public void Resume()
     {
+        _pause = false;
+        _agent.isStopped = false;
         if (!wasIdling)
             _anim.SetBool("isIdling", false);
-        _agent.isStopped = false;
     }
     #endregion
 }

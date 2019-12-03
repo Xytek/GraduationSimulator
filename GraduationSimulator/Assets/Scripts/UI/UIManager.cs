@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     {
         StartGame();
     }
-    
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
