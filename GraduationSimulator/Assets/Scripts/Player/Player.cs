@@ -7,15 +7,25 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;     // Player movement speed
+
     [SerializeField] private int _credits = 0;
-    [SerializeField] private GameObject _vial;        // Amount of vials for science explosions you hold 
-    private int _vialCount = 3;        // Amount of vials for science explosions you hold 
+
     private float _startEnergy = 100;
     private float _energy;
+    private float _energyFactor = 1;
+
     private bool _isFrozen;
-    private bool _unlocked2cc = false;
+
+
     private ILookAtHandler _lastLookAtObject = null;
     public float lookDistance = 10f;
+    public RaycastHit rayCastHit;
+
+    public ThrowAbility throwVialAbility;
+    public ThrowAbility throwAppleAbility;
+
+    private bool _throwVialAvailable = false;
+    private bool _throwAppleAvailable = false;
 
     [Header("UI Elements")]
     public Image energyBar;
@@ -26,12 +36,12 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _energy = _startEnergy;
-        creditText.text = _credits.ToString();                
-    }
-
-    private void Unlock(EventParams e)
-    {
-        _unlocked2cc = true;
+        creditText.text = _credits.ToString();
+        EventManager.StartListening("Science2Unlocked", UnlockVial);
+        EventManager.StartListening("Psychology1Unlocked", UnlockApple);
+        EventManager.StartListening("Sport1Unlocked", SetEnergyFactor);
+        EventManager.StartListening("Sport2Unlocked", SetSpeed);
+        EventManager.StartListening("CoolDownOver", EnableAbility);
     }
 
     void Start()
@@ -49,7 +59,7 @@ public class Player : MonoBehaviour
 
         Vector3 rayOrigin = transform.position;
         Vector3 rayDirection = transform.forward;
-        RaycastHit rayCastHit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         // send raycast
         if (Physics.Raycast(rayOrigin, rayDirection, out rayCastHit, lookDistance))
         {
@@ -79,22 +89,25 @@ public class Player : MonoBehaviour
                 _lastLookAtObject.OnLookatExit();
                 _lastLookAtObject = null;
             }
-
         }
-        // Logic for placing vials
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out rayCastHit, lookDistance))
+        // Logic for placing vials            
+        else if (Physics.Raycast(ray, out rayCastHit, lookDistance))
         {
-            if (_unlocked2cc                                   // You have the skill
-            && Input.GetKeyDown(KeyCode.Alpha1)                // You press 1
-            && _vialCount > 0                                  // You have vials
-            && rayCastHit.transform.gameObject.tag == "Floor") // You're looking at the floor
+            if (_throwAppleAvailable &&
+                Input.GetKeyDown(KeyCode.Alpha1)                // You press 1            
+                && rayCastHit.transform.gameObject.tag == "Floor") // You're looking at the floor                                                               
             {
-                Instantiate(_vial, rayCastHit.point, Quaternion.identity);
-                _vialCount--;
+                throwAppleAbility.Trigger(rayCastHit);
+                _throwAppleAvailable = false;
+            }
+            else if (_throwVialAvailable &&           // Skill is unlocked and not currently cooling-Down
+                    Input.GetKeyDown(KeyCode.Alpha2)                        // You press 1            
+                    && rayCastHit.transform.gameObject.tag == "Floor")     // You're looking at the floor            
+            {
+                throwVialAbility.Trigger(rayCastHit);
+                _throwVialAvailable = false;
             }
         }
-
 
         // if the player doesn't look at a valid object right now but has looked at one before
         else if (_lastLookAtObject != null)
@@ -109,22 +122,54 @@ public class Player : MonoBehaviour
             _lastLookAtObject.OnLookatInteraction(rayCastHit.point, rayDirection);
         }
 
+        // drain energy if the user is not frozen
         if (!_isFrozen)
         {
-            DecreaseEnergy(1 * Time.deltaTime);
+            DecreaseEnergy(_energyFactor * Time.deltaTime);
         }
 
+        // end the level if energy is too low
         if (_energy <= 0)
         {
             Die();
         }
-
     }
 
     public void ResetLastLookAtObject()
     {
         _lastLookAtObject = null;
-    }    
+    }
+
+    public void SetSpeed(EventParams param)
+    {
+        _speed = param.floatNr;
+    }
+
+    public void SetEnergyFactor(EventParams param)
+    {
+        _energyFactor = param.floatNr;
+    }
+
+    public void UnlockVial(EventParams param)
+    {
+        _throwVialAvailable = true;
+    }
+    public void UnlockApple(EventParams param)
+    {
+        _throwAppleAvailable = true;
+    }
+
+    public void EnableAbility(EventParams param)
+    {
+        if (param.courseType == CourseTypes.Science)
+        {
+            UnlockVial(param);
+        }
+        else if (param.courseType == CourseTypes.Psychology)
+        {
+            UnlockApple(param);
+        }
+    }
 
     public int GetCreditCount()
     {
@@ -167,20 +212,6 @@ public class Player : MonoBehaviour
         energyBar.fillAmount = _energy / _startEnergy;
     }
 
-    public void IncreaseVials()
-    {
-        _vialCount++;
-    }
-
-    public void DecreaseVials()
-    {
-        _vialCount--;
-    }
-
-    public int GetVialCount()
-    {
-        return _vialCount;
-    }
     public void Freeze()
     {
         timer.Deactivate();

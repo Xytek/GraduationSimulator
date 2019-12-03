@@ -65,7 +65,7 @@ public class Interactable : MonoBehaviour, ILookAtHandler
 
     public void ChangeTime(EventParams param)
     {
-        _useTime = param.number;
+        _useTime = param.intNr;
     }
 
     IEnumerator SpawnCoins()

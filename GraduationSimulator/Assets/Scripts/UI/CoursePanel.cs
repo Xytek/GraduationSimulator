@@ -106,7 +106,7 @@ public class CoursePanel : MonoBehaviour
     {        
         if (param.courseType == courseData.type)
         {
-            _upgradeLvl = param.number;
+            _upgradeLvl = param.intNr;
             if (_upgradeLvl < 3)
             {
                 ChangeSelectedLvl(GetUpgradeLevelArray() + 1);

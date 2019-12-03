@@ -20,7 +20,7 @@ public class TriggeredVial : MonoBehaviour
         _explosion.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         _explosion.SetActive(false);        // Ensures the explosion only plays one time
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(10);
         Destroy(this.gameObject);           // Ensures the object doesn't stay forever
     }
 
@@ -39,5 +39,4 @@ public class TriggeredVial : MonoBehaviour
     {
         return _detonated;
     }
-
 }
