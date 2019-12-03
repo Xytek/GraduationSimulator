@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Collectables\Interactable.cs" />
     <Compile Include="Assets\Scripts\Collectables\Laptop.cs" />
     <Compile Include="Assets\Scripts\Courses\Abilities\IAbility.cs" />
+    <Compile Include="Assets\Scripts\Courses\Abilities\KnockOutAbility.cs" />
     <Compile Include="Assets\Scripts\Courses\Abilities\ThrowAbility.cs" />
     <Compile Include="Assets\Scripts\Courses\Abilities\TriggeredApple.cs" />
     <Compile Include="Assets\Scripts\Courses\Abilities\TriggeredVial.cs" />
