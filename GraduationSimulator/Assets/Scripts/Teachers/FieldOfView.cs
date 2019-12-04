@@ -42,7 +42,7 @@ public class FieldOfView : MonoBehaviour
 
     [SerializeField] private MeshFilter _viewMeshFilter = default;    // Holds a mesh we'll create later on
     private float _meshResolution = 1f;                     // Higher = more triangles for the mesh
-    private int _edgeResolveIterations = 4;                 // The accuracy when finding edges
+    private int _edgeResolveIterations = 1;                 // The accuracy when finding edges
     private float _edgeDistTreshold = 0.5f;  // The distance between two points when looking for an edge. Ensures they're both on the same object, as opposed to one in the background
     private Mesh _fowMesh;                                  // The mesh we're creating for the field of view
     private Patrol _patrol;
