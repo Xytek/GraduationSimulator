@@ -10,17 +10,16 @@ public class UIManager : MonoBehaviour
     // just for the reset at quit()
     public CourseData[] courseData;
     
-    [SerializeField] private Menu pauseMenu;
-    [SerializeField] private Menu courseMenu;
-    [SerializeField] private InstructionPanel instructionPanel;
-    private Menu activeMenu;
-
+    [SerializeField] private Menu _pauseMenu = default;
+    [SerializeField] private Menu _courseMenu = default;
+    [SerializeField] private InstructionPanel _instructionPanel = default;
+    private Menu _activeMenu;
 
     public void Start()
     {
-        pauseMenu.Deactivate();
-        courseMenu.Deactivate();
-        activeMenu = null;
+        _pauseMenu.Deactivate();
+        _courseMenu.Deactivate();
+        _activeMenu = null;
         if (_npcList == null)
             GetNPCList();            
         EventManager.StartListening("ShowInstructions", ActivateInstructionPanel);
@@ -30,59 +29,59 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (courseMenu.CheckIfActive())
+            if (_courseMenu.CheckIfActive())
             {
                 ResumeGame();
             }
             else
             {
-                ((CourseMenu)courseMenu).UpdateCoursePanels();
-                ChangeMenu(courseMenu);                
+                ((CourseMenu)_courseMenu).UpdateCoursePanels();
+                ChangeMenu(_courseMenu);                
             }
         } else if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (pauseMenu.CheckIfActive())
+            if (_pauseMenu.CheckIfActive())
             {
                 ResumeGame();
             }
             else
             {
-                ChangeMenu(pauseMenu);
+                ChangeMenu(_pauseMenu);
             }
         }        
     }
 
     public void ChangeMenu(Menu newMenu)
     {
-        if(activeMenu != null)
+        if(_activeMenu != null)
         {
-            activeMenu.Deactivate();            
+            _activeMenu.Deactivate();            
         }
-        activeMenu = newMenu;
+        _activeMenu = newMenu;
         FreezeScene();
         newMenu.Activate();
     }
 
     public void ActivateInstructionPanel(EventParams param)
     {
-        instructionPanel.Activate();
-        instructionPanel.UpdatePanel(param);
+        _instructionPanel.Activate();
+        _instructionPanel.UpdatePanel(param);
         FreezeScene();
-        if(activeMenu != null)
+        if(_activeMenu != null)
         {
-            activeMenu.Deactivate();
+            _activeMenu.Deactivate();
         }        
-        activeMenu = (Menu) instructionPanel;
+        _activeMenu = (Menu) _instructionPanel;
     }
 
     public void ResumeGame()
     {
         UnfreezeScene();
-        if(activeMenu != null)
+        if(_activeMenu != null)
         {
-            activeMenu.Deactivate();
+            _activeMenu.Deactivate();
         }        
-        activeMenu = null;
+        _activeMenu = null;
     }
 
     public void Quit()

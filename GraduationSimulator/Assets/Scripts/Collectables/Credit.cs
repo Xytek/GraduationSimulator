@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class Credit : Collectable
 {
-    public void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         // play collect animation + sound
         Destroy(this.gameObject);
         _player.ResetLastLookAtObject();
-        _player.IncreaseCreditCount();
+        _playerStats.UpdateCredits(1);
     }
 }

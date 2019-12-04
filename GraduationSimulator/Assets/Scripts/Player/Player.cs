@@ -2,19 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float _speed = 5f;     // Player movement speed
-    [SerializeField] private int _credits = 0;
-
-    private float _startEnergy = 100;
-    private float _energy;
     private float _energyFactor = 1;
     private bool _isFrozen;
     private ILookAtHandler _lastLookAtObject = null;
     private FPSCam _fpsCam;
+    private PlayerStats _playerStats;
 
     public RaycastHit rayCastHit;
     public ThrowAbility throwVialAbility;
@@ -26,22 +21,17 @@ public class Player : MonoBehaviour
     private bool _knockoutAvailable = false;
 
     [Header("UI Elements")]
-    public Image energyBar;
-    public Text creditText;
     public GameObject noEnergyScreen;
     public SemesterTimer timer;
 
     private void Awake ()
-    {        
-        _energy = _startEnergy;
-        creditText.text = _credits.ToString();
-        EventManager.StartListening("Science2Unlocked", UnlockVial);
-        EventManager.StartListening("Psychology1Unlocked", UnlockApple);
-        EventManager.StartListening("Sport1Unlocked", SetEnergyFactor);
-        EventManager.StartListening("Sport2Unlocked", SetSpeed);
-        EventManager.StartListening("CoolDownOver", EnableAbility);
+    {
+        StartListening();   // Start event listeners for ability unlocks
+        // Get needed components
         _fpsCam = GetComponentInChildren<FPSCam>();
         if (_fpsCam == null) Debug.LogError("Couldn't find the fps cam");
+        _playerStats = GetComponent<PlayerStats>();
+        if (_playerStats == null) Debug.LogError("No player stats found");
     }
 
     private void Start()
@@ -53,7 +43,7 @@ public class Player : MonoBehaviour
         // first person movement
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
-        Vector3 moveDirection = new Vector3(horizontal, 0f, vertical) * _speed * Time.deltaTime;
+        Vector3 moveDirection = new Vector3(horizontal, 0f, vertical) * _playerStats.Speed * Time.deltaTime;
         if (!_isFrozen)
             transform.Translate(moveDirection);
 
@@ -112,17 +102,25 @@ public class Player : MonoBehaviour
 
         // drain energy if the user is not frozen
         if (!_isFrozen)
-            DecreaseEnergy(_energyFactor * Time.deltaTime);
+            _playerStats.UpdateEnergy(-_energyFactor * Time.deltaTime);
 
         // end the level if energy is too low
-        if (_energy <= 0)
-            Die();
+        if (_playerStats.Energy <= 0)
+            noEnergyScreen.SetActive(true);
+    }
+    private void StartListening()
+    {
+        EventManager.StartListening("Science2Unlocked", UnlockVial);
+        EventManager.StartListening("Psychology1Unlocked", UnlockApple);
+        EventManager.StartListening("Sport1Unlocked", SetEnergyFactor);
+        EventManager.StartListening("Sport2Unlocked", SetSpeed);
+        EventManager.StartListening("CoolDownOver", EnableAbility);
     }
 
     #region Event listeners
     private void SetSpeed(EventParams param)
     {
-        _speed = param.floatNr;
+        _playerStats.Speed = param.floatNr;
     }
 
     private void SetEnergyFactor(EventParams param)
@@ -161,62 +159,14 @@ public class Player : MonoBehaviour
     public void ResetLastLookAtObject()
     {
         _lastLookAtObject = null;
-    }
+    } 
 
-    public int GetCreditCount()
-    {
-        return _credits;
-    }
-
-    public void IncreaseCreditCount()
-    {
-        _credits++;
-        creditText.text = _credits.ToString();
-    }
-
-    public void DecreaseCreditCount()
-    {
-        if (_credits > 0)
-        {
-            _credits--;
-            creditText.text = _credits.ToString();
-        }
-    }
-
-    public void Pay(int amount)
-    {
-        if (_credits - amount > 0)
-        {
-            _credits -= amount;
-            creditText.text = _credits.ToString();
-        }
-    }
-
-    public void DecreaseEnergy(float decrease)
-    {
-        _energy -= decrease;
-        energyBar.fillAmount = _energy / _startEnergy;
-    }
-
-    public void IncreaseEnergy(float increase)
-    {
-        _energy += increase;
-        energyBar.fillAmount = _energy / _startEnergy;
-    }
-
-    public void Die()
-    {
-        noEnergyScreen.SetActive(true);
-    }
-
-    public void Freeze()
+     public void Freeze()
     {
         timer.Deactivate();
         _isFrozen = true;
         if(_fpsCam == null)
-        {
             _fpsCam = GetComponentInChildren<FPSCam>();
-        }
         _fpsCam.enabled = false;        
         Cursor.lockState = CursorLockMode.None;        
     }
@@ -228,9 +178,7 @@ public class Player : MonoBehaviour
         _fpsCam.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
     }
-    #endregion
 
-    #region Got Caught
     public void StopAndLookAt(Transform target)
     {
         _isFrozen = true;

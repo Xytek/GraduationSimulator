@@ -7,11 +7,15 @@ public class UpgradePlayer : MonoBehaviour
 {
     private Dictionary<CourseTypes, Course> activeCourses;
     private Player _player;
+    private PlayerStats _playerStats;
 
     public void Awake()
     {     
         activeCourses = new Dictionary<CourseTypes, Course>();
         _player = this.gameObject.GetComponent<Player>();
+        if (_player == null) Debug.LogError("No player found");
+        _playerStats = this.gameObject.GetComponent<PlayerStats>();
+        if (_playerStats == null) Debug.LogError("No player stats found");
     }
 
     public void AddUpgrade(CourseData data)
@@ -21,12 +25,8 @@ public class UpgradePlayer : MonoBehaviour
         // check if that course is already in the dictionary       
         Course activeCourse = null;        
         foreach (KeyValuePair<CourseTypes, Course> entry in activeCourses)
-        {
             if(entry.Key == type)
-            {
                 activeCourse = entry.Value;
-            }            
-        }
 
         // if not create Course and add it to the dictionary
         if (activeCourse == null)
@@ -37,7 +37,9 @@ public class UpgradePlayer : MonoBehaviour
         }
 
         // upgrade and pay                
-        activeCourse.Upgrade();  
-        _player.Pay(data.prices[activeCourse.UpgradeLevel-1]);
+        activeCourse.Upgrade();
+        int amount = data.prices[activeCourse.UpgradeLevel - 1];
+        if (_playerStats.Credits - amount > 0)
+            _playerStats.UpdateCredits(-amount, true);
     }
 }

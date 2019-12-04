@@ -35,12 +35,12 @@ public class FieldOfView : MonoBehaviour
     [Range(0, 360)] public float viewAngle;
     public List<Transform> visibleTargets = new List<Transform>();
 
-    [SerializeField] private float _viewDelay;              // How long the player must be in view to be seen
+    [SerializeField] private float _viewDelay = default;              // How long the player must be in view to be seen
 
-    [SerializeField] private LayerMask _targetMask;         // A layer of the things the object can react to
-    [SerializeField] private LayerMask _obstacleMask;       // A layer of things blocking the vision
+    [SerializeField] private LayerMask _targetMask = default;         // A layer of the things the object can react to
+    [SerializeField] private LayerMask _obstacleMask = default;       // A layer of things blocking the vision
 
-    [SerializeField] private MeshFilter _viewMeshFilter;    // Holds a mesh we'll create later on
+    [SerializeField] private MeshFilter _viewMeshFilter = default;    // Holds a mesh we'll create later on
     private float _meshResolution = 1f;                     // Higher = more triangles for the mesh
     private int _edgeResolveIterations = 4;                 // The accuracy when finding edges
     private float _edgeDistTreshold = 0.5f;  // The distance between two points when looking for an edge. Ensures they're both on the same object, as opposed to one in the background

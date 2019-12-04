@@ -4189,9 +4189,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: abe78e3f17104db4aa23997394bc8002, type: 2}
   - {fileID: 11400000, guid: e27a84326488ae440b22335ab48224e6, type: 2}
   - {fileID: 11400000, guid: efe96d99baf7ea24a94c7f3db7f345a7, type: 2}
-  pauseMenu: {fileID: 1757293734}
-  courseMenu: {fileID: 1350436132}
-  instructionPanel: {fileID: 2104894874}
+  _pauseMenu: {fileID: 1757293734}
+  _courseMenu: {fileID: 1350436132}
+  _instructionPanel: {fileID: 2104894874}
 --- !u!4 &753727060
 Transform:
   m_ObjectHideFlags: 0
@@ -6858,7 +6858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 265b4dd910a24024b8bc9157485afc5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 875470345}
+  _timerText: {fileID: 875470345}
   SemesterOverScreen: {fileID: 1623059267}
 --- !u!114 &916027032
 MonoBehaviour:
@@ -8103,7 +8103,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 5643661971608376180}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1625025944}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c472c6b295c34c741a5bb3c91649bd0d, type: 3}
@@ -9946,6 +9946,26 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1625025944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5643661970400149032, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
+    type: 3}
+  m_PrefabInstance: {fileID: 5643661971608376180}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1625025948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625025944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f9b89969f37ba243b519532c0bbbb2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _energyBar: {fileID: 719200852}
+  _creditText: {fileID: 1604268635}
 --- !u!1001 &1630820574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12701,7 +12721,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 5643661971608376180}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1625025944}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7c715cb8b48a774ca3baf54b8b0ec6f, type: 3}

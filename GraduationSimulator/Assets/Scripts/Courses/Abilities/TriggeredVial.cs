@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TriggeredVial : MonoBehaviour
 {
-    [SerializeField] private GameObject _fire;
-    [SerializeField] private GameObject _explosion;
+    [SerializeField] private GameObject _fire = default;
+    [SerializeField] private GameObject _explosion = default;
     [SerializeField] private float _detonationTime = 3f;
     private bool _detonated = false;
     public IEnumerator Start()

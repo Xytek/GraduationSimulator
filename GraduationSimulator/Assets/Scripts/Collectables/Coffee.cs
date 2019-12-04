@@ -6,7 +6,6 @@ public class Coffee : Collectable, ILookAtHandler
 {
     private bool _used;
     private int _coffeeStrength = 10;
-
     protected Shader _standardShader;
     protected Shader _outlineShader;
     protected Renderer _renderer;
@@ -22,23 +21,15 @@ public class Coffee : Collectable, ILookAtHandler
     public void OnLookatEnter()
     {
         if (!_used)
-        {
             foreach (Transform child in transform)
-            {
                 child.gameObject.GetComponent<Renderer>().material.shader = _outlineShader;
-            }
-        }
     }
 
     public void OnLookatExit()
     {
         if (!_used)
-        {
             foreach (Transform child in transform)
-            {
                 child.gameObject.GetComponent<Renderer>().material.shader = _standardShader;
-            }
-        }
     }
 
     public void OnLookatInteraction(Vector3 lookAtPosition, Vector3 lookAtDirection)
@@ -51,7 +42,7 @@ public class Coffee : Collectable, ILookAtHandler
         }
         Destroy(this.gameObject);
         _player.ResetLastLookAtObject();
-        _player.IncreaseEnergy(_coffeeStrength);
+        _playerStats.UpdateEnergy(_coffeeStrength);
     }
 
     public void ChangeCoffeeStrength(int strength)

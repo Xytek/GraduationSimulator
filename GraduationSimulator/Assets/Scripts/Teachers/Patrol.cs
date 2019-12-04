@@ -44,15 +44,8 @@ public class Patrol : MonoBehaviour
     private void GoToNextCheckpoint()
     {
         // If no checkpoints have been added to the array it will exit the function
-        if (_checkpoints.Count == 0)
-        {
-            Debug.LogError("No checkpoints");
+        if (_checkpoints.Count == 0 || isPanicking())
             return;
-        }
-        if (isPanicking())
-        {
-            return;
-        }
 
         SetStateBool("isPatrolling");
 
@@ -102,7 +95,7 @@ public class Patrol : MonoBehaviour
         if (distance < 3f && !_caught)
             StartCoroutine(GotCaught(target));
     }
-  
+
     IEnumerator GotCaught(Transform player)
     {
         _caught = true;
@@ -226,7 +219,7 @@ public class Patrol : MonoBehaviour
             _anim.SetBool(p.name, false);
         _anim.SetBool(state, true);
     }
-    
+
     private void SetStateTrigger(string state)
     {
         _anim.SetTrigger(state);

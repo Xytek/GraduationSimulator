@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\Player\FPSCam.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Player\UpgradePlayer.cs" />
     <Compile Include="Assets\Scripts\Teachers\FieldOfView.cs" />
     <Compile Include="Assets\Scripts\Teachers\NPCList.cs" />
