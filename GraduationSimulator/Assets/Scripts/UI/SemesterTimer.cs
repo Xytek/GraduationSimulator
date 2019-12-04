@@ -9,8 +9,7 @@ public class SemesterTimer : MonoBehaviour
     private float _currentTime = 0;
     private float _startingTime = 300;
 
-    [SerializeField]
-    Text timerText;
+    [SerializeField] private Text _timerText = default;
     public GameObject SemesterOverScreen;
 
     void Start()
@@ -27,7 +26,7 @@ public class SemesterTimer : MonoBehaviour
 
             string minutes = ((int)_currentTime / 60).ToString();
             string seconds = ((int)_currentTime % 60).ToString();
-            timerText.text = minutes + ":" + seconds;
+            _timerText.text = minutes + ":" + seconds;
         }        
 
         if(_currentTime <= 0)
