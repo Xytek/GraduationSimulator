@@ -20,10 +20,7 @@ public class PlayerStats : MonoBehaviour
     public void UpdateCredits(int amount, bool pay = false)
     {
         if (pay)
-        {
-            if (Credits - amount > 0)
-                Credits -= amount;
-        }
+            Credits -= amount;
         else
             Credits++;
         _creditText.text = Credits.ToString();
