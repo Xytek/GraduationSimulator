@@ -57,7 +57,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5000875200358553797
 Transform:
@@ -198,7 +198,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7744592761034668567
 Transform:
@@ -436,6 +436,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_School_Toilet_Props03
       objectReference: {fileID: 0}
+    - target: {fileID: 167308, guid: a9d5136f0ac58444e975355818f3df0e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 440152, guid: a9d5136f0ac58444e975355818f3df0e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.59
@@ -499,6 +503,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_School_Toilet_Room (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 138294, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 464196, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -542,6 +550,22 @@ PrefabInstance:
     - target: {fileID: 464196, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 134968, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 183730, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 129126, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 148448, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
@@ -631,6 +655,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_School_Toilet_Props03 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 167308, guid: a9d5136f0ac58444e975355818f3df0e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 440152, guid: a9d5136f0ac58444e975355818f3df0e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.59
@@ -693,6 +721,10 @@ PrefabInstance:
     - target: {fileID: 167308, guid: a9d5136f0ac58444e975355818f3df0e, type: 3}
       propertyPath: m_Name
       value: SM_School_Toilet_Props03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 167308, guid: a9d5136f0ac58444e975355818f3df0e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 440152, guid: a9d5136f0ac58444e975355818f3df0e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -834,6 +866,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_School_Toilet_Props02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 149606, guid: 97202eb1adba14944b3646be075a185b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 484076, guid: 97202eb1adba14944b3646be075a185b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.74
@@ -972,6 +1008,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_School_Toilet_Room
       objectReference: {fileID: 0}
+    - target: {fileID: 138294, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 464196, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -1016,6 +1056,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 134968, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 183730, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 129126, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 148448, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
 --- !u!1 &3309275372792504311 stripped
@@ -1040,6 +1096,10 @@ PrefabInstance:
     - target: {fileID: 149606, guid: 97202eb1adba14944b3646be075a185b, type: 3}
       propertyPath: m_Name
       value: SM_School_Toilet_Props02 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 149606, guid: 97202eb1adba14944b3646be075a185b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 484076, guid: 97202eb1adba14944b3646be075a185b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1178,6 +1238,10 @@ PrefabInstance:
     - target: {fileID: 166388, guid: 9b6c90cff4b852d42bbe82224725c8ed, type: 3}
       propertyPath: m_Name
       value: SM_School_Toilet_Props05 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 166388, guid: 9b6c90cff4b852d42bbe82224725c8ed, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 459066, guid: 9b6c90cff4b852d42bbe82224725c8ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1388,6 +1452,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_School_Toilet_Props03 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 167308, guid: a9d5136f0ac58444e975355818f3df0e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 440152, guid: a9d5136f0ac58444e975355818f3df0e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.59
@@ -1514,6 +1582,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_School_Toilet_Room (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 138294, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 464196, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -1558,6 +1630,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 134968, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 183730, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 129126, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 148448, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
 --- !u!4 &5590194909746198804 stripped
@@ -1582,6 +1670,10 @@ PrefabInstance:
     - target: {fileID: 149606, guid: 97202eb1adba14944b3646be075a185b, type: 3}
       propertyPath: m_Name
       value: SM_School_Toilet_Props02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 149606, guid: 97202eb1adba14944b3646be075a185b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 484076, guid: 97202eb1adba14944b3646be075a185b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1731,6 +1823,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5000875200358553797}
     m_Modifications:
+    - target: {fileID: 121202, guid: 684778fda29bd6a4b949a7d080146b3c, type: 3}
+      propertyPath: m_Name
+      value: SM_School_Env_Wall_Split_Door01
+      objectReference: {fileID: 0}
+    - target: {fileID: 121202, guid: 684778fda29bd6a4b949a7d080146b3c, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 121202, guid: 684778fda29bd6a4b949a7d080146b3c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 479540, guid: 684778fda29bd6a4b949a7d080146b3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5
@@ -1774,18 +1878,6 @@ PrefabInstance:
     - target: {fileID: 479540, guid: 684778fda29bd6a4b949a7d080146b3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 121202, guid: 684778fda29bd6a4b949a7d080146b3c, type: 3}
-      propertyPath: m_Name
-      value: SM_School_Env_Wall_Split_Door01
-      objectReference: {fileID: 0}
-    - target: {fileID: 121202, guid: 684778fda29bd6a4b949a7d080146b3c, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 121202, guid: 684778fda29bd6a4b949a7d080146b3c, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7985502503219865213, guid: 684778fda29bd6a4b949a7d080146b3c,
         type: 3}
@@ -1924,6 +2016,10 @@ PrefabInstance:
     - target: {fileID: 167308, guid: a9d5136f0ac58444e975355818f3df0e, type: 3}
       propertyPath: m_Name
       value: SM_School_Toilet_Props03 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 167308, guid: a9d5136f0ac58444e975355818f3df0e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 440152, guid: a9d5136f0ac58444e975355818f3df0e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2065,6 +2161,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_School_Toilet_Props03 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 167308, guid: a9d5136f0ac58444e975355818f3df0e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 440152, guid: a9d5136f0ac58444e975355818f3df0e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.59
@@ -2127,6 +2227,10 @@ PrefabInstance:
     - target: {fileID: 166388, guid: 9b6c90cff4b852d42bbe82224725c8ed, type: 3}
       propertyPath: m_Name
       value: SM_School_Toilet_Props05 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 166388, guid: 9b6c90cff4b852d42bbe82224725c8ed, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 459066, guid: 9b6c90cff4b852d42bbe82224725c8ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2337,6 +2441,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_School_Toilet_Props02 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 149606, guid: 97202eb1adba14944b3646be075a185b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 484076, guid: 97202eb1adba14944b3646be075a185b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.27
@@ -2412,6 +2520,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_School_Toilet_Room (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 138294, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 464196, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -2456,6 +2568,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 134968, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 183730, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 129126, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 148448, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
 --- !u!4 &7925272743732102061 stripped
@@ -2480,6 +2608,10 @@ PrefabInstance:
     - target: {fileID: 167308, guid: a9d5136f0ac58444e975355818f3df0e, type: 3}
       propertyPath: m_Name
       value: SM_School_Toilet_Props03 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 167308, guid: a9d5136f0ac58444e975355818f3df0e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 440152, guid: a9d5136f0ac58444e975355818f3df0e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2544,6 +2676,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_School_Toilet_Room (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 138294, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 464196, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -2588,6 +2724,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 134968, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 183730, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 129126, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 148448, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
 --- !u!4 &8377237450560583957 stripped
@@ -2612,6 +2764,10 @@ PrefabInstance:
     - target: {fileID: 138294, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
       propertyPath: m_Name
       value: SM_School_Toilet_Room (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 138294, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 464196, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2656,6 +2812,22 @@ PrefabInstance:
     - target: {fileID: 464196, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 134968, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 183730, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 129126, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 148448, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
@@ -2759,6 +2931,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_School_Toilet_Room (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 138294, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 464196, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -2802,6 +2978,22 @@ PrefabInstance:
     - target: {fileID: 464196, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 134968, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 183730, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 129126, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 148448, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38677a6cd9590e348b80179728dfb80f, type: 3}
@@ -2981,6 +3173,10 @@ PrefabInstance:
     - target: {fileID: 149606, guid: 97202eb1adba14944b3646be075a185b, type: 3}
       propertyPath: m_Name
       value: SM_School_Toilet_Props02
+      objectReference: {fileID: 0}
+    - target: {fileID: 149606, guid: 97202eb1adba14944b3646be075a185b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 484076, guid: 97202eb1adba14944b3646be075a185b, type: 3}
       propertyPath: m_LocalPosition.x
