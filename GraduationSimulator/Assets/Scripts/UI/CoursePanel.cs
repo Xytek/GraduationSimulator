@@ -14,6 +14,7 @@ public class CoursePanel : MonoBehaviour
     public Text description;
     public Text priceText;
     public UpgradeButton upgradeButton;
+    public Image icon;
 
     private int _selectedLvl;
     public UpgradeSelectButton[] upgradeSelectButtons;
@@ -22,6 +23,7 @@ public class CoursePanel : MonoBehaviour
 
     public void Awake()
     {
+        icon.sprite = courseData.icon;
         _upgradeLvl = 0;
         _selectedLvl = _upgradeLvl;
         UpdateUI(_selectedLvl);
@@ -79,7 +81,7 @@ public class CoursePanel : MonoBehaviour
         {
             upgradeButton.Activate();
         }
-        else if (chosenLvl == GetUpgradeLevelArray()+1 && CheckIfLvlIsAffordable(chosenLvl, _player.GetCreditCount()))
+        else if (chosenLvl == _upgradeLvl && CheckIfLvlIsAffordable(chosenLvl, _player.GetCreditCount()))
         {
             upgradeButton.Activate();
         }
@@ -106,7 +108,7 @@ public class CoursePanel : MonoBehaviour
     {        
         if (param.courseType == courseData.type)
         {
-            _upgradeLvl = param.number;
+            _upgradeLvl = param.intNr;
             if (_upgradeLvl < 3)
             {
                 ChangeSelectedLvl(GetUpgradeLevelArray() + 1);

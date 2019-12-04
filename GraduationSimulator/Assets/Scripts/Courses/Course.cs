@@ -28,7 +28,7 @@ public abstract class Course
         {
             UpgradeLevel++;
             EventParams param = new EventParams();
-            param.number = _upgradeLevel;
+            param.intNr = _upgradeLevel;
             param.courseType = _type;
             EventManager.TriggerEvent("CourseUpgrade", param);
         }

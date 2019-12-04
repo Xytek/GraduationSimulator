@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3765d7b264afcfa4eaaba08eb48fd00b, type: 3}
-  m_Name: HackingCourseData
+  m_Name: SportCourseData
   m_EditorClassIdentifier: 
-  type: 0
+  type: 4
   UpgradeDescriptions:
-  - Get access to the computer rooms.
-  - Makes you able to hack into computers.
-  - Hack computers faster.
-  prices: 0a0000000500000019000000
-  UpgradeLevel: 7
+  - This upgrade
+  - This upgrade enables you to get credits from books
+  - Use books even faster.
+  prices: 0a000000190000001e000000
+  icon: {fileID: 21300000, guid: 194e3e58736c0324e994d8b2a1d83e83, type: 3}

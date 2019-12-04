@@ -9,24 +9,25 @@ public class UIManager : MonoBehaviour
     // just for the reset at quit()
     public CourseData[] courseData;
 
-    public Menu mainMenu;
-    public Menu pauseMenu;
-    public Menu courseMenu;
+    [SerializeField] private Menu mainMenu;
+    [SerializeField] private Menu pauseMenu;
+    [SerializeField] private Menu courseMenu;
+    [SerializeField] private InstructionPanel instructionPanel;
     private Menu activeMenu;
-
+    
     public void Awake()
     {
         StartGame();
+        EventManager.StartListening("ShowInstructions", ActivateInstructionPanel);
     }
-    
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (courseMenu.CheckIfActive())
-            {                
-                player.Unfreeze();
-                courseMenu.Deactivate();
+            {
+                ResumeGame();
             }
             else
             {
@@ -37,8 +38,7 @@ public class UIManager : MonoBehaviour
         {
             if (pauseMenu.CheckIfActive())
             {
-                player.Unfreeze();
-                pauseMenu.Deactivate();
+                ResumeGame();
             }
             else
             {
@@ -66,10 +66,25 @@ public class UIManager : MonoBehaviour
         newMenu.Activate();
     }
 
+    public void ActivateInstructionPanel(EventParams param)
+    {
+        instructionPanel.Activate();
+        instructionPanel.UpdatePanel(param);
+        player.Freeze();
+        if(activeMenu != null)
+        {
+            activeMenu.Deactivate();
+        }        
+        activeMenu = (Menu) instructionPanel;
+    }
+
     public void ResumeGame()
     {
         player.Unfreeze();
-        activeMenu.Deactivate();
+        if(activeMenu != null)
+        {
+            activeMenu.Deactivate();
+        }        
         activeMenu = null;
     }
 

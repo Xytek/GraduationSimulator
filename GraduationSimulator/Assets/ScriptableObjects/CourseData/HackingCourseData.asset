@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3765d7b264afcfa4eaaba08eb48fd00b, type: 3}
-  m_Name: ResearchCourseData
+  m_Name: HackingCourseData
   m_EditorClassIdentifier: 
-  type: 3
+  type: 0
   UpgradeDescriptions:
-  - This upgrade gives you exit to the library
-  - This upgrade enables you to get credits from books
-  - Use books even faster.
-  prices: 0a000000190000001e000000
+  - Get access to the computer rooms.
+  - Makes you able to hack into computers.
+  - Hack computers faster.
+  prices: 0a0000000500000019000000
+  icon: {fileID: 21300000, guid: 678e3837eb3310f4ab249bab5cfd8c20, type: 3}
