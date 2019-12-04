@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 0
   UpgradeDescriptions:
   - Get access to the computer rooms.
-  - Makes you able to hack into computers.
-  - Hack computers faster.
+  - Makes you able to hack into laptops.
+  - Let's you hack the laptops even faster.
   prices: 0a0000000500000019000000
   icon: {fileID: 21300000, guid: 678e3837eb3310f4ab249bab5cfd8c20, type: 3}

@@ -5,19 +5,24 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public Player player;
+    private NPCList _npcList;
 
     // just for the reset at quit()
     public CourseData[] courseData;
-
-    [SerializeField] private Menu mainMenu;
+    
     [SerializeField] private Menu pauseMenu;
     [SerializeField] private Menu courseMenu;
     [SerializeField] private InstructionPanel instructionPanel;
     private Menu activeMenu;
-    
-    public void Awake()
+
+
+    public void Start()
     {
-        StartGame();
+        pauseMenu.Deactivate();
+        courseMenu.Deactivate();
+        activeMenu = null;
+        if (_npcList == null)
+            GetNPCList();            
         EventManager.StartListening("ShowInstructions", ActivateInstructionPanel);
     }
 
@@ -47,14 +52,6 @@ public class UIManager : MonoBehaviour
         }        
     }
 
-    public void StartGame()
-    {
-        //mainMenu.Activate();
-        // _player.Freeze();
-        courseMenu.Deactivate();
-        pauseMenu.Deactivate();
-    }
-
     public void ChangeMenu(Menu newMenu)
     {
         if(activeMenu != null)
@@ -62,7 +59,7 @@ public class UIManager : MonoBehaviour
             activeMenu.Deactivate();            
         }
         activeMenu = newMenu;
-        player.Freeze();
+        FreezeScene();
         newMenu.Activate();
     }
 
@@ -70,7 +67,7 @@ public class UIManager : MonoBehaviour
     {
         instructionPanel.Activate();
         instructionPanel.UpdatePanel(param);
-        player.Freeze();
+        FreezeScene();
         if(activeMenu != null)
         {
             activeMenu.Deactivate();
@@ -80,7 +77,7 @@ public class UIManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        player.Unfreeze();
+        UnfreezeScene();
         if(activeMenu != null)
         {
             activeMenu.Deactivate();
@@ -92,5 +89,27 @@ public class UIManager : MonoBehaviour
     {     
         Debug.Log("Quit");
         Application.Quit(0);
-    }  
+    }
+
+    private void FreezeScene()
+    {
+        if (_npcList == null)
+            GetNPCList();
+        _npcList.FreezeNPCs();
+        player.Freeze();
+    }
+
+    private void UnfreezeScene()
+    {
+        if (_npcList == null)
+            GetNPCList();
+        _npcList.ResumeNPCs();
+        player.Unfreeze();
+    }
+
+    private void GetNPCList()
+    {
+        _npcList = GameObject.FindGameObjectWithTag("NPCList").GetComponent<NPCList>();
+        if (_npcList == null) Debug.LogError("Couldn't find the npc list");
+    }
 }

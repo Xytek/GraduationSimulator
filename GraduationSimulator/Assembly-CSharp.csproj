@@ -100,6 +100,7 @@
     <Compile Include="Assets\Scripts\UI\CoursePanel.cs" />
     <Compile Include="Assets\Scripts\UI\InfoBox.cs" />
     <Compile Include="Assets\Scripts\UI\InstructionPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Menu.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SemesterTimer.cs" />

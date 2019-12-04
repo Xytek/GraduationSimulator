@@ -31,8 +31,8 @@ public class Player : MonoBehaviour
     public GameObject noEnergyScreen;
     public SemesterTimer timer;
 
-    private void Awake()
-    {
+    private void Awake ()
+    {        
         _energy = _startEnergy;
         creditText.text = _credits.ToString();
         EventManager.StartListening("Science2Unlocked", UnlockVial);
@@ -213,8 +213,12 @@ public class Player : MonoBehaviour
     {
         timer.Deactivate();
         _isFrozen = true;
-        _fpsCam.enabled = false;
-        Cursor.lockState = CursorLockMode.None;
+        if(_fpsCam == null)
+        {
+            _fpsCam = GetComponentInChildren<FPSCam>();
+        }
+        _fpsCam.enabled = false;        
+        Cursor.lockState = CursorLockMode.None;        
     }
 
     public void Unfreeze()
