@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6143431781123301259
 Transform:
@@ -93,7 +93,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3253210472241624054
 Transform:
@@ -380,7 +380,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8889302802155044185
 Transform:
@@ -583,6 +583,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk_Computer (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -638,6 +643,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &7259171292483712114 stripped
@@ -656,6 +691,10 @@ PrefabInstance:
     - target: {fileID: 197044, guid: 51ac919b99842fa44b93a730b1af6352, type: 3}
       propertyPath: m_Name
       value: SM_School_ComputerClass_Board01
+      objectReference: {fileID: 0}
+    - target: {fileID: 197044, guid: 51ac919b99842fa44b93a730b1af6352, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 473246, guid: 51ac919b99842fa44b93a730b1af6352, type: 3}
       propertyPath: m_LocalPosition.x
@@ -792,6 +831,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk_Computer (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -846,6 +890,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
@@ -947,6 +1021,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_School_Props_Chart01
       objectReference: {fileID: 0}
+    - target: {fileID: 113862, guid: 47548fc8b5aa2624fbb377c3dc753d76, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 445650, guid: 47548fc8b5aa2624fbb377c3dc753d76, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.654
@@ -1011,6 +1089,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk_Computer (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1066,6 +1149,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &7957213854961967202 stripped
@@ -1085,6 +1198,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk_Computer (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
@@ -1141,6 +1259,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &8517985644222995213 stripped
@@ -1160,6 +1308,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk_Computer (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
@@ -1216,6 +1369,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &8825538665622953266 stripped
@@ -1235,6 +1418,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk_Computer (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
@@ -1291,6 +1479,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &9023225286136151011 stripped
@@ -1309,6 +1527,10 @@ PrefabInstance:
     - target: {fileID: 113862, guid: 47548fc8b5aa2624fbb377c3dc753d76, type: 3}
       propertyPath: m_Name
       value: SM_School_Props_Chart01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 113862, guid: 47548fc8b5aa2624fbb377c3dc753d76, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 445650, guid: 47548fc8b5aa2624fbb377c3dc753d76, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1374,6 +1596,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk_Computer (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1429,6 +1656,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &4858845134137230767 stripped
@@ -1447,6 +1704,10 @@ PrefabInstance:
     - target: {fileID: 141082, guid: 024b25fa4b8d0aa4c887fcd5e2324142, type: 3}
       propertyPath: m_Name
       value: SM_School_Env_Wall_Split_Straight (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 141082, guid: 024b25fa4b8d0aa4c887fcd5e2324142, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 470180, guid: 024b25fa4b8d0aa4c887fcd5e2324142, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1512,6 +1773,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk_Computer (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1567,6 +1833,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &5080859771595137081 stripped
@@ -1585,6 +1881,10 @@ PrefabInstance:
     - target: {fileID: 131478, guid: dd571b414e5c400498e6b6d5668222db, type: 3}
       propertyPath: m_Name
       value: SM_School_Props_Chart02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 131478, guid: dd571b414e5c400498e6b6d5668222db, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 450084, guid: dd571b414e5c400498e6b6d5668222db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1727,6 +2027,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk_Computer (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1781,6 +2086,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
@@ -1959,6 +2294,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_School_Props_Chart02
       objectReference: {fileID: 0}
+    - target: {fileID: 131478, guid: dd571b414e5c400498e6b6d5668222db, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 450084, guid: dd571b414e5c400498e6b6d5668222db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.38
@@ -2023,6 +2362,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk_Computer (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2077,6 +2421,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
@@ -2175,6 +2549,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk_Computer (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2230,6 +2609,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &2411752391811518937 stripped
@@ -2249,6 +2658,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk_Computer (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
@@ -2304,6 +2718,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
@@ -5787,6 +6231,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk_Computer (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5842,6 +6291,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &2738854262341919218 stripped
@@ -5861,6 +6340,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk_Computer (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
@@ -5916,6 +6400,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
@@ -6008,6 +6522,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk_Computer (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6063,6 +6582,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &3589938594409037406 stripped
@@ -6082,6 +6631,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk_Computer (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
@@ -6138,6 +6692,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &3900252498020732727 stripped
@@ -6157,6 +6741,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk_Computer (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
@@ -6212,6 +6801,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
@@ -6381,6 +7000,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk_Computer (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6436,6 +7060,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &4428374036616985784 stripped
@@ -6451,11 +7105,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7998716670918934579}
     m_Modifications:
-    - target: {fileID: 3042375367060715989, guid: 4ece22d2c12beb44fb36ed1a280d4143,
-        type: 3}
-      propertyPath: m_Name
-      value: Lights
-      objectReference: {fileID: 0}
     - target: {fileID: 4908899974646132372, guid: 4ece22d2c12beb44fb36ed1a280d4143,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6516,6 +7165,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 3042375367060715989, guid: 4ece22d2c12beb44fb36ed1a280d4143,
+        type: 3}
+      propertyPath: m_Name
+      value: Lights
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ece22d2c12beb44fb36ed1a280d4143, type: 3}
 --- !u!4 &2759656767896970131 stripped
@@ -6535,6 +7189,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk_Computer (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
@@ -6591,6 +7250,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &507653258582061841 stripped
@@ -6610,6 +7299,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk_Computer (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
@@ -6666,6 +7360,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &692814606446206393 stripped
@@ -6685,6 +7409,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk_Computer (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
@@ -6741,6 +7470,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &821513979871936918 stripped
@@ -6760,6 +7519,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk_Computer (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
@@ -6816,6 +7580,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &939478391671617269 stripped
@@ -6835,6 +7629,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk_Computer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
@@ -6891,6 +7690,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &1034590590410230779 stripped
@@ -6910,6 +7739,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk_Computer (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
@@ -6965,6 +7799,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
@@ -7286,6 +8150,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk_Computer (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7341,6 +8210,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &1408861429525801458 stripped
@@ -7360,6 +8259,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk_Computer (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
@@ -7416,6 +8320,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &1528735471580428311 stripped
@@ -7435,6 +8369,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk_Computer (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
@@ -7491,6 +8430,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &1745929725807225969 stripped
@@ -7510,6 +8479,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk_Computer (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175456772048706475, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6919067691182840165, guid: fb2eaa28f84841c4e9921868684303f8,
         type: 3}
@@ -7566,6 +8540,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6738721046727398582, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802651228836239995, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526414450256138353, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1599487298742002008, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320182999703079, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667320183361315793, guid: fb2eaa28f84841c4e9921868684303f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2eaa28f84841c4e9921868684303f8, type: 3}
 --- !u!4 &1902650083140979455 stripped
@@ -7584,6 +8588,10 @@ PrefabInstance:
     - target: {fileID: 100412, guid: cabb11641cf693346983fb6e43c7ae84, type: 3}
       propertyPath: m_Name
       value: SM_School_ComputerClass_Board02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100412, guid: cabb11641cf693346983fb6e43c7ae84, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 434434, guid: cabb11641cf693346983fb6e43c7ae84, type: 3}
       propertyPath: m_LocalPosition.x
