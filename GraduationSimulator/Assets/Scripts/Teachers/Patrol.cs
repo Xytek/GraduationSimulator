@@ -39,9 +39,13 @@ public class Patrol : MonoBehaviour
     private void GoToNextCheckpoint()
     {
         // If no checkpoints have been added to the array it will exit the function
-        if (_checkpoints.Length == 0 || isPanicking())
+        if (_checkpoints.Length == 0)
         {
             Debug.LogError("No checkpoints");
+            return;
+        }
+        if (isPanicking())
+        {
             return;
         }
 
