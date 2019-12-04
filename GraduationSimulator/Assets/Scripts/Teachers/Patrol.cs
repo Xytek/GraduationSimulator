@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Patrol : MonoBehaviour
 {
-    [SerializeField] Transform[] _checkpoints = default;    // An array holding the checkpoints the teacher will go to
+    [SerializeField] List<Transform> _checkpoints = new List<Transform>();    // An array holding the checkpoints the teacher will go to
     private NavMeshAgent _agent;                            // Used for AI commands and initiated in Start()
     [SerializeField] private int _nextCheckpoint;                            // Holds the next checkpoint the teacher should go to
     private Animator _anim;
@@ -15,6 +15,11 @@ public class Patrol : MonoBehaviour
     private bool _caught;
     private void Awake()
     {
+        _checkpoints.Clear();   // Ensure checkpoints is empty before running
+        // Get the first sibling (Checkpoints) and add all its children to the _checkpoints list.
+        foreach (Transform child in transform.parent.GetChild(transform.GetSiblingIndex() + 1))
+            _checkpoints.Add(child.transform);
+
         _anim = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
 
@@ -39,7 +44,7 @@ public class Patrol : MonoBehaviour
     private void GoToNextCheckpoint()
     {
         // If no checkpoints have been added to the array it will exit the function
-        if (_checkpoints.Length == 0)
+        if (_checkpoints.Count == 0)
         {
             Debug.LogError("No checkpoints");
             return;
@@ -55,7 +60,7 @@ public class Patrol : MonoBehaviour
         _agent.destination = _checkpoints[_nextCheckpoint].position;
 
         // After the last checkpoint in the array comes the first one, so make sure they're close together.
-        _nextCheckpoint = (_nextCheckpoint + 1) % _checkpoints.Length;
+        _nextCheckpoint = (_nextCheckpoint + 1) % _checkpoints.Count;
     }
 
     public void ChaseTarget(List<Transform> visibleTargets)
