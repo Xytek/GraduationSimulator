@@ -6,48 +6,43 @@ public class Interactable : MonoBehaviour, ILookAtHandler
 {
     public bool locked;
     public GameObject creditPrefab;
-    protected bool _used;
-    protected int _useTime;
-    protected int _creditAmount;
-    protected float _radius;
-    protected Shader _standardShader;
-    protected Shader _outlineShader;
-    protected Renderer _renderer;
+
+    [SerializeField] protected int _useTime;
+    [SerializeField] protected int _creditAmount;
+    [SerializeField] protected float _radius;
+
+    [SerializeField] protected Shader _standardShader;
+    [SerializeField] protected Shader _outlineShader;    
+    [SerializeField] protected Renderer _renderer;
 
     public void Start()
-    {
-        _renderer = GetComponent<Renderer>();
-        _standardShader = Shader.Find("Standard");
-        _outlineShader = Shader.Find("Custom/Outline");
+    {        
+        if (_standardShader == null)
+        {
+            Debug.LogError("The standard shader hasn't been defined");
+        }
+        if (_outlineShader == null)
+        {
+            Debug.LogError("The standard shader hasn't been defined");
+        }
     }
 
     public void OnLookatEnter()
     {
-        if (!_used)
-        {
-            _renderer.material.shader = _outlineShader;
-        }
+        _renderer.material.shader = _outlineShader;
     }
 
     public void OnLookatExit()
     {
-        if (!_used)
-        {
-            _renderer.material.shader = _standardShader;
-        }
+        _renderer.material.shader = _standardShader;
     }
 
     public void OnLookatInteraction(Vector3 lookAtPosition, Vector3 lookAtDirection)
     {
-        // spawn credits in a circle around the laptop if it isn't locked or already used
-        if (!locked && !_used)
+        // spawn credits in a circle around the laptop if it isn't locked
+        if (!locked)
         {
             StartCoroutine(SpawnCoins());
-
-        }
-        else if (_used)
-        {
-            return;
         }
         else
         {
@@ -56,7 +51,6 @@ public class Interactable : MonoBehaviour, ILookAtHandler
             EventManager.TriggerEvent("LockedElement", eventParams);
         }
     }
-
 
     public void Unlock(EventParams param)
     {
@@ -70,6 +64,9 @@ public class Interactable : MonoBehaviour, ILookAtHandler
 
     IEnumerator SpawnCoins()
     {
+        // change outlien color to make sure the user gets that it's used
+        // start animation
+
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(_useTime);
 
@@ -85,11 +82,11 @@ public class Interactable : MonoBehaviour, ILookAtHandler
 
             // set the rotation of the credit (facing the laptop)                
             Quaternion rot = Quaternion.Euler(0, Random.Range(0, 360), 0);
+            
             // create the credit
             Instantiate(creditPrefab, pos, rot);
         }
-        _used = true;
-        _renderer.material.shader = _standardShader;
+        Destroy(this.gameObject);
     }
 
 }

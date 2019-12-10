@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4014085265803442883}
   - component: {fileID: 150251908866009209}
   m_Layer: 0
-  m_Name: SM_School_ComputerClass_Laptop01
+  m_Name: Laptop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locked: 1
-  creditPrefab: {fileID: 0}
+  creditPrefab: {fileID: -927199367670048503, guid: ca2bb536ed4cf0a44ac8738cf69d97db,
+    type: 3}
+  _useTime: 10
+  _creditAmount: 5
+  _radius: 1
+  _standardShader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  _outlineShader: {fileID: 4800000, guid: c9ae121aa99944f4e9413f1ce4912d93, type: 3}
+  _renderer: {fileID: 2388202}
 --- !u!65 &150251908866009209
 BoxCollider:
   m_ObjectHideFlags: 0

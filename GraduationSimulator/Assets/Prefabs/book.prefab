@@ -95,6 +95,12 @@ MonoBehaviour:
   locked: 1
   creditPrefab: {fileID: 4247729158750636677, guid: e34ba3ccf4e216547943eb447ac5f623,
     type: 3}
+  _useTime: 5
+  _creditAmount: 5
+  _radius: 1
+  _standardShader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  _outlineShader: {fileID: 4800000, guid: c9ae121aa99944f4e9413f1ce4912d93, type: 3}
+  _renderer: {fileID: 8324607200877600447}
 --- !u!65 &8923356891570960132
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -5,18 +5,17 @@ using System;
 
 public class Door : MonoBehaviour
 {    
-    private bool _fromOutside;
-    private bool _fromInside;
-
-    [SerializeField] protected bool _locked;
-    [SerializeField] protected Animator _animator;
+    protected bool _fromOutside;
+    protected bool _fromInside;
+    
+    [SerializeField] protected Animator _animator;    
 
     public Door()
     {
         _fromOutside = false;
         _fromInside = false;
     }
-
+   
     public bool FromOutside
     {   
         get { return _fromOutside; }
@@ -29,26 +28,13 @@ public class Door : MonoBehaviour
         set { _fromInside = value; }
     }
 
-    public void OpenDoor(string animatorBool)
-    {
-        if (!_locked)
-        {
-            _animator.SetBool(animatorBool, true);
-        }
-        else
-        {
-            // Fire LockedDoorTriggered
-            EventParams eventParams = new EventParams();
-            eventParams.text = "You don't have permission to enter this room.";
-            EventManager.TriggerEvent("LockedElement", eventParams);
-        }
+    public virtual void OpenDoor(string animatorBool)
+    {        
+            _animator.SetBool(animatorBool, true);              
     }
 
-    public void CloseDoor(string animatorBool)
-    {
-        if (!_locked)
-        {
-            _animator.SetBool(animatorBool, false);
-        }
+    public virtual void CloseDoor(string animatorBool)
+    {       
+            _animator.SetBool(animatorBool, false);     
     }
 }
