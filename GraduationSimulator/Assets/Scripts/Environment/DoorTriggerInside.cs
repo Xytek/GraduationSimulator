@@ -5,6 +5,8 @@ using UnityEngine;
 public class DoorTriggerOutside : MonoBehaviour
 {
     public Door door;
+
+    // opens door if the player is not already inside the room
     private void OnTriggerEnter(Collider other)
     {
         if (!door.FromOutside)
@@ -13,7 +15,7 @@ public class DoorTriggerOutside : MonoBehaviour
         }
     }
 
-    // Triggers Event on collision
+    // closes door if the player is not already inside the room
     private void OnTriggerExit(Collider other)
     {
         if (!door.FromOutside)

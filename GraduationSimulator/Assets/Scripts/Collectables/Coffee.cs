@@ -4,38 +4,29 @@ using UnityEngine;
 
 public class Coffee : Collectable, ILookAtHandler
 {
-    private bool _used;
-    private int _coffeeStrength = 10;
-    protected Shader _standardShader;
-    protected Shader _outlineShader;
-    protected Renderer _renderer;
+    [SerializeField] private int _coffeeStrength;
+    [SerializeField] private Shader _standardShader;
+    [SerializeField] private Shader _outlineShader;
 
     public new void Start()
     {
         base.Start();
-        _used = false;
-        _standardShader = Shader.Find("Standard");
-        _outlineShader = Shader.Find("Custom/Outline");
     }
 
     public void OnLookatEnter()
     {
-        if (!_used)
-            foreach (Transform child in transform)
-                child.gameObject.GetComponent<Renderer>().material.shader = _outlineShader;
+        foreach (Transform child in transform)
+            child.gameObject.GetComponent<Renderer>().material.shader = _outlineShader;
     }
 
     public void OnLookatExit()
     {
-        if (!_used)
-            foreach (Transform child in transform)
-                child.gameObject.GetComponent<Renderer>().material.shader = _standardShader;
+        foreach (Transform child in transform)
+            child.gameObject.GetComponent<Renderer>().material.shader = _standardShader;
     }
 
     public void OnLookatInteraction(Vector3 lookAtPosition, Vector3 lookAtDirection)
     {
-        // delete all parts of the coffee-mug
-        _used = true;
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
@@ -43,10 +34,5 @@ public class Coffee : Collectable, ILookAtHandler
         Destroy(this.gameObject);
         _player.ResetLastLookAtObject();
         _playerStats.UpdateEnergy(_coffeeStrength);
-    }
-
-    public void ChangeCoffeeStrength(int strength)
-    {
-        _coffeeStrength = strength;
     }
 }

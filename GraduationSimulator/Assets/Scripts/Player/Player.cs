@@ -106,7 +106,9 @@ public class Player : MonoBehaviour
 
         // end the level if energy is too low
         if (_playerStats.Energy <= 0)
-            noEnergyScreen.SetActive(true);
+        {
+            // respawn in cafeteria
+        }
     }
     private void StartListening()
     {
