@@ -17,15 +17,21 @@ public class Panic : StateMachineBehaviour
 
         // Make the teacher stop and face the target until we exit the state
         StopAndFaceTarget();
+
+        animator.SetTrigger("pickUp");
+        animator.SetBool("isChasing", false);
+
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // Turn off the fire and have the agent pick it up
-        TriggeredVial vialScript = _target.GetComponent<TriggeredVial>();
-        vialScript.TurnOffFire();
-        animator.SetTrigger("pickUp");
+        if (_target != null)
+        {
+            TriggeredVial vialScript = _target.GetComponent<TriggeredVial>();
+            vialScript.TurnOffFire();
+        }
     }
 
     private void InitializeVariables(Animator animator)
@@ -43,8 +49,11 @@ public class Panic : StateMachineBehaviour
     private void StopAndFaceTarget()
     {
         _agent.isStopped = true;
-        Vector3 lookPos = _target.position - _npc.position;
-        lookPos.y = 0;
-        _npc.rotation = Quaternion.Slerp(_npc.rotation, Quaternion.LookRotation(lookPos), 1f);
+        if (_target != null)
+        {
+            Vector3 lookPos = _target.position - _npc.position;
+            lookPos.y = 0;
+            _npc.rotation = Quaternion.Slerp(_npc.rotation, Quaternion.LookRotation(lookPos), 1f);
+        }
     }
 }

@@ -87,15 +87,19 @@ public class Teacher : MonoBehaviour
     }
 
     #region Freeze and resume
+    float prevSpeed;
     public void Freeze()
     {
         Pause = true;
         _agent.isStopped = true;
+        prevSpeed = _anim.speed;
+        _anim.speed = 0;
     }
     public void Resume()
     {
         Pause = false;
         _agent.isStopped = false;
+        _anim.speed = prevSpeed;
     }
     #endregion
 }

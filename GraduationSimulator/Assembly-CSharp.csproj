@@ -62,13 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Chase.cs" />
-    <Compile Include="Assets\Daze.cs" />
-    <Compile Include="Assets\GiveDetention.cs" />
-    <Compile Include="Assets\Idle.cs" />
-    <Compile Include="Assets\Panic.cs" />
-    <Compile Include="Assets\Patrol.cs" />
-    <Compile Include="Assets\PickUp.cs" />
     <Compile Include="Assets\ScriptableObjects\CourseData\CourseData.cs" />
     <Compile Include="Assets\Scripts\Collectables\Book.cs" />
     <Compile Include="Assets\Scripts\Collectables\Coffee.cs" />
@@ -99,6 +92,13 @@
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Player\UpgradePlayer.cs" />
+    <Compile Include="Assets\Scripts\Teachers\Behaviours\Chase.cs" />
+    <Compile Include="Assets\Scripts\Teachers\Behaviours\Daze.cs" />
+    <Compile Include="Assets\Scripts\Teachers\Behaviours\GiveDetention.cs" />
+    <Compile Include="Assets\Scripts\Teachers\Behaviours\Idle.cs" />
+    <Compile Include="Assets\Scripts\Teachers\Behaviours\Panic.cs" />
+    <Compile Include="Assets\Scripts\Teachers\Behaviours\Patrol.cs" />
+    <Compile Include="Assets\Scripts\Teachers\Behaviours\PickUp.cs" />
     <Compile Include="Assets\Scripts\Teachers\FieldOfView.cs" />
     <Compile Include="Assets\Scripts\Teachers\NPCList.cs" />
     <Compile Include="Assets\Scripts\Teachers\Teacher.cs" />

@@ -16,7 +16,8 @@ public class PickUp : StateMachineBehaviour
         InitializeVariables(animator);
 
         // Make the teacher stop and face the target until we exit the state
-        StopAndFaceTarget();        
+        StopAndFaceTarget();
+        animator.ResetTrigger("panic");
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

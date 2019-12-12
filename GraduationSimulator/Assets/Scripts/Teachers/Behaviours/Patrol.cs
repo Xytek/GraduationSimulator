@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class Patrol : StateMachineBehaviour
 {
-    List<Transform> _checkpoints = new List<Transform>();    // An array holding the checkpoints the teacher will go to
-    private int _nextCheckpoint;                            // Holds the next checkpoint the teacher should go to
+    [SerializeField] List<Transform> _checkpoints = new List<Transform>();    // An array holding the checkpoints the teacher will go to
+   [SerializeField] private int _nextCheckpoint;                            // Holds the next checkpoint the teacher should go to
     private Transform _npc;
     private NavMeshAgent _agent;
     private Teacher _teacher;
