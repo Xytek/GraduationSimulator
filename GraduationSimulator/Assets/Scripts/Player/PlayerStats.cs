@@ -6,10 +6,10 @@ public class PlayerStats : MonoBehaviour
 {
     [SerializeField] private Image _energyBar = default;
     [SerializeField] private Text _creditText = default;
-    public float Speed { get; set; } = 5;     // Player movement speed
+    public float Speed { get; set; } = 5f;     // Player movement speed
     public int Credits { get; private set; } = 100;
     public float Energy { get; private set; }
-    private float _startEnergy = 100;
+    private float _startEnergy = 100f;
 
     private void Awake()
     {
