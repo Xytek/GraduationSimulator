@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public static class CourseFactory
-{        
+﻿public static class CourseFactory
+{
     public static Course GetCourse(CourseTypes courseName)
     {
         switch (courseName)

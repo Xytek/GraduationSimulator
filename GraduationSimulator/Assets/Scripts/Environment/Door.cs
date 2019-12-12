@@ -1,23 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using UnityEngine;
 
 public class Door : MonoBehaviour
-{    
+{
     protected bool _fromOutside;
     protected bool _fromInside;
-    
-    [SerializeField] protected Animator _animator;    
+
+    [SerializeField] protected Animator _animator;
 
     public Door()
     {
         _fromOutside = false;
         _fromInside = false;
     }
-   
+
     public bool FromOutside
-    {   
+    {
         get { return _fromOutside; }
         set { _fromOutside = value; }
     }
@@ -29,12 +26,12 @@ public class Door : MonoBehaviour
     }
 
     public virtual void OpenDoor(string animatorBool)
-    {        
-            _animator.SetBool(animatorBool, true);              
+    {
+        _animator.SetBool(animatorBool, true);
     }
 
     public virtual void CloseDoor(string animatorBool)
-    {       
-            _animator.SetBool(animatorBool, false);     
+    {
+        _animator.SetBool(animatorBool, false);
     }
 }

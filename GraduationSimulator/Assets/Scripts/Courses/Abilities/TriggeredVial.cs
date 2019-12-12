@@ -1,13 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TriggeredVial : MonoBehaviour
 {
-    [SerializeField] private GameObject _fire = default;
-    [SerializeField] private GameObject _explosion = default;
-    [SerializeField] private float _detonationTime = 3f;
-    private bool _detonated = false;
+    [SerializeField] private GameObject _fire = default;        // Fire effect
+    [SerializeField] private GameObject _explosion = default;   // Explosion effect
+    [SerializeField] private float _detonationTime = 3f;        // Time from placed to explosion occurs
+    private bool _detonated = false;                            // Has the vial detonated yet?
     public IEnumerator Start()
     {
         // These two are just to make sure they're not initially enabled
@@ -30,11 +29,7 @@ public class TriggeredVial : MonoBehaviour
         _explosion.SetActive(false);
     }
 
-    public void DestroyVial()
-    {
-        Destroy(this.gameObject);          // So the teachers have a way to put it out
-    }
-
+    // Once it detonates nearby teachers can hear it, and not just see it
     public bool HasDetonated()
     {
         return _detonated;

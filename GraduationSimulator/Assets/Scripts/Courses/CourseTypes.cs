@@ -4,5 +4,5 @@
     Science,
     Psychology,
     Research,
-    Sports    
+    Sports
 }

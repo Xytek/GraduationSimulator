@@ -30,30 +30,25 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
-    // Public because used by editor
-    public float viewRadius;
-    [Range(0, 360)] public float viewAngle;
-    public List<Transform> visibleTargets = new List<Transform>();
+    public List<Transform> visibleTargets = new List<Transform>();  // List of all targets in sight
+    [Range(0, 360)] public float viewAngle;                         // The size/width of the NPCs vision
+    public float viewRadius;                                        // How far the NPC can see
 
-    [SerializeField] private float _viewDelay = 1;              // How long the player must be in view to be seen
+    [SerializeField] private float _viewDelay = 1f;                 // How long the player must be in view to be seen
+    [SerializeField] private LayerMask _targetMask = default;       // A layer of the things the object can react to
+    [SerializeField] private LayerMask _obstacleMask = default;     // A layer of things blocking the vision
 
-    [SerializeField] private LayerMask _targetMask = default;         // A layer of the things the object can react to
-    [SerializeField] private LayerMask _obstacleMask = default;       // A layer of things blocking the vision
-
-    [SerializeField] private MeshFilter _viewMeshFilter = default;    // Holds a mesh we'll create later on
-    private float _meshResolution = 1f;                     // Higher = more triangles for the mesh
-    private int _edgeResolveIterations = 1;                 // The accuracy when finding edges
+    [SerializeField] private MeshFilter _viewMeshFilter = default;  // Holds a mesh we'll create later on
+    private Mesh _fowMesh;                                          // The mesh we're creating for the field of view
+    private Teacher _teacher;                                       // The teacher the FOW belongs to
+    private int _edgeResolveIterations = 1;                         // The accuracy when finding edges
+    private float _meshResolution = 1f;                             // Higher = more triangles for the mesh
     private float _edgeDistTreshold = 0.5f;  // The distance between two points when looking for an edge. Ensures they're both on the same object, as opposed to one in the background
-    private Mesh _fowMesh;                                  // The mesh we're creating for the field of view
-    private Teacher _teacher;
-    private Rigidbody _r;
-
-
 
     private void Awake()
     {
         _teacher = GetComponent<Teacher>();
-        //if (_patrol == null) Debug.LogError("Couldn't find patrol");
+
         _fowMesh = new Mesh(); // Continuously updated in LateUpdate
         _viewMeshFilter.mesh = _fowMesh;
         StartCoroutine(FindTargetsWithDelay());
@@ -61,11 +56,12 @@ public class FieldOfView : MonoBehaviour
 
     private void LateUpdate()
     {
-        DrawFieldOfView();
+        DrawFieldOfView();      // Draws the field of view that the player can see
     }
 
     private IEnumerator FindTargetsWithDelay()
     {
+        // Continuously scans for targets every _viewDelay seconds
         while (true)
         {
             yield return new WaitForSeconds(_viewDelay);
@@ -73,15 +69,21 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
-    private void FindTargets() // Will do more with this one later to decide various behaviours
+    private void FindTargets()
     {
-        visibleTargets.Clear();       // Reset the list of targets for every check 
-        // All targets within a sphere around the object
+        // There was a bug with the initial iteration where teacher would be null, so this eliminates that issue
+        if (_teacher == null)
+            return;
+
+        // Reset the list of targets for every check
+        visibleTargets.Clear();
+
+        // Find all targets within a sphere around the object
         Collider[] targetsInRadius = Physics.OverlapSphere(transform.position, viewRadius, _targetMask);
 
-        if (targetsInRadius.Length == 0 && _teacher != null && _teacher.target != null)
+        // Reset teacher targets if there are no targets nearby, but used to be 
+        if (targetsInRadius.Length == 0 && _teacher.target)
             _teacher.SetTarget();
-
 
         // For every target in the sphere (used as ears)
         for (int i = 0; i < targetsInRadius.Length; i++)
@@ -94,47 +96,20 @@ public class FieldOfView : MonoBehaviour
                 _teacher.SetTarget(target);
                 return;
             }
+
             // Check if the target is within the field of view
             if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
                 // Check that there are no obstacles between them
                 if (!Physics.Raycast(transform.position, dirToTarget, Vector3.Distance(transform.position, target.position), _obstacleMask))
                 {
                     visibleTargets.Add(target);
-                    if (_teacher)       // Some weird bug was that even when I assigned patrol it wouldn't accept it until it had failed once. And somehow it works even if I never assign it. Some sorcery going on
-                        _teacher.SetTarget(visibleTargets);
+                    _teacher.SetTarget(visibleTargets);
                 }
         }
     }
-
-    private EdgeInfo FindEdge(ViewCastInfo minViewcast, ViewCastInfo maxViewCast)
-    {
-        float minAngle = minViewcast.angle;
-        float maxAngle = maxViewCast.angle;
-        Vector3 minPoint = Vector3.zero;
-        Vector3 maxPoint = Vector3.zero;
-
-        for (int i = 0; i < _edgeResolveIterations; i++)
-        {
-            float angle = (minAngle + maxAngle) / 2;
-            ViewCastInfo newViewCast = ViewCast(angle);
-
-            bool edgeDistTresholdExceeded = Mathf.Abs(minViewcast.distance - newViewCast.distance) > _edgeDistTreshold;
-
-            if (newViewCast.hit == minViewcast.hit && !edgeDistTresholdExceeded)
-            {
-                minAngle = angle;
-                minPoint = newViewCast.point;
-            }
-            else
-            {
-                maxAngle = angle;
-                maxPoint = newViewCast.point;
-            }
-
-        }
-        return new EdgeInfo(minPoint, maxPoint);
-    }
-
+    #region Draw field of view
+    // Credit goes to Sebastian Lague and his fantastic youtube series starting here: https://www.youtube.com/watch?v=rQG9aUWarwE
+    // The code below came from watching his full series on the topic and using code from his example
     private void DrawFieldOfView()
     {
         int stepCount = Mathf.RoundToInt(viewAngle * _meshResolution);
@@ -185,6 +160,34 @@ public class FieldOfView : MonoBehaviour
         _fowMesh.RecalculateNormals();
     }
 
+    private EdgeInfo FindEdge(ViewCastInfo minViewcast, ViewCastInfo maxViewCast)
+    {
+        float minAngle = minViewcast.angle;
+        float maxAngle = maxViewCast.angle;
+        Vector3 minPoint = Vector3.zero;
+        Vector3 maxPoint = Vector3.zero;
+
+        for (int i = 0; i < _edgeResolveIterations; i++)
+        {
+            float angle = (minAngle + maxAngle) / 2;
+            ViewCastInfo newViewCast = ViewCast(angle);
+
+            bool edgeDistTresholdExceeded = Mathf.Abs(minViewcast.distance - newViewCast.distance) > _edgeDistTreshold;
+
+            if (newViewCast.hit == minViewcast.hit && !edgeDistTresholdExceeded)
+            {
+                minAngle = angle;
+                minPoint = newViewCast.point;
+            }
+            else
+            {
+                maxAngle = angle;
+                maxPoint = newViewCast.point;
+            }
+
+        }
+        return new EdgeInfo(minPoint, maxPoint);
+    }
 
     private ViewCastInfo ViewCast(float globalAngle)
     {
@@ -203,4 +206,5 @@ public class FieldOfView : MonoBehaviour
 
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
+    #endregion
 }

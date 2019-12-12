@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using System;
 
 [Serializable]
 public abstract class Course
@@ -18,7 +15,7 @@ public abstract class Course
 
     public int UpgradeLevel
     {
-        get { return _upgradeLevel; }        
+        get { return _upgradeLevel; }
         set { _upgradeLevel = value; }
     }
 

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 using UnityEngine;
 
 public class CoolDownScript : MonoBehaviour
@@ -16,10 +14,11 @@ public class CoolDownScript : MonoBehaviour
         coolDownImage.fillAmount = 0;
         EventManager.StartListening("AbilityUsed", StartCoolDown);
         if (type == CourseTypes.Science)
-        {            
+        {
             EventManager.StartListening("Science2Unlocked", Display);
             EventManager.StartListening("Science3Unlocked", ChangeCoolDownTime);
-        } else if(type == CourseTypes.Psychology)
+        }
+        else if (type == CourseTypes.Psychology)
         {
             EventManager.StartListening("Psychology1Unlocked", Display);
             EventManager.StartListening("Psychology2Unlocked", ChangeCoolDownTime);
@@ -29,12 +28,10 @@ public class CoolDownScript : MonoBehaviour
     public void Update()
     {
         if (_isCoolingDown)
-        {
-            coolDownImage.fillAmount -= 1 / _coolDownTime * Time.deltaTime;            
-        }
+            coolDownImage.fillAmount -= 1 / _coolDownTime * Time.deltaTime;
 
         // stop coolDown and trigger event that it is over
-        if(_isCoolingDown && coolDownImage.fillAmount == 0)
+        if (_isCoolingDown && coolDownImage.fillAmount == 0)
         {
             _isCoolingDown = false;
             EventParams param = new EventParams();
@@ -51,11 +48,11 @@ public class CoolDownScript : MonoBehaviour
         }
     }
     public void Display(EventParams param)
-    {        
+    {
         this.gameObject.SetActive(true);
     }
 
-    public void ChangeCoolDownTime (EventParams param)
+    public void ChangeCoolDownTime(EventParams param)
     {
         _coolDownTime = param.intNr;
     }

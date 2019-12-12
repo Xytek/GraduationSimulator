@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ResearchCourse : Course
+﻿public class ResearchCourse : Course
 {
     public override void Upgrade()
     {

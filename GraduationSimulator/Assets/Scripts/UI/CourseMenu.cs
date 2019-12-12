@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class CourseMenu : Menu
+﻿public class CourseMenu : Menu
 {
     public CoursePanel[] coursePanels;
 
@@ -10,8 +6,6 @@ public class CourseMenu : Menu
     public void UpdateCoursePanels()
     {
         foreach (CoursePanel panel in coursePanels)
-        {
             panel.UpdatePanel();
-        }
     }
 }

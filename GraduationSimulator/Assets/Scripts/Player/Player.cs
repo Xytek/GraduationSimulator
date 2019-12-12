@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -11,8 +8,8 @@ public class Player : MonoBehaviour
     private RaycastHit rayCastHit;                      // 
 
     private float _energyFactor = 1f;                   // The speed of which our energy drains
-    private float _interactDistance = 1f;               // Distance from player to what he can interact with/place
-    private bool _isFrozen;                             // For pausing
+    private float _interactDistance = 3f;               // Distance from player to what he can interact with/place
+    private bool _isFrozen;                             // For pausing, either in menus or when caught
 
     [Header("Abilities")]
     [SerializeField] private ThrowAbility throwVialAbility;    // Scriptable object holding information about the apple ability

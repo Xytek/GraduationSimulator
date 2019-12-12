@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,10 +16,8 @@ public class Patrol : StateMachineBehaviour
         InitializeVariables(animator);
 
         _agent.speed = _teacher.PatrolSpeed;
-
         _timeElapsed = Time.time;
     }
-
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -39,7 +36,6 @@ public class Patrol : StateMachineBehaviour
         _teacher.previousState = "isPatrolling";
     }
 
-    #region Other functions
     private void GoToNextCheckpoint()
     {
         // Set the agent destination to the next checkpoint in the array
@@ -58,13 +54,10 @@ public class Patrol : StateMachineBehaviour
             if (_agent == null) Debug.LogError("No agent found");
             if (_teacher == null) Debug.LogError("No teacher found");
 
-            _checkpoints.Clear();   // Ensure checkpoints is empty before running
+            _checkpoints.Clear();   // Ensure checkpoints are empty before running
             // Get the first sibling (Checkpoints) and add all its children to the _checkpoints list.
             foreach (Transform child in _npc.parent.GetChild(_npc.GetSiblingIndex() + 1))
                 _checkpoints.Add(child.transform);
         }
     }
-    #endregion
-
-
 }

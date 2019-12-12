@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class UpgradeSelectButton : MonoBehaviour
@@ -19,26 +17,23 @@ public class UpgradeSelectButton : MonoBehaviour
     public void LvlUnselected()
     {
         if (_achieved)
-        {
             _image.color = Color.white;
-        } else
+        else
         {
             _image.color = Color.white;
             this.GetComponent<Image>().sprite = inactiveSprite;
-        }        
+        }
     }
 
     public void LvlSelected()
     {
         if (_achieved)
-        {
             _image.color = Color.gray;
-        }
         else
         {
             _image.color = Color.white;
             this.GetComponent<Image>().sprite = selectedSprite;
-        }        
+        }
     }
 
     public void LvlAchieved()

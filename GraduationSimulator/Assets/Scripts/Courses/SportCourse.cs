@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class SportCourse : Course
+﻿public class SportCourse : Course
 {
     public override void Upgrade()
     {
@@ -15,7 +11,7 @@ public class SportCourse : Course
                 param.floatNr = 0.5f;
                 EventManager.TriggerEvent("Sport1Unlocked", param);
                 break;
-            case 2:             
+            case 2:
                 // speed
                 param.floatNr = 10f;
                 EventManager.TriggerEvent("Sport2Unlocked", param);

@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
 public class Credit : Collectable
 {
     private void OnTriggerEnter(Collider other)

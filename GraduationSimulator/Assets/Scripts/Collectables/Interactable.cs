@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour, ILookAtHandler
@@ -12,20 +11,8 @@ public class Interactable : MonoBehaviour, ILookAtHandler
     [SerializeField] protected float _radius;
 
     [SerializeField] protected Shader _standardShader;
-    [SerializeField] protected Shader _outlineShader;    
+    [SerializeField] protected Shader _outlineShader;
     [SerializeField] protected Renderer _renderer;
-
-    public void Start()
-    {        
-        if (_standardShader == null)
-        {
-            Debug.LogError("The standard shader hasn't been defined");
-        }
-        if (_outlineShader == null)
-        {
-            Debug.LogError("The standard shader hasn't been defined");
-        }
-    }
 
     public void OnLookatEnter()
     {
@@ -41,9 +28,7 @@ public class Interactable : MonoBehaviour, ILookAtHandler
     {
         // spawn credits in a circle around the laptop if it isn't locked
         if (!locked)
-        {
             StartCoroutine(SpawnCoins());
-        }
         else
         {
             EventParams eventParams = new EventParams();
@@ -82,11 +67,10 @@ public class Interactable : MonoBehaviour, ILookAtHandler
 
             // set the rotation of the credit (facing the laptop)                
             Quaternion rot = Quaternion.Euler(0, Random.Range(0, 360), 0);
-            
+
             // create the credit
             Instantiate(creditPrefab, pos, rot);
         }
         Destroy(this.gameObject);
     }
-
 }

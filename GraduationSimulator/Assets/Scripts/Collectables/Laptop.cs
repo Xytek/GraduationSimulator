@@ -1,11 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Laptop : Interactable
-{        
+﻿public class Laptop : Interactable
+{
     void Awake()
-    {                
+    {
         EventManager.StartListening("Hacking2Unlocked", Unlock);
         EventManager.StartListening("Hacking3Unlocked", ChangeTime);
     }

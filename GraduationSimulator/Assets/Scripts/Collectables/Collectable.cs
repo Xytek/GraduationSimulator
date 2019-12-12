@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
@@ -9,8 +7,8 @@ public class Collectable : MonoBehaviour
     public void Start()
     {
         _player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        if (_player == null) Debug.LogError("No player found");
         _playerStats = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
+        if (_player == null) Debug.LogError("No player found");
         if (_playerStats == null) Debug.LogError("No player stats found");
     }
 }

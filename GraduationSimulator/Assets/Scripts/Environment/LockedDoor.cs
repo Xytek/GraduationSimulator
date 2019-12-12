@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using UnityEngine;
 
 public class LockedDoor : Door
 {
@@ -35,11 +32,9 @@ public class LockedDoor : Door
     {
         // open if unlocked, else trigger locked-event
         if (!_locked)
-        {
             base.OpenDoor(animatorBool);
-        }
         else
-        {            
+        {
             EventParams eventParams = new EventParams();
             eventParams.text = "You don't have permission to enter this room.";
             EventManager.TriggerEvent("LockedElement", eventParams);
@@ -49,8 +44,6 @@ public class LockedDoor : Door
     public override void CloseDoor(string animatorBool)
     {
         if (!_locked)
-        {
             base.CloseDoor(animatorBool);
-        }
     }
 }

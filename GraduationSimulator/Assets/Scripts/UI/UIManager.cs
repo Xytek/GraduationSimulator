@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,7 +7,7 @@ public class UIManager : MonoBehaviour
 
     // just for the reset at quit()
     public CourseData[] courseData;
-    
+
     [SerializeField] private Menu _pauseMenu = default;
     [SerializeField] private Menu _courseMenu = default;
     [SerializeField] private InstructionPanel _instructionPanel = default;
@@ -21,7 +19,7 @@ public class UIManager : MonoBehaviour
         _courseMenu.Deactivate();
         _activeMenu = null;
         if (_npcList == null)
-            GetNPCList();            
+            GetNPCList();
         EventManager.StartListening("ShowInstructions", ActivateInstructionPanel);
     }
 
@@ -30,33 +28,27 @@ public class UIManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (_courseMenu.CheckIfActive())
-            {
                 ResumeGame();
-            }
             else
             {
                 ((CourseMenu)_courseMenu).UpdateCoursePanels();
-                ChangeMenu(_courseMenu);                
+                ChangeMenu(_courseMenu);
             }
-        } else if (Input.GetKeyDown(KeyCode.Escape))
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (_pauseMenu.CheckIfActive())
-            {
                 ResumeGame();
-            }
             else
-            {
                 ChangeMenu(_pauseMenu);
-            }
-        }        
+        }
     }
 
     public void ChangeMenu(Menu newMenu)
     {
-        if(_activeMenu != null)
-        {
-            _activeMenu.Deactivate();            
-        }
+        if (_activeMenu != null)
+            _activeMenu.Deactivate();
+
         _activeMenu = newMenu;
         FreezeScene();
         newMenu.Activate();
@@ -67,25 +59,23 @@ public class UIManager : MonoBehaviour
         _instructionPanel.Activate();
         _instructionPanel.UpdatePanel(param);
         FreezeScene();
-        if(_activeMenu != null)
-        {
+        if (_activeMenu != null)
             _activeMenu.Deactivate();
-        }        
-        _activeMenu = (Menu) _instructionPanel;
+
+        _activeMenu = (Menu)_instructionPanel;
     }
 
     public void ResumeGame()
     {
         UnfreezeScene();
-        if(_activeMenu != null)
-        {
+        if (_activeMenu != null)
             _activeMenu.Deactivate();
-        }        
+
         _activeMenu = null;
     }
 
     public void Quit()
-    {     
+    {
         Debug.Log("Quit");
         Application.Quit(0);
     }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Coffee : Collectable, ILookAtHandler
 {
@@ -28,9 +26,8 @@ public class Coffee : Collectable, ILookAtHandler
     public void OnLookatInteraction(Vector3 lookAtPosition, Vector3 lookAtDirection)
     {
         foreach (Transform child in transform)
-        {
             Destroy(child.gameObject);
-        }
+
         Destroy(this.gameObject);
         _player.ResetLastLookAtObject();
         _playerStats.UpdateEnergy(_coffeeStrength);

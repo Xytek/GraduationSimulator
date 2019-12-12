@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Book : Interactable
-{      
+﻿public class Book : Interactable
+{
     void Awake()
     {
         EventManager.StartListening("Research2Unlocked", Unlock);

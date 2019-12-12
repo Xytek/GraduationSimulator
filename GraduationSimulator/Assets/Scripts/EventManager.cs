@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class EventManager : MonoBehaviour
 {
@@ -19,13 +17,9 @@ public class EventManager : MonoBehaviour
                 _eventManager = FindObjectOfType(typeof(EventManager)) as EventManager;
 
                 if (!_eventManager)
-                {
                     Debug.LogError("There needs to be one active EventManger script on a GameObject in your scene.");
-                }
                 else
-                {
                     _eventManager.Init();
-                }
             }
             return _eventManager;
         }
@@ -34,9 +28,7 @@ public class EventManager : MonoBehaviour
     void Init()
     {
         if (_eventDictionary == null)
-        {
             _eventDictionary = new Dictionary<string, Action<EventParams>>();
-        }
     }
 
     // subscription to an event
@@ -64,7 +56,9 @@ public class EventManager : MonoBehaviour
     // unsubscribe from an event
     public static void StopListening(string eventName, Action<EventParams> callback)
     {
-        if (_eventManager == null) return;
+        if (_eventManager == null)
+            return;
+
         Action<EventParams> thisEvent;
         if (instance._eventDictionary.TryGetValue(eventName, out thisEvent))
         {
@@ -73,10 +67,9 @@ public class EventManager : MonoBehaviour
 
             //Update the Dictionary
             instance._eventDictionary[eventName] = thisEvent;
-        } else 
-        {
-            Debug.Log("The event you are trying to unsubscribe from doesn't exist");
         }
+        else
+            Debug.Log("The event you are trying to unsubscribe from doesn't exist");
     }
 
     // trigger an event from the dictionary
@@ -84,12 +77,9 @@ public class EventManager : MonoBehaviour
     {
         Action<EventParams> thisEvent = null;
         if (instance._eventDictionary.TryGetValue(eventName, out thisEvent))
-        {
-            thisEvent.Invoke(eventParam);            
-        } else
-        {
+            thisEvent.Invoke(eventParam);
+        else
             Debug.Log("The event you triggered does not have any listeners.");
-        }
     }
 }
 
@@ -97,7 +87,7 @@ public struct EventParams
 {
     public int intNr;
     public float floatNr;
-    public CourseTypes courseType;  
+    public CourseTypes courseType;
     public Color color;
     public string text;
 }
