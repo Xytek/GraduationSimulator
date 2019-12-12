@@ -9,6 +9,7 @@ public class Teacher : MonoBehaviour
     public bool Pause { get; private set; }                 // NPC state of being paused
     public Transform target;                                // The prioritized npc target, defaulting to null
     public string previousState;                            // The previous state of the npc before changing
+    public bool restart;                                    // Resets patrols
 
     private NavMeshAgent _agent;                            // The npc agent
     private Animator _anim;                                 // The npc state machine
