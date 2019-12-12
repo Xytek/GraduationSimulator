@@ -1,6 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
@@ -35,7 +35,7 @@ public class FieldOfView : MonoBehaviour
     [Range(0, 360)] public float viewAngle;
     public List<Transform> visibleTargets = new List<Transform>();
 
-    [SerializeField] private float _viewDelay = default;              // How long the player must be in view to be seen
+    [SerializeField] private float _viewDelay = 1;              // How long the player must be in view to be seen
 
     [SerializeField] private LayerMask _targetMask = default;         // A layer of the things the object can react to
     [SerializeField] private LayerMask _obstacleMask = default;       // A layer of things blocking the vision
@@ -45,14 +45,14 @@ public class FieldOfView : MonoBehaviour
     private int _edgeResolveIterations = 1;                 // The accuracy when finding edges
     private float _edgeDistTreshold = 0.5f;  // The distance between two points when looking for an edge. Ensures they're both on the same object, as opposed to one in the background
     private Mesh _fowMesh;                                  // The mesh we're creating for the field of view
-    private Patrol _patrol;
+    private Teacher _teacher;
     private Rigidbody _r;
 
     
    
     private void Awake()
     {
-        _patrol = GetComponent<Patrol>();
+        _teacher = GetComponent<Teacher>();
         //if (_patrol == null) Debug.LogError("Couldn't find patrol");
         _fowMesh = new Mesh(); // Continuously updated in LateUpdate
         _viewMeshFilter.mesh = _fowMesh;
@@ -78,15 +78,20 @@ public class FieldOfView : MonoBehaviour
         visibleTargets.Clear();       // Reset the list of targets for every check 
         // All targets within a sphere around the object
         Collider[] targetsInRadius = Physics.OverlapSphere(transform.position, viewRadius, _targetMask);
+
+        if (targetsInRadius.Length == 0 && _teacher != null && _teacher.target != null)
+            _teacher.SetTarget();
+
+
         // For every target in the sphere (used as ears)
         for (int i = 0; i < targetsInRadius.Length; i++)
         {
             Transform target = targetsInRadius[i].transform;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
             // If it's anywhere within the radius, rather than just the field of view, then this is run
-            if (target.tag == "Vial" && _patrol && target.gameObject.GetComponent<TriggeredVial>().HasDetonated())
+            if (target.tag == "Vial" && _teacher && target.gameObject.GetComponent<TriggeredVial>().HasDetonated())
             {
-                _patrol.ChaseVial(target);
+                _teacher.SetTarget(target);
                 return;
             }
             // Check if the target is within the field of view
@@ -95,8 +100,8 @@ public class FieldOfView : MonoBehaviour
                 if (!Physics.Raycast(transform.position, dirToTarget, Vector3.Distance(transform.position, target.position), _obstacleMask))
                 {
                     visibleTargets.Add(target);
-                    if(visibleTargets != null && _patrol)       // Some weird bug was that even when I assigned patrol it wouldn't accept it until it had failed once. And somehow it works even if I never assign it. Some sorcery going on
-                        _patrol.ChaseTarget(visibleTargets);
+                    if( _teacher)       // Some weird bug was that even when I assigned patrol it wouldn't accept it until it had failed once. And somehow it works even if I never assign it. Some sorcery going on
+                        _teacher.SetTarget(visibleTargets);
                 }
         }
     }

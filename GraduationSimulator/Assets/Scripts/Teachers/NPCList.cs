@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NPCList : MonoBehaviour
 {
-    public List<Patrol> patrols = new List<Patrol>();
+    public List<Teacher> teachers = new List<Teacher>();
 
     private void Awake()
     {
@@ -14,20 +14,20 @@ public class NPCList : MonoBehaviour
             if (child.gameObject.activeSelf)
             {
             Transform grandChild = child.GetChild(0);
-            patrols.Add(grandChild.GetComponent<Patrol>());
+            teachers.Add(grandChild.GetComponent<Teacher>());
             }
         }
     }
 
     public void FreezeNPCs()
     {
-        foreach (Patrol p in patrols)
+        foreach (Teacher p in teachers)
             p.Freeze();
     }
 
     public void ResumeNPCs()
     {
-        foreach (Patrol p in patrols)
+        foreach (Teacher p in teachers)
             p.Resume();
     }
 }
