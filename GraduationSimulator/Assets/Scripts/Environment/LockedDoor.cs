@@ -3,7 +3,7 @@
 public class LockedDoor : Door
 {
     [SerializeField] private bool _locked;
-    [SerializeField] private CourseTypes type;
+    [SerializeField] private CourseTypes type = default;
 
     public void Awake()
     {

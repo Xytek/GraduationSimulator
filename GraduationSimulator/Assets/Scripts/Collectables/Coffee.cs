@@ -2,9 +2,9 @@
 
 public class Coffee : Collectable, ILookAtHandler
 {
-    [SerializeField] private int _coffeeStrength;
-    [SerializeField] private Shader _standardShader;
-    [SerializeField] private Shader _outlineShader;
+    [SerializeField] private int _coffeeStrength = default;
+    [SerializeField] private Shader _standardShader = default;
+    [SerializeField] private Shader _outlineShader = default;
 
     public new void Start()
     {

@@ -6,6 +6,6 @@ public class Credit : Collectable
         // play collect animation + sound
         Destroy(this.gameObject);
         _player.ResetLastLookAtObject();
-        _playerStats.UpdateCredits(1);
+        _playerStats.UpdateCredits();
     }
 }

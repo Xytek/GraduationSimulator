@@ -11923,6 +11923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timerText: {fileID: 875470345}
+  _semesterText: {fileID: 332066265}
   SemesterOverScreen: {fileID: 1623059267}
 --- !u!114 &916027032
 MonoBehaviour:
@@ -13087,6 +13088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7257886b974397468972e68b92b1e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NewTeachers: 0
   teachers: []
 --- !u!1 &1077186675
 GameObject:
@@ -15847,7 +15849,7 @@ PrefabInstance:
     - target: {fileID: 882193111081076077, guid: 921ed8235032fb14abc5feafe0deaf78,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.08
+      value: -33.61
       objectReference: {fileID: 0}
     - target: {fileID: 882193111081076077, guid: 921ed8235032fb14abc5feafe0deaf78,
         type: 3}
@@ -19941,6 +19943,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2664047099029101466, guid: e34ba3ccf4e216547943eb447ac5f623,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664047099029101466, guid: e34ba3ccf4e216547943eb447ac5f623,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e34ba3ccf4e216547943eb447ac5f623, type: 3}
 --- !u!4 &1712382697 stripped
@@ -22198,7 +22210,7 @@ PrefabInstance:
     - target: {fileID: 882193111081076077, guid: 921ed8235032fb14abc5feafe0deaf78,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.36
+      value: -13.19
       objectReference: {fileID: 0}
     - target: {fileID: 882193111081076077, guid: 921ed8235032fb14abc5feafe0deaf78,
         type: 3}
@@ -22208,7 +22220,7 @@ PrefabInstance:
     - target: {fileID: 882193111081076077, guid: 921ed8235032fb14abc5feafe0deaf78,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.59
+      value: -7.95
       objectReference: {fileID: 0}
     - target: {fileID: 882193111081076077, guid: 921ed8235032fb14abc5feafe0deaf78,
         type: 3}
@@ -24713,7 +24725,7 @@ PrefabInstance:
     - target: {fileID: 5643661970400149034, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.07
+      value: 19.8
       objectReference: {fileID: 0}
     - target: {fileID: 5643661970400149034, guid: 0b0c44da531b26c4e9d0e6cbdd3cb044,
         type: 3}

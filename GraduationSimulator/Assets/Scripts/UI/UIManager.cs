@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+
 
 public class UIManager : MonoBehaviour
 {
     public Player player;
     private NPCList _npcList;
-
     // just for the reset at quit()
     public CourseData[] courseData;
 
@@ -82,16 +83,23 @@ public class UIManager : MonoBehaviour
 
     private void FreezeScene()
     {
-        if (_npcList == null)
+        if (_npcList == null || _npcList.NewTeachers)
+        {
             GetNPCList();
+            _npcList.NewTeachers = false;
+        }
+
         _npcList.FreezeNPCs();
         player.Freeze();
     }
 
     private void UnfreezeScene()
     {
-        if (_npcList == null)
+        if (_npcList == null || _npcList.NewTeachers)
+        {
             GetNPCList();
+            _npcList.NewTeachers = false;
+        }
         _npcList.ResumeNPCs();
         player.Unfreeze();
     }

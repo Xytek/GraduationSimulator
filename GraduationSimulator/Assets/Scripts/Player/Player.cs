@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
-
+using System.Collections;
 public class Player : MonoBehaviour
 {
     private ILookAtHandler _lastLookAtObject = null;    // For interactable objects
     private FPSCam _fpsCam;                             // The camera that's a child of player
     private PlayerStats _playerStats;                   // Speed/Energy/Credits and UI work
+    private NPCList _npcList;
     private RaycastHit rayCastHit;                      // 
 
     private float _energyFactor = 1f;                   // The speed of which our energy drains
@@ -12,30 +13,34 @@ public class Player : MonoBehaviour
     private bool _isFrozen;                             // For pausing, either in menus or when caught
 
     [Header("Abilities")]
-    [SerializeField] private ThrowAbility throwVialAbility;    // Scriptable object holding information about the apple ability
-    [SerializeField] private ThrowAbility throwAppleAbility;   // Scriptable object holding information about the vial ability
-    [SerializeField] private KnockOutAbility knockOutAbility;  // Scriptable object holding information about the knockout ability
+    [SerializeField] private ThrowAbility throwVialAbility = default;    // Scriptable object holding information about the apple ability
+    [SerializeField] private ThrowAbility throwAppleAbility = default;   // Scriptable object holding information about the vial ability
+    [SerializeField] private KnockOutAbility knockOutAbility = default;  // Scriptable object holding information about the knockout ability
     private bool _throwVialAvailable;
     private bool _throwAppleAvailable;
     private bool _knockoutAvailable;
 
     [Header("UI Elements")]
     [SerializeField] private GameObject noEnergyScreen;
-    [SerializeField] private SemesterTimer timer;
+    [SerializeField] private SemesterTimer timer = default;
 
     private void Awake()
     {
         StartListening();   // Start event listeners for ability unlocks
         // Get needed components
         _fpsCam = GetComponentInChildren<FPSCam>();
-        if (_fpsCam == null) Debug.LogError("Couldn't find the fps cam");
         _playerStats = GetComponent<PlayerStats>();
+        _npcList = GameObject.FindGameObjectWithTag("NPCList").GetComponent<NPCList>();
+        // Check that you can find them
+        if (_fpsCam == null) Debug.LogError("Couldn't find the fps cam");
         if (_playerStats == null) Debug.LogError("No player stats found");
+        if (_npcList == null) Debug.LogError("Couldn't find the npc list");
     }
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;   // Locks the cursor inside the game
+        //StartCoroutine(CheckForNewSemester());
     }
     private void Update()
     {
@@ -74,7 +79,13 @@ public class Player : MonoBehaviour
         {
             // respawn in cafeteria
         }
+
+        // Check if you've met the criteria for a new semester
+        float timeSpent = timer.GetCurrentTime();
+        if (timeSpent <= 0f || _playerStats.NewSem)
+            NewSemester(timeSpent);
     }
+
     private void UseSkill()
     {
         GameObject rayO = rayCastHit.transform.gameObject;      // What you're looking at
@@ -232,6 +243,25 @@ public class Player : MonoBehaviour
         EventParams param = new EventParams();
         param.text = "You have been caught by your teacher, stay in detention for a while.";
         EventManager.TriggerEvent("ShowInstructions", param);
+    }
+
+    private void NewSemester(float timeSpent)
+    {
+        this.gameObject.transform.position = new Vector3(-6.5f, 1f, 4f);
+        this.gameObject.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+        _playerStats.TotalTime += timeSpent;
+        _fpsCam.enabled = true;
+        _isFrozen = false;
+        _playerStats.ResetEnergy();
+        timer.NewSemester();
+        _npcList.InitializeMoreTeachers();
+        _npcList.PowerUpNPCs();
+
+        // trigger semester event for UI
+        EventParams param = new EventParams();
+        param.text = "You have finished the semester. Keep working hard in the next semester!";
+        EventManager.TriggerEvent("ShowInstructions", param);
+
     }
     #endregion
 }

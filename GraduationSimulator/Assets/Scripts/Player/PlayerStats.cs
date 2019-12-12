@@ -7,23 +7,42 @@ public class PlayerStats : MonoBehaviour
     public float Speed { get; set; } = 5f;                  // Player movement speed
     public int Credits { get; private set; } = 100;         // Player credit count
     public float Energy { get; private set; }               // Player energy
+    public float TotalTime { get; set; } = 0;               // The total time spent accross semesters
+    public bool NewSem { get;  set; }                // If eligible for a new semester
     private float _startEnergy = 100f;                      // How much energy you start with
-
+    private int _totalCredits = 0;
     private void Awake()
     {
         _creditText.text = Credits.ToString();
+        ResetEnergy();
+    }
+
+    public void ResetEnergy()
+    {
         Energy = _startEnergy;
     }
 
-    public void UpdateCredits(int amount, bool pay = false)
+    public void UpdateCredits(int amount)
     {
         // Update credit count
-        if (pay)
-            Credits -= amount;
-        else
-            Credits++;
+        Credits -= amount;
+   
         // Visualize it in the HUD
         _creditText.text = Credits.ToString();
+    }
+
+    public void UpdateCredits()
+    {
+        // Update credit count
+        Credits++;
+        _totalCredits++;
+        
+        // Visualize it in the HUD
+        _creditText.text = Credits.ToString();
+
+        // If 30 credits have been collected, start new semester
+        if (_totalCredits % 30 == 0)
+            NewSem = true;
     }
 
     public void UpdateEnergy(float amount)

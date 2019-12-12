@@ -41,6 +41,6 @@ public class UpgradePlayer : MonoBehaviour
         activeCourse.Upgrade();
         int amount = data.prices[activeCourse.UpgradeLevel - 1];
         if (_playerStats.Credits - amount > 0)
-            _playerStats.UpdateCredits(amount, true);
+            _playerStats.UpdateCredits(amount);
     }
 }

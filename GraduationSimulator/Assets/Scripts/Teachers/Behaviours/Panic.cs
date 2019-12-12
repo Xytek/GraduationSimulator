@@ -6,7 +6,7 @@ public class Panic : StateMachineBehaviour
     private Transform _npc;
     private NavMeshAgent _agent;
     private Teacher _teacher;
-    private Transform _target;
+    private Transform _target = default;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

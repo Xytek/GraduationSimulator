@@ -153,6 +153,11 @@ PrefabInstance:
       propertyPath: _checkpoints.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3968142050860885915, guid: 237e69061a2cdad419301dde52e1976d,
+        type: 3}
+      propertyPath: viewAngle
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 1402704597631346481, guid: 237e69061a2cdad419301dde52e1976d,
         type: 3}
       propertyPath: m_Name

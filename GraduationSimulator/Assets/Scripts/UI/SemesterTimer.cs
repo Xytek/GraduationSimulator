@@ -4,11 +4,13 @@ using UnityEngine.UI;
 public class SemesterTimer : MonoBehaviour
 {
     private bool isActive = true;
-    private float _currentTime = 0;
-    private float _startingTime = 300;
+    private float _currentTime = 0f;
+    private float _startingTime = 300f;
+    private int _currentSemester = 1;
 
     [SerializeField] private Text _timerText = default;
-    public GameObject SemesterOverScreen;
+    [SerializeField] private Text _semesterText = default;
+    [SerializeField] private GameObject SemesterOverScreen;
 
     void Start()
     {
@@ -28,11 +30,19 @@ public class SemesterTimer : MonoBehaviour
         }
 
         if (_currentTime <= 0)
-        {
             _currentTime = 0;
-            SemesterOverScreen.SetActive(true);
-            Application.Quit();
-        }
+    }
+
+    public float GetCurrentTime()
+    {
+        return _currentTime; 
+    }
+
+    public void NewSemester()
+    {
+        _currentTime = _startingTime;
+        _currentSemester++;
+        _semesterText.text = _currentSemester.ToString();
     }
 
     public void Deactivate()

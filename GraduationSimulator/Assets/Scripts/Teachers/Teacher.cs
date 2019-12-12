@@ -12,6 +12,7 @@ public class Teacher : MonoBehaviour
 
     private NavMeshAgent _agent;                            // The npc agent
     private Animator _anim;                                 // The npc state machine
+    private FieldOfView _fow;                               // The npc field of view
     private float _prevSpeed;                               // Holds animation speed when pausing
 
     private void Awake()
@@ -19,9 +20,11 @@ public class Teacher : MonoBehaviour
         // Get components
         _anim = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
+        _fow = GetComponent<FieldOfView>();
         // Check that you found all required components
         if (_anim == null) Debug.LogError("Couldn't find animator");
         if (_agent == null) Debug.LogError("Couldn't find agent");
+        if (_fow == null) Debug.LogError("Couldn't find field of view");
     }
 
     // Gets a list of targets from field of view and decide which one to go for
@@ -90,6 +93,13 @@ public class Teacher : MonoBehaviour
     public void DestroyTarget()
     {
         Destroy(target.gameObject);
+    }
+
+    public void PowerUp(float patrolMultiplier, float chaseMultiplier, float fowAngleMultiplier)
+    {
+        PatrolSpeed *= patrolMultiplier;
+        ChaseSpeed *= chaseMultiplier;
+        _fow.viewAngle *= fowAngleMultiplier;
     }
 
     #region Freeze and resume
