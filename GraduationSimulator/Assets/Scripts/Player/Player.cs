@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public RaycastHit rayCastHit;
     public ThrowAbility throwVialAbility;
     public ThrowAbility throwAppleAbility;
+    public KnockOutAbility knockOutAbility;
     public float lookDistance = 1f;
 
     private bool _throwVialAvailable = false;
@@ -80,7 +81,7 @@ public class Player : MonoBehaviour
                 _lastLookAtObject = null;
             }
         }
-        // Logic for placing vials            
+        // Skill logic           
         if (Physics.Raycast(ray, out rayCastHit, lookDistance))
         {
             if (rayCastHit.transform.gameObject.tag == "Floor") // You're looking at the floor  
@@ -94,6 +95,11 @@ public class Player : MonoBehaviour
                     throwVialAbility.Trigger(rayCastHit);
                     _throwVialAvailable = false;
                 }
+            if (_knockoutAvailable && rayCastHit.transform.gameObject.tag == "Teacher" && Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                knockOutAbility.Trigger(rayCastHit);
+                _knockoutAvailable = false;
+            }
         }
 
         // call the interaction method if the user presses the left mouse button
@@ -116,6 +122,7 @@ public class Player : MonoBehaviour
         EventManager.StartListening("Psychology1Unlocked", UnlockApple);
         EventManager.StartListening("Sport1Unlocked", SetEnergyFactor);
         EventManager.StartListening("Sport2Unlocked", SetSpeed);
+        EventManager.StartListening("Sport3Unlocked", UnlockKnockOut);
         EventManager.StartListening("CoolDownOver", EnableAbility);
     }
 
@@ -136,10 +143,12 @@ public class Player : MonoBehaviour
     }
     private void UnlockApple(EventParams param)
     {
-        Debug.Log("Apple unlocked");
         _throwAppleAvailable = true;
     }
-
+    private void UnlockKnockOut(EventParams param)
+    {
+        _knockoutAvailable = true;
+    }
     private void EnableAbility(EventParams param)
     {
         switch (param.courseType)
@@ -149,6 +158,9 @@ public class Player : MonoBehaviour
                 break;
             case CourseTypes.Psychology:
                 UnlockApple(param);
+                break;
+            case CourseTypes.Sports:
+                UnlockKnockOut(param);
                 break;
             default:
                 Debug.Log("No course found");

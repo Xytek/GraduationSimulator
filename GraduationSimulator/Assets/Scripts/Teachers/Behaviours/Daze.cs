@@ -7,7 +7,7 @@ public class Daze : StateMachineBehaviour
 {
     private Transform _npc;
     private NavMeshAgent _agent;
-    private FieldOfView _fow;
+    private GameObject _fow;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -15,7 +15,7 @@ public class Daze : StateMachineBehaviour
         InitializeVariables(animator);
 
         _agent.isStopped = true;
-        _fow.enabled = false;
+        _fow.SetActive(false);
 
     }
 
@@ -23,7 +23,7 @@ public class Daze : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _agent.isStopped = false;
-        _fow.enabled = true;
+        _fow.SetActive(true);
     }
 
     private void InitializeVariables(Animator animator)
@@ -32,7 +32,7 @@ public class Daze : StateMachineBehaviour
         {
             _npc = animator.gameObject.transform;
             _agent = _npc.GetComponent<NavMeshAgent>();
-            _fow = _npc.GetComponent<FieldOfView>();
+            _fow = _npc.GetChild(1).gameObject;
             if (_agent == null) Debug.LogError("No agent found");
             if (_fow == null) Debug.LogError("No fow found");
         }

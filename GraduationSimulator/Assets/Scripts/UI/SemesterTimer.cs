@@ -27,9 +27,9 @@ public class SemesterTimer : MonoBehaviour
             string minutes = ((int)_currentTime / 60).ToString();
             string seconds = ((int)_currentTime % 60).ToString();
             _timerText.text = minutes + ":" + seconds;
-        }        
+        }
 
-        if(_currentTime <= 0)
+        if (_currentTime <= 0)
         {
             _currentTime = 0;
             SemesterOverScreen.SetActive(true);

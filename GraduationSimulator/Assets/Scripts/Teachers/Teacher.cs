@@ -14,7 +14,7 @@ public class Teacher : MonoBehaviour
     private NavMeshAgent _agent;                            // Used for AI commands and initiated in Start()
     private Animator _anim;
     private bool _caught;
-    
+
     private void Awake()
     {
         _anim = GetComponent<Animator>();
@@ -51,6 +51,11 @@ public class Teacher : MonoBehaviour
         _anim.SetBool(previousState, true);
     }
 
+    public void GetDazed()
+    {
+        _anim.SetTrigger("gotDazed");
+    }
+
     private Transform PrioritizeTarget(List<Transform> visibleTargets)
     {
         Transform priorityTarget = visibleTargets[0];
@@ -80,7 +85,7 @@ public class Teacher : MonoBehaviour
         return priorityTarget;
     }
 
-  
+
     public void DestroyTarget()
     {
         Destroy(target.gameObject);

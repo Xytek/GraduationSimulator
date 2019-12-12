@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class Patrol : StateMachineBehaviour
 {
-    [SerializeField] List<Transform> _checkpoints = new List<Transform>();    // An array holding the checkpoints the teacher will go to
-   [SerializeField] private int _nextCheckpoint;                            // Holds the next checkpoint the teacher should go to
+    List<Transform> _checkpoints = new List<Transform>();    // An array holding the checkpoints the teacher will go to
+    private int _nextCheckpoint;                            // Holds the next checkpoint the teacher should go to
     private Transform _npc;
     private NavMeshAgent _agent;
     private Teacher _teacher;
@@ -36,7 +36,6 @@ public class Patrol : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("isPatrolling", false);
         _teacher.previousState = "isPatrolling";
     }
 

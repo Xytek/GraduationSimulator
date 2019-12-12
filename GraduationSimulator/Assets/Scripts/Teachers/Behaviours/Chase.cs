@@ -51,16 +51,16 @@ public class Chase : StateMachineBehaviour
         }
     }
 
-        private void InitializeVariables(Animator animator)
+    private void InitializeVariables(Animator animator)
+    {
+        if (_npc == null)
         {
-            if (_npc == null)
-            {
-                _npc = animator.gameObject.transform;
-                _agent = _npc.GetComponent<NavMeshAgent>();
-                _teacher = _npc.GetComponent<Teacher>();
-                if (_agent == null) Debug.LogError("No agent found");
-                if (_teacher == null) Debug.LogError("No teacher found");
-            }
-            if (_teacher != null) _target = _teacher.target;
+            _npc = animator.gameObject.transform;
+            _agent = _npc.GetComponent<NavMeshAgent>();
+            _teacher = _npc.GetComponent<Teacher>();
+            if (_agent == null) Debug.LogError("No agent found");
+            if (_teacher == null) Debug.LogError("No teacher found");
         }
+        if (_teacher != null) _target = _teacher.target;
     }
+}

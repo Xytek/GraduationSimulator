@@ -13,7 +13,7 @@ public class TriggeredVial : MonoBehaviour
         // These two are just to make sure they're not initially enabled
         _fire.SetActive(false);
         _explosion.SetActive(false);
-        
+
         yield return new WaitForSeconds(_detonationTime);   // Once you plant a vial it takes a few seconds before it explodes
         _detonated = true;
         _fire.SetActive(true);
@@ -27,7 +27,7 @@ public class TriggeredVial : MonoBehaviour
     public void TurnOffFire()
     {
         _fire.SetActive(false);
-        _explosion.SetActive(false);      
+        _explosion.SetActive(false);
     }
 
     public void DestroyVial()

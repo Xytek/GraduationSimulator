@@ -48,8 +48,8 @@ public class FieldOfView : MonoBehaviour
     private Teacher _teacher;
     private Rigidbody _r;
 
-    
-   
+
+
     private void Awake()
     {
         _teacher = GetComponent<Teacher>();
@@ -100,7 +100,7 @@ public class FieldOfView : MonoBehaviour
                 if (!Physics.Raycast(transform.position, dirToTarget, Vector3.Distance(transform.position, target.position), _obstacleMask))
                 {
                     visibleTargets.Add(target);
-                    if( _teacher)       // Some weird bug was that even when I assigned patrol it wouldn't accept it until it had failed once. And somehow it works even if I never assign it. Some sorcery going on
+                    if (_teacher)       // Some weird bug was that even when I assigned patrol it wouldn't accept it until it had failed once. And somehow it works even if I never assign it. Some sorcery going on
                         _teacher.SetTarget(visibleTargets);
                 }
         }
