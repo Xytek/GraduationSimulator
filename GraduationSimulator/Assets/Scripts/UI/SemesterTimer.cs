@@ -33,9 +33,15 @@ public class SemesterTimer : MonoBehaviour
             _currentTime = 0;
     }
 
-    public float GetCurrentTime()
+    public float StartTime
     {
-        return _currentTime; 
+        get { return _startingTime; }
+    }
+
+    public float CurrentTime
+    {
+        get { return _currentTime; }
+        set { _currentTime = value; }
     }
 
     public void NewSemester()

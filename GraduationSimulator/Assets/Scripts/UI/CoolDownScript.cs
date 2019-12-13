@@ -13,6 +13,23 @@ public class CoolDownScript : MonoBehaviour
         _isCoolingDown = false;
         coolDownImage.fillAmount = 0;
         EventManager.StartListening("AbilityUsed", StartCoolDown);
+        switch (type)
+        {
+            case CourseTypes.Science:
+                EventManager.StartListening("Science2Unlocked", Display);
+                EventManager.StartListening("Science3Unlocked", ChangeCoolDownTime);
+                break;
+            case CourseTypes.Psychology:
+                EventManager.StartListening("Psychology1Unlocked", Display);
+                EventManager.StartListening("Psychology2Unlocked", ChangeCoolDownTime);
+                break;
+            case CourseTypes.Sports:
+                EventManager.StartListening("Sport3Unlocked", Display);
+                break;
+            default:
+                Debug.LogError("Change the course-type to one that has a cooldown-ability!");
+                break;
+        }
         if (type == CourseTypes.Science)
         {
             EventManager.StartListening("Science2Unlocked", Display);
@@ -22,6 +39,10 @@ public class CoolDownScript : MonoBehaviour
         {
             EventManager.StartListening("Psychology1Unlocked", Display);
             EventManager.StartListening("Psychology2Unlocked", ChangeCoolDownTime);
+        }
+        else if (type == CourseTypes.Sports)
+        {
+            EventManager.StartListening("Sport3Unlocked", Display);
         }
         this.gameObject.SetActive(false);
     }

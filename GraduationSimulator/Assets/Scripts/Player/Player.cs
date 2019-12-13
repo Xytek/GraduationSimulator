@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 public class Player : MonoBehaviour
 {
@@ -21,16 +22,18 @@ public class Player : MonoBehaviour
     private bool _knockoutAvailable;
 
     [Header("UI Elements")]
-    [SerializeField] private GameObject noEnergyScreen;
     [SerializeField] private SemesterTimer timer = default;
+    [SerializeField] private Image reticle = default;
 
     private void Awake()
     {
         StartListening();   // Start event listeners for ability unlocks
+        
         // Get needed components
         _fpsCam = GetComponentInChildren<FPSCam>();
         _playerStats = GetComponent<PlayerStats>();
         _npcList = GameObject.FindGameObjectWithTag("NPCList").GetComponent<NPCList>();
+        
         // Check that you can find them
         if (_fpsCam == null) Debug.LogError("Couldn't find the fps cam");
         if (_playerStats == null) Debug.LogError("No player stats found");
@@ -59,12 +62,12 @@ public class Player : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         // Check if you're looking at any interactable objects
-        if (Physics.Raycast(rayOrigin, rayDirection, out rayCastHit, _interactDistance))
-            LookAtObject();
-
         // Check if you're attempting to use any skills           
         if (Physics.Raycast(ray, out rayCastHit, _interactDistance))
+        {
+            LookAtObject();
             UseSkill();
+        }
 
         // call the interaction method if the user presses the left mouse button
         if (Input.GetMouseButtonDown(0) && _lastLookAtObject != null)
@@ -76,19 +79,30 @@ public class Player : MonoBehaviour
 
         // end the level if energy is too low
         if (_playerStats.Energy <= 0)
-        {
-            // respawn in cafeteria
+        {            
+            NoEnergyLeft();
         }
 
         // Check if you've met the criteria for a new semester
-        float timeSpent = timer.GetCurrentTime();
-        if (timeSpent <= 0f || _playerStats.NewSem)
-            NewSemester(timeSpent);
+        float timeLeft = timer.CurrentTime;
+        if (timeLeft <= 0f || _playerStats.NewSem)
+        {            
+            NewSemester(timer.StartTime - timeLeft);
+        }            
     }
 
     private void UseSkill()
     {
         GameObject rayO = rayCastHit.transform.gameObject;      // What you're looking at
+
+        if (rayO.tag == "Floor" || rayO.tag == "Teacher")
+        {
+            reticle.color = Color.green;
+        }
+        else
+        {
+            reticle.color = Color.red;
+        }
 
         switch (Input.inputString)                              // Checks any input from the player
         {
@@ -245,6 +259,24 @@ public class Player : MonoBehaviour
         EventManager.TriggerEvent("ShowInstructions", param);
     }
 
+    public void NoEnergyLeft()
+    {
+        // trigger information event for UI
+        EventParams param = new EventParams();
+        param.text = "Seems like university has drained all your energy. You spent the entire day in the cafeteria to regain energy. That costed you thirty seconds of time.";
+        EventManager.TriggerEvent("ShowInstructions", param);
+
+        // teleport to canteen
+        this.gameObject.transform.position = new Vector3(37f, 1f, -10.5f);
+        this.gameObject.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+
+        // reduce time
+        timer.CurrentTime = timer.CurrentTime - 30;
+
+        // refill energy
+        _playerStats.ResetEnergy();        
+    }
+
     private void NewSemester(float timeSpent)
     {
         this.gameObject.transform.position = new Vector3(-6.5f, 1f, 4f);
@@ -259,9 +291,8 @@ public class Player : MonoBehaviour
 
         // trigger semester event for UI
         EventParams param = new EventParams();
-        param.text = "You have finished the semester. Keep working hard in the next semester!";
-        EventManager.TriggerEvent("ShowInstructions", param);
-
+        param.text = "You have finished the level. Keep working hard in the next semester! Your time: " + timeSpent.ToString();
+        EventManager.TriggerEvent("SemesterOver", param);
     }
     #endregion
 }

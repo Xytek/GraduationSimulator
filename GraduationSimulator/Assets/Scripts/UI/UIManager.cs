@@ -5,13 +5,12 @@ using System.Collections.Generic;
 public class UIManager : MonoBehaviour
 {
     public Player player;
-    private NPCList _npcList;
-    // just for the reset at quit()
-    public CourseData[] courseData;
+    private NPCList _npcList;    
 
     [SerializeField] private Menu _pauseMenu = default;
     [SerializeField] private Menu _courseMenu = default;
     [SerializeField] private InstructionPanel _instructionPanel = default;
+    [SerializeField] private SemesterOverUI _semesterOverPanel = default;
     private Menu _activeMenu;
 
     public void Start()
@@ -22,6 +21,7 @@ public class UIManager : MonoBehaviour
         if (_npcList == null)
             GetNPCList();
         EventManager.StartListening("ShowInstructions", ActivateInstructionPanel);
+        EventManager.StartListening("SemesterOver", ActivateSemesterOverPanel);
     }
 
     public void Update()
@@ -55,17 +55,6 @@ public class UIManager : MonoBehaviour
         newMenu.Activate();
     }
 
-    public void ActivateInstructionPanel(EventParams param)
-    {
-        _instructionPanel.Activate();
-        _instructionPanel.UpdatePanel(param);
-        FreezeScene();
-        if (_activeMenu != null)
-            _activeMenu.Deactivate();
-
-        _activeMenu = (Menu)_instructionPanel;
-    }
-
     public void ResumeGame()
     {
         UnfreezeScene();
@@ -79,6 +68,18 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("Quit");
         Application.Quit(0);
+    }
+
+    public void ActivateInstructionPanel(EventParams param)
+    {
+        _instructionPanel.UpdatePanel(param);
+        ChangeMenu((Menu)_instructionPanel);
+    }
+
+    public void ActivateSemesterOverPanel(EventParams param)
+    {
+        _semesterOverPanel.UpdatePanel(param);
+        ChangeMenu((Menu)_semesterOverPanel);
     }
 
     private void FreezeScene()
