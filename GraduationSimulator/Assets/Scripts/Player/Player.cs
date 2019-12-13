@@ -28,12 +28,12 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         StartListening();   // Start event listeners for ability unlocks
-        
+
         // Get needed components
         _fpsCam = GetComponentInChildren<FPSCam>();
         _playerStats = GetComponent<PlayerStats>();
         _npcList = GameObject.FindGameObjectWithTag("NPCList").GetComponent<NPCList>();
-        
+
         // Check that you can find them
         if (_fpsCam == null) Debug.LogError("Couldn't find the fps cam");
         if (_playerStats == null) Debug.LogError("No player stats found");
@@ -57,21 +57,19 @@ public class Player : MonoBehaviour
         Vector3 moveDirection = new Vector3(horizontal, 0f, vertical) * _playerStats.Speed * Time.deltaTime;
         transform.Translate(moveDirection);
 
-        Vector3 rayOrigin = transform.position;
-        Vector3 rayDirection = transform.forward;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        // Check if you're looking at any interactable objects
-        // Check if you're attempting to use any skills           
         if (Physics.Raycast(ray, out rayCastHit, _interactDistance))
         {
+            // Check if you're looking at any interactable objects
             LookAtObject();
+            // Check if you're attempting to use any skills           
             UseSkill();
         }
 
         // call the interaction method if the user presses the left mouse button
         if (Input.GetMouseButtonDown(0) && _lastLookAtObject != null)
-            _lastLookAtObject.OnLookatInteraction(rayCastHit.point, rayDirection);
+            _lastLookAtObject.OnLookatInteraction(rayCastHit.point, transform.forward);
 
         // drain energy if the user is not frozen
         if (!_isFrozen)
@@ -79,30 +77,26 @@ public class Player : MonoBehaviour
 
         // end the level if energy is too low
         if (_playerStats.Energy <= 0)
-        {            
+        {
             NoEnergyLeft();
         }
 
         // Check if you've met the criteria for a new semester
         float timeLeft = timer.CurrentTime;
         if (timeLeft <= 0f || _playerStats.NewSem)
-        {            
+        {
             NewSemester(timer.StartTime - timeLeft);
-        }            
+        }
     }
 
     private void UseSkill()
     {
         GameObject rayO = rayCastHit.transform.gameObject;      // What you're looking at
 
-        if (rayO.tag == "Floor" || rayO.tag == "Teacher")
-        {
+        if ((rayO.tag == "Floor" && (_throwAppleAvailable || _throwVialAvailable)) || (rayO.tag == "Teacher" && _knockoutAvailable))
             reticle.color = Color.green;
-        }
         else
-        {
             reticle.color = Color.red;
-        }
 
         switch (Input.inputString)                              // Checks any input from the player
         {
@@ -253,6 +247,9 @@ public class Player : MonoBehaviour
         _fpsCam.enabled = true;
         _isFrozen = false;
 
+        // reduce time
+        timer.CurrentTime = timer.CurrentTime - 30;
+
         // trigger detention event for UI
         EventParams param = new EventParams();
         param.text = "You have been caught by your teacher, stay in detention for a while.";
@@ -274,7 +271,7 @@ public class Player : MonoBehaviour
         timer.CurrentTime = timer.CurrentTime - 30;
 
         // refill energy
-        _playerStats.ResetEnergy();        
+        _playerStats.ResetEnergy();
     }
 
     private void NewSemester(float timeSpent)

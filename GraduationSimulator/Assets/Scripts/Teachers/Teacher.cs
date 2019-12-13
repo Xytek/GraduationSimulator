@@ -54,7 +54,7 @@ public class Teacher : MonoBehaviour
         _anim.SetBool("isChasing", false);
         _anim.SetBool(previousState, true);
     }
-
+    
     public void GetDazed()
     {
         _anim.SetTrigger("gotDazed");
@@ -93,7 +93,8 @@ public class Teacher : MonoBehaviour
 
     public void DestroyTarget()
     {
-        Destroy(target.gameObject);
+        if(target.gameObject != null)
+            Destroy(target.gameObject);
     }
 
     public void PowerUp(float patrolMultiplier, float chaseMultiplier, float fowAngleMultiplier)
