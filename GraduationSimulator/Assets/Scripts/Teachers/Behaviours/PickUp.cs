@@ -16,12 +16,14 @@ public class PickUp : StateMachineBehaviour
         // Make the teacher stop and face the target until we exit the state
         StopAndFaceTarget();
         animator.ResetTrigger("panic");
+        animator.SetBool("isChasing", false);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // Destroy the target and start moving again
+        animator.ResetTrigger("pickUp");
         _teacher.DestroyTarget();
         _agent.isStopped = false;
     }

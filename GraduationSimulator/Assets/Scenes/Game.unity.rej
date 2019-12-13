@@ -1,0 +1,15 @@
+diff a/GraduationSimulator/Assets/Scenes/Game.unity b/GraduationSimulator/Assets/Scenes/Game.unity	(rejected hunks)
+@@ -15305,8 +15305,13 @@
+   m_LocalPosition: {x: -364.52625, y: -200.54443, z: 283.46506}
+   m_LocalScale: {x: 9.169301, y: 1, z: 4.752352}
+   m_Children: []
++<<<<<<< HEAD
+   m_Father: {fileID: 1065472034}
+   m_RootOrder: 1
++=======
++  m_Father: {fileID: 0}
++  m_RootOrder: 11
++>>>>>>> 31bfc46d17834fffb11887944baa17e138f9b8ba
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+ --- !u!1001 &1330515284
+ PrefabInstance:
