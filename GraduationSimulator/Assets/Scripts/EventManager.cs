@@ -79,7 +79,7 @@ public class EventManager : MonoBehaviour
         if (instance._eventDictionary.TryGetValue(eventName, out thisEvent))
             thisEvent.Invoke(eventParam);
         else
-            Debug.Log("The event you triggered does not have any listeners.");
+            Debug.Log("The event: "+ eventName + ", does not have any listeners.");
     }
 }
 

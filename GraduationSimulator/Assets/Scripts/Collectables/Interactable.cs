@@ -32,7 +32,7 @@ public class Interactable : MonoBehaviour, ILookAtHandler
         else
         {
             EventParams eventParams = new EventParams();
-            eventParams.text = "You don't have permission to use this laptop.";
+            eventParams.text = "You don't have permission to use this.";
             EventManager.TriggerEvent("LockedElement", eventParams);
         }
     }

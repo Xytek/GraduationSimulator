@@ -13,14 +13,19 @@ public class UIManager : MonoBehaviour
     [SerializeField] private SemesterOverUI _semesterOverPanel = default;
     private Menu _activeMenu;
 
-    public void Start()
-    {        
-        _instructionPanel.SetPanelText("Collect as much credits as possible in a semester. Avoid the teachers! Press F to get into the Course-Shop and Escape to pause the game!");
-        ChangeMenu((Menu)_instructionPanel);
-        Cursor.lockState = CursorLockMode.None;
+    public void Awake()
+    {
+        
+    }
 
+    public void Start()
+    {               
         _pauseMenu.Deactivate();
         _courseMenu.Deactivate();
+
+        _instructionPanel.SetPanelText("Collect as much credits as possible, drink coffee to stay awake and avoid the teachers. Press F to get into the Course-Shop and Escape to pause the game.");
+        ChangeMenu((Menu)_instructionPanel);
+        Cursor.lockState = CursorLockMode.None;
 
         if (_npcList == null)
             GetNPCList();
