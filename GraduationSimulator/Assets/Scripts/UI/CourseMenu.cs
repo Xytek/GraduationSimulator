@@ -1,4 +1,5 @@
-﻿public class CourseMenu : Menu
+﻿using UnityEngine;
+public class CourseMenu : Menu
 {
     public CoursePanel[] coursePanels;
 

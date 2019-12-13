@@ -37,12 +37,11 @@ public class Player : MonoBehaviour
         // Check that you can find them
         if (_fpsCam == null) Debug.LogError("Couldn't find the fps cam");
         if (_playerStats == null) Debug.LogError("No player stats found");
-        if (_npcList == null) Debug.LogError("Couldn't find the npc list");
+        if (_npcList == null) Debug.LogError("Couldn't find the npc list");        
     }
 
     private void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;   // Locks the cursor inside the game
+    {        
         //StartCoroutine(CheckForNewSemester());
     }
     private void Update()

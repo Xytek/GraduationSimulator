@@ -8,6 +8,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void LoadLeaderboard()
+    {
+        SceneManager.LoadScene(2);
+    }
+
     public void QuitGame()
     {
         Debug.Log("Quit");

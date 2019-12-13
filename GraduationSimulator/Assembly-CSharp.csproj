@@ -107,14 +107,15 @@
     <Compile Include="Assets\Scripts\UI\CoursePanel.cs" />
     <Compile Include="Assets\Scripts\UI\InfoBox.cs" />
     <Compile Include="Assets\Scripts\UI\InstructionPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\Leaderboard.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Menu.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\SemesterOverUI.cs" />
     <Compile Include="Assets\Scripts\UI\SemesterTimer.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\UI\UpgradeButton.cs" />
     <Compile Include="Assets\Scripts\UI\UpgradeSelectButton.cs" />
-    <Compile Include="Assets\SemesterOverUI.cs" />
     <None Include="Assets\Shaders\GlowOutline.shader" />
     <None Include="Assets\Shaders\Vial\FireSphere.shader" />
     <None Include="Assets\Shaders\Outline.shader" />

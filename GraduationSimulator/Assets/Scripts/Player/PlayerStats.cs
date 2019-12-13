@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour
     public int Credits { get; private set; } = 100;         // Player credit count
     public float Energy { get; private set; }               // Player energy
     public float TotalTime { get; set; } = 0;               // The total time spent accross semesters
-    public bool NewSem { get;  set; }                // If eligible for a new semester
+    public bool NewSem { get;  set; }                       // If eligible for a new semester
     private float _startEnergy = 100f;                      // How much energy you start with
     private int _totalCredits = 0;
     private void Awake()

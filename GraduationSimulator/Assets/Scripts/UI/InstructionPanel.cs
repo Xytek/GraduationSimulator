@@ -5,8 +5,13 @@ public class InstructionPanel : Menu
 {
     [SerializeField] private Text instructionText = default;
 
+    public void SetPanelText(string text)
+    {
+        instructionText.text = text;
+    }
+
     public void UpdatePanel(EventParams param)
     {
-        instructionText.text = param.text;
+        SetPanelText(param.text);
     }
 }

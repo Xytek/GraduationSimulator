@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class UIManager : MonoBehaviour
 {
     public Player player;
-    private NPCList _npcList;    
+    private NPCList _npcList;
 
     [SerializeField] private Menu _pauseMenu = default;
     [SerializeField] private Menu _courseMenu = default;
@@ -14,12 +14,17 @@ public class UIManager : MonoBehaviour
     private Menu _activeMenu;
 
     public void Start()
-    {
+    {        
+        _instructionPanel.SetPanelText("Collect as much credits as possible in a semester. Avoid the teachers! Press F to get into the Course-Shop and Escape to pause the game!");
+        ChangeMenu((Menu)_instructionPanel);
+        Cursor.lockState = CursorLockMode.None;
+
         _pauseMenu.Deactivate();
         _courseMenu.Deactivate();
-        _activeMenu = null;
+
         if (_npcList == null)
             GetNPCList();
+
         EventManager.StartListening("ShowInstructions", ActivateInstructionPanel);
         EventManager.StartListening("SemesterOver", ActivateSemesterOverPanel);
     }

@@ -21,7 +21,8 @@ public class CoursePanel : MonoBehaviour
     public void Awake()
     {
         _playerStats = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
-        if (_playerStats == null) Debug.LogError("No player stats found");
+        if (_playerStats == null) Debug.LogError("No player stats found");        
+
         icon.sprite = courseData.icon;
         _upgradeLvl = 0;
         _selectedLvl = _upgradeLvl;
@@ -35,6 +36,7 @@ public class CoursePanel : MonoBehaviour
         title.text = courseData.type.ToString();
         description.text = courseData.UpgradeDescriptions[lvl];
     }
+
     public int GetUpgradeLevelArray()
     {
         int lvl = _upgradeLvl - 1;
@@ -43,18 +45,20 @@ public class CoursePanel : MonoBehaviour
         return lvl;
     }
 
+    // checks the affordability in the courseData prices
     public bool CheckIfLvlIsAffordable(int level, int creditCount)
     {
         return creditCount >= courseData.prices[level];
     }
 
-    // sets upgradeLvl for all upgradedLvls
+    // sets the upgradeLvl for all LvlButtons of the panel
     public void SetAllUpgradeLvls()
     {
         for (int i = 0; i < _upgradeLvl; i++)
             upgradeSelectButtons[i].LvlAchieved();
     }
 
+    // sets the clicked level selected
     private void SetLvlSelection()
     {
         for (int i = 0; i < upgradeSelectButtons.Length; i++)
@@ -64,8 +68,9 @@ public class CoursePanel : MonoBehaviour
                 upgradeSelectButtons[i].LvlUnselected();
     }
 
+    // changes to the selected level and checks if the upgrade-button should be active or not
     public void ChangeSelectedLvl(int chosenLvl)
-    {
+    {      
         if (chosenLvl == 0 && CheckIfLvlIsAffordable(chosenLvl, _playerStats.Credits) && GetUpgradeLevelArray() < 1)
             upgradeButton.Activate();
         else if (chosenLvl == _upgradeLvl && CheckIfLvlIsAffordable(chosenLvl, _playerStats.Credits))
@@ -85,10 +90,12 @@ public class CoursePanel : MonoBehaviour
         SetAllUpgradeLvls();
     }
 
+    // upgrades the panel on upgrade event    
     public void UpgradePanel(EventParams param)
     {
         if (param.courseType == courseData.type)
         {
+            // select the next level if there is one, otherwise keep the current one
             _upgradeLvl = param.intNr;
             if (_upgradeLvl < 3)
                 ChangeSelectedLvl(GetUpgradeLevelArray() + 1);
