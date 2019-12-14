@@ -44,9 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2785034f6fa9b9b48925a3610a497f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 10
   viewAngle: 60
-  visibleTargets: []
+  viewRadius: 10
   _viewDelay: 0.2
   _targetMask:
     serializedVersion: 2
@@ -366,7 +365,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402704597631346487}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -500,9 +499,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af14bce5b6e65e4bab3846eb4a21f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checkpoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  target: {fileID: 0}
+  restart: 0
+  type: 0
+  checkpoints: []
 --- !u!114 &3968142050860885915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,9 +515,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2785034f6fa9b9b48925a3610a497f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  viewAngle: 90
   viewRadius: 10
-  viewAngle: 225
-  visibleTargets: []
   _viewDelay: 0.2
   _targetMask:
     serializedVersion: 2
