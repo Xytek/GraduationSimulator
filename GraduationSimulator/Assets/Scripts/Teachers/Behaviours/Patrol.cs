@@ -4,7 +4,6 @@ using UnityEngine.AI;
 
 public class Patrol : StateMachineBehaviour
 {
-    List<Transform> _checkpoints = new List<Transform>();    // An array holding the checkpoints the teacher will go to
     private int _nextCheckpoint;                            // Holds the next checkpoint the teacher should go to
     private Transform _npc;
     private NavMeshAgent _agent;
@@ -22,9 +21,21 @@ public class Patrol : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        // Normal patrolling
-        if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
-            GoToNextCheckpoint();
+        if (_teacher.type == Teacher.Type.idle) // Return to your spot if idle
+        {
+            _agent.SetDestination(_teacher.checkpoints[0].position);
+
+            if (_agent.remainingDistance < 0.5f)
+            {
+                animator.SetBool("isPatrolling", false);
+                animator.SetBool("isIdling", true);
+            }
+        }
+
+        if (_teacher.type == Teacher.Type.patrol) // Normal patrolling
+            if (!_agent.pathPending && _agent.remainingDistance < 0.5f) 
+                GoToNextCheckpoint();
+
         // If the teacher gains a target, start chasing
         if (_teacher.target != null && _timeElapsed < (Time.time - 2f))
             animator.SetBool("isChasing", true);
@@ -39,10 +50,10 @@ public class Patrol : StateMachineBehaviour
     private void GoToNextCheckpoint()
     {
         // Set the agent destination to the next checkpoint in the array
-        _agent.destination = _checkpoints[_nextCheckpoint].position;
+        _agent.destination = _teacher.checkpoints[_nextCheckpoint].position;
 
         // After the last checkpoint in the array comes the first one, so make sure they're close together.
-        _nextCheckpoint = (_nextCheckpoint + 1) % _checkpoints.Count;
+        _nextCheckpoint = (_nextCheckpoint + 1) % _teacher.checkpoints.Count;
     }
     private void InitializeVariables(Animator animator)
     {
@@ -53,11 +64,6 @@ public class Patrol : StateMachineBehaviour
             _teacher = _npc.GetComponent<Teacher>();
             if (_agent == null) Debug.LogError("No agent found");
             if (_teacher == null) Debug.LogError("No teacher found");
-
-            _checkpoints.Clear();   // Ensure checkpoints are empty before running
-            // Get the first sibling (Checkpoints) and add all its children to the _checkpoints list.
-            foreach (Transform child in _npc.parent.GetChild(_npc.GetSiblingIndex() + 1))
-                _checkpoints.Add(child.transform);
         }
     }
 }

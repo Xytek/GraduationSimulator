@@ -4,12 +4,19 @@ using UnityEngine.AI;
 
 public class Teacher : MonoBehaviour
 {
+    public enum Type
+    {
+        patrol,
+        idle
+    }
     public float PatrolSpeed { get; set; } = 1f;            // NPC speed when patrolling
     public float ChaseSpeed { get; set; } = 3f;             // NPC speed when chasing  
     public bool Pause { get; private set; }                 // NPC state of being paused
     public Transform target;                                // The prioritized npc target, defaulting to null
     public string previousState;                            // The previous state of the npc before changing
     public bool restart;                                    // Resets patrols
+    public Type type;
+    public List<Transform> checkpoints = new List<Transform>();    // An array holding the checkpoints the teacher will go to
 
     private NavMeshAgent _agent;                            // The npc agent
     private Animator _anim;                                 // The npc state machine
@@ -26,6 +33,8 @@ public class Teacher : MonoBehaviour
         if (_anim == null) Debug.LogError("Couldn't find animator");
         if (_agent == null) Debug.LogError("Couldn't find agent");
         if (_fow == null) Debug.LogError("Couldn't find field of view");
+
+        InstantiateCheckpoints();
     }
 
     // Gets a list of targets from field of view and decide which one to go for
@@ -88,6 +97,19 @@ public class Teacher : MonoBehaviour
             }
 
         return priorityTarget;
+    }
+
+    private void InstantiateCheckpoints()
+    {
+        checkpoints.Clear();   // Ensure checkpoints are empty before running
+                                        // Get the first sibling (Checkpoints) and add all its children to the _checkpoints list.
+        foreach (Transform child in transform.parent.GetChild(transform.GetSiblingIndex() + 1))
+            checkpoints.Add(child.transform);
+        // Set the type of teacher
+        if (checkpoints.Count == 1)
+            type = Type.idle;
+        else
+            type = Type.patrol;
     }
 
 

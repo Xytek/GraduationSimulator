@@ -13,6 +13,7 @@ public class Idle : StateMachineBehaviour
 
         // No speed when idling
         _agent.speed = 0f;
+        _teacher.gameObject.transform.rotation = _teacher.checkpoints[0].rotation;
     }
 
 
@@ -28,6 +29,7 @@ public class Idle : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _teacher.previousState = "isIdling";
+        animator.SetBool("isIdling", false);
     }
     private void InitializeVariables(Animator animator)
     {
