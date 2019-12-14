@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         // end the level if energy is too low
         if (_playerStats.Energy <= 0)
         {
-            NoEnergyLeft();
+            RegainEnergy();
         }
 
         // Check if you've met the criteria for a new semester
@@ -255,7 +255,7 @@ public class Player : MonoBehaviour
         EventManager.TriggerEvent("ShowInstructions", param);
     }
 
-    public void NoEnergyLeft()
+    public void RegainEnergy()
     {
         // trigger information event for UI
         EventParams param = new EventParams();
