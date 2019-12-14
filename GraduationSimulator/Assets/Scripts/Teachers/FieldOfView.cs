@@ -32,13 +32,13 @@ public class FieldOfView : MonoBehaviour
 
     [Range(0, 360)] public float viewAngle;                         // The size/width of the NPCs vision
 
-    [SerializeField] private float viewRadius = 8f;                 // How far the NPC can see
+    public float viewRadius = 8f;                 // How far the NPC can see
     [SerializeField] private float _viewDelay = 1f;                 // How long the player must be in view to be seen
     [SerializeField] private LayerMask _targetMask = default;       // A layer of the things the object can react to
     [SerializeField] private LayerMask _obstacleMask = default;     // A layer of things blocking the vision
     [SerializeField] private MeshFilter _viewMeshFilter = default;  // Holds a mesh we'll create later on
 
-    private List<Transform> visibleTargets = new List<Transform>(); // List of all targets in sight
+    public List<Transform> visibleTargets = new List<Transform>(); // List of all targets in sight
     private Mesh _fowMesh;                                          // The mesh we're creating for the field of view
     private Teacher _teacher;                                       // The teacher the FOW belongs to
     private int _edgeResolveIterations = 1;                         // The accuracy when finding edges

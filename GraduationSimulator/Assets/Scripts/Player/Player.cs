@@ -40,10 +40,6 @@ public class Player : MonoBehaviour
         if (_npcList == null) Debug.LogError("Couldn't find the npc list");        
     }
 
-    private void Start()
-    {        
-        //StartCoroutine(CheckForNewSemester());
-    }
     private void Update()
     {
         // If the game is paused then just exit this function
@@ -86,6 +82,15 @@ public class Player : MonoBehaviour
         {
             NewSemester(timer.StartTime - timeLeft);
         }
+
+        // Press C to get 100 credits. Just helps when testing
+        Cheat();
+    }
+
+    private void Cheat()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+            _playerStats.UpdateCredits(-100);
     }
 
     private void UseSkill()
