@@ -269,7 +269,7 @@ public class Player : MonoBehaviour
         EventManager.TriggerEvent("ShowInstructions", param);
 
         // teleport to canteen
-        this.gameObject.transform.position = new Vector3(37f, 1f, -10.5f);
+        this.gameObject.transform.position = new Vector3(31.5f, 1f, -12f);
         this.gameObject.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
 
         // reduce time
