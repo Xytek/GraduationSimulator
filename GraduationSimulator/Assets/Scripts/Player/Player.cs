@@ -281,8 +281,8 @@ public class Player : MonoBehaviour
 
     private void NewSemester(float timeSpent)
     {
-        this.gameObject.transform.position = new Vector3(-29f, 1f, 15f);
-        this.gameObject.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+        this.gameObject.transform.position = new Vector3(-33.5f, 1f, 8f);
+        this.gameObject.transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
         _playerStats.TotalTime += timeSpent;
         _fpsCam.enabled = true;
         _isFrozen = false;
