@@ -143,6 +143,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2411096888038622129, guid: 237e69061a2cdad419301dde52e1976d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Teacher
+      objectReference: {fileID: 0}
     - target: {fileID: 3968142050860885093, guid: 237e69061a2cdad419301dde52e1976d,
         type: 3}
       propertyPath: _checkpoints.Array.data[0]

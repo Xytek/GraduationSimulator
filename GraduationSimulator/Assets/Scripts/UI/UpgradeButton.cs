@@ -7,22 +7,29 @@ public class UpgradeButton : MonoBehaviour
     public Button upgradeButton;
     public Image checkImage;
 
+    public void Awake()
+    {
+        checkImage.enabled = false;
+    }
+
     public void Activate()
     {
+        checkImage.enabled = false;
         lockImage.enabled = false;
         upgradeButton.interactable = true;
     }
 
     public void Deactivate()
     {
+        checkImage.enabled = false;
         lockImage.enabled = true;
         upgradeButton.interactable = false;
     }
 
     public void Used()
     {
-        Debug.Log("used");
         checkImage.enabled = true;
-        upgradeButton.enabled = false;
+        lockImage.enabled = false;        
+        upgradeButton.interactable = false;
     }
 }
