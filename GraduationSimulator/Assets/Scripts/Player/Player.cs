@@ -247,7 +247,7 @@ public class Player : MonoBehaviour
 
     public void Detention()
     {
-        this.gameObject.transform.position = new Vector3(-6.5f, 1f, 4f);
+        this.gameObject.transform.position = new Vector3(-29f, 1f, 15f);
         this.gameObject.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
         _fpsCam.enabled = true;
         _isFrozen = false;
@@ -281,7 +281,7 @@ public class Player : MonoBehaviour
 
     private void NewSemester(float timeSpent)
     {
-        this.gameObject.transform.position = new Vector3(-6.5f, 1f, 4f);
+        this.gameObject.transform.position = new Vector3(-29f, 1f, 15f);
         this.gameObject.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
         _playerStats.TotalTime += timeSpent;
         _fpsCam.enabled = true;

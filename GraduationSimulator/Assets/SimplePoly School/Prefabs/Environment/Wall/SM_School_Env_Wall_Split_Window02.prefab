@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 474732}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Window_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 13791124}
   - component: {fileID: 8847331491931346657}
   - component: {fileID: 8498498312001755373}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_School_Env_Wall_Split_Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 421702}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Window_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 492032}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 483958}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_School_Env_Wall_Split_Window02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 494990}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_School_Env_Wall_Split_Window02
   m_TagString: Untagged
   m_Icon: {fileID: 0}

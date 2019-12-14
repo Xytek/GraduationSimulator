@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 470180}
   - component: {fileID: 3392746}
   - component: {fileID: 2329326}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_School_Env_Wall_Split_Straight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
