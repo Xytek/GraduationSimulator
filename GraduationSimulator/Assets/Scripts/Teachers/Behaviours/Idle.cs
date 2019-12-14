@@ -28,7 +28,6 @@ public class Idle : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _teacher.previousState = "isIdling";
         animator.SetBool("isIdling", false);
     }
     private void InitializeVariables(Animator animator)

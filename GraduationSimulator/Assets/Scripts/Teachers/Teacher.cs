@@ -13,7 +13,6 @@ public class Teacher : MonoBehaviour
     public float ChaseSpeed { get; set; } = 3f;             // NPC speed when chasing  
     public bool Pause { get; private set; }                 // NPC state of being paused
     public Transform target;                                // The prioritized npc target, defaulting to null
-    public string previousState;                            // The previous state of the npc before changing
     public bool restart;                                    // Resets patrols
     public Type type;
     public List<Transform> checkpoints = new List<Transform>();    // An array holding the checkpoints the teacher will go to
@@ -61,7 +60,7 @@ public class Teacher : MonoBehaviour
     private void ChangeBackState()
     {
         _anim.SetBool("isChasing", false);
-        _anim.SetBool(previousState, true);
+        _anim.SetBool("isPatrolling", true);
     }
     
     public void GetDazed()
