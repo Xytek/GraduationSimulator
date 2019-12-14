@@ -28,7 +28,7 @@ public class Interactable : MonoBehaviour, ILookAtHandler
     {
         // spawn credits in a circle around the laptop if it isn't locked
         if (!locked)
-            StartCoroutine(SpawnCoins());
+            StartCoroutine(UseObject());
         else
         {
             EventParams eventParams = new EventParams();
@@ -47,9 +47,8 @@ public class Interactable : MonoBehaviour, ILookAtHandler
         _useTime = param.intNr;
     }
 
-    IEnumerator SpawnCoins()
-    {
-        // change outlien color to make sure the user gets that it's used
+    IEnumerator UseObject()
+    {        
         // start animation
 
         //yield on a new YieldInstruction that waits for 5 seconds.
@@ -70,7 +69,8 @@ public class Interactable : MonoBehaviour, ILookAtHandler
 
             // create the credit
             Instantiate(creditPrefab, pos, rot);
-        }
+        }        
         Destroy(this.gameObject);
+        EventManager.TriggerEvent("LookAtObjDestroyed", new EventParams());
     }
 }

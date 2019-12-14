@@ -2,8 +2,8 @@
 
 public class Door : MonoBehaviour
 {
-    protected bool _fromOutside;
-    protected bool _fromInside;
+    protected bool _fromOutside; // is opened from the outside
+    protected bool _fromInside; // is opened from the inside
 
     [SerializeField] protected Animator _animator;
 

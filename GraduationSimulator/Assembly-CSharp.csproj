@@ -110,7 +110,6 @@
     <Compile Include="Assets\Scripts\UI\Leaderboard.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Menu.cs" />
-    <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SemesterOverUI.cs" />
     <Compile Include="Assets\Scripts\UI\SemesterTimer.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />

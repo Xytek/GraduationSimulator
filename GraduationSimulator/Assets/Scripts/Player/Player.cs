@@ -162,6 +162,7 @@ public class Player : MonoBehaviour
         EventManager.StartListening("Sport2Unlocked", SetSpeed);
         EventManager.StartListening("Sport3Unlocked", UnlockKnockOut);
         EventManager.StartListening("CoolDownOver", EnableAbility);
+        EventManager.StartListening("LookAtObjDestroyed", ResetLastLookAtObject);
     }
 
     #region Event listeners
@@ -208,7 +209,7 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Public functions
-    public void ResetLastLookAtObject()
+    public void ResetLastLookAtObject(EventParams param)
     {
         _lastLookAtObject = null;
     }
