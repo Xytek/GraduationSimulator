@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Menu _courseMenu = default;
     [SerializeField] private InstructionPanel _instructionPanel = default;
     [SerializeField] private SemesterOverUI _semesterOverPanel = default;
+    [SerializeField] private Graduation _gradutationPanel = default;
     private Menu _activeMenu;
 
     public void Awake()
@@ -32,6 +33,7 @@ public class UIManager : MonoBehaviour
 
         EventManager.StartListening("ShowInstructions", ActivateInstructionPanel);
         EventManager.StartListening("SemesterOver", ActivateSemesterOverPanel);
+        EventManager.StartListening("Graduation", ActivateGraduationPanel);
     }
 
     public void Update()
@@ -90,6 +92,11 @@ public class UIManager : MonoBehaviour
     {
         _semesterOverPanel.UpdatePanel(param);
         ChangeMenu((Menu)_semesterOverPanel);
+    }
+
+    public void ActivateGraduationPanel(EventParams param)
+    {                
+        ChangeMenu((Menu)_gradutationPanel);
     }
 
     private void FreezeScene()

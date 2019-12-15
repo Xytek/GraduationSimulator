@@ -10,7 +10,6 @@ public class SemesterTimer : MonoBehaviour
 
     [SerializeField] private Text _timerText = default;
     [SerializeField] private Text _semesterText = default;
-    [SerializeField] private GameObject SemesterOverScreen;
 
     void Start()
     {
@@ -30,7 +29,7 @@ public class SemesterTimer : MonoBehaviour
         }
 
         if (_currentTime <= 0)
-            _currentTime = 0;
+            _currentTime = 0;       
     }
 
     public float StartTime
@@ -44,11 +43,21 @@ public class SemesterTimer : MonoBehaviour
         set { _currentTime = value; }
     }
 
-    public void NewSemester()
+    public int CurrentSemester
     {
+        get { return _currentSemester; }        
+    }
+
+    public void NewSemester()
+    {      
         _currentTime = _startingTime;
         _currentSemester++;
         _semesterText.text = _currentSemester.ToString();
+        
+        if (_currentSemester > 2)
+        {     
+            EventManager.TriggerEvent("Graduation", new EventParams());
+        }            
     }
 
     public void Deactivate()

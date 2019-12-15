@@ -70,7 +70,7 @@ public class CoursePanel : MonoBehaviour
 
     // changes to the selected level and checks if the upgrade-button should be active or not
     public void ChangeSelectedLvl(int chosenLvl)
-    {      
+    {        
         if (chosenLvl == 0 && CheckIfLvlIsAffordable(chosenLvl, _playerStats.Credits) && _upgradeLvl < 1)
         {            
             upgradeButton.Activate();

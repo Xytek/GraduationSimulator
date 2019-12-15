@@ -7,7 +7,7 @@ public class Credit : Collectable
         if(other.gameObject.tag == "Player")
         {
             Destroy(this.gameObject);            
-            _playerStats.UpdateCredits();
+            _playerStats.UpdateCredits(1);
         }
    }
 }

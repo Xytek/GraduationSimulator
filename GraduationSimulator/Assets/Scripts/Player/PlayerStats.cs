@@ -12,7 +12,7 @@ public class PlayerStats : MonoBehaviour
     private float _startEnergy = 100f;                      // How much energy you start with
     private int _totalCredits = 0;
     private void Awake()
-    {
+    {        
         _creditText.text = Credits.ToString();
         ResetEnergy();
     }
@@ -25,24 +25,22 @@ public class PlayerStats : MonoBehaviour
     public void UpdateCredits(int amount)
     {
         // Update credit count
-        Credits -= amount;
-   
-        // Visualize it in the HUD
-        _creditText.text = Credits.ToString();
-    }
+        Credits += amount;  
 
-    public void UpdateCredits()
-    {
-        // Update credit count
-        Credits++;
-        _totalCredits++;
-        
+        // increase total-credits in case credits have increased
+        if(amount > 0)
+        {
+            _totalCredits += amount;
+        }
+   
         // Visualize it in the HUD
         _creditText.text = Credits.ToString();
 
         // If 30 credits have been collected, start new semester
-        if (_totalCredits % 30 == 0)
+        if (_totalCredits % 30 == 0 && !NewSem)
+        {            
             NewSem = true;
+        }
     }
 
     public void UpdateEnergy(float amount)

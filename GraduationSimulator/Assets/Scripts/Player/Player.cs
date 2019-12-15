@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.IO;
 public class Player : MonoBehaviour
 {
     private ILookAtHandler _lastLookAtObject = null;    // For interactable objects
@@ -25,8 +26,11 @@ public class Player : MonoBehaviour
     [SerializeField] private SemesterTimer timer = default;
     [SerializeField] private Image reticle = default;
 
+    GameSaving save;
+
     private void Awake()
     {
+        save = new GameSaving();
         StartListening();   // Start event listeners for ability unlocks
 
         // Get needed components
@@ -83,14 +87,14 @@ public class Player : MonoBehaviour
             NewSemester(timer.StartTime - timeLeft);
         }
 
-        // Press C to get 100 credits. Just helps when testing
+        // Press C to get 30 credits. Just for testing
         Cheat();
     }
 
     private void Cheat()
     {
         if (Input.GetKeyDown(KeyCode.C))
-            _playerStats.UpdateCredits(-100);
+            _playerStats.UpdateCredits(30);
     }
 
     private void UseSkill()
@@ -281,20 +285,35 @@ public class Player : MonoBehaviour
 
     private void NewSemester(float timeSpent)
     {
+        // save time to file             
+        switch (timer.CurrentSemester)
+        {
+            case 1:
+                save.semester1 = timeSpent;                
+                break;
+            case 2:
+                save.semester2 = save.semester1 + timeSpent;
+                break;
+        }
+        string jsonData = JsonUtility.ToJson(save, true);
+        File.WriteAllText(Application.persistentDataPath + "/saveload.json", jsonData);
+
+        // trigger semester event for UI
+        EventParams param = new EventParams();
+        param.text = "You have finished the level. Keep working hard in the next semester! Your time: " + timeSpent.ToString();
+        EventManager.TriggerEvent("SemesterOver", param);
+
+        // reset scene
         this.gameObject.transform.position = new Vector3(-33.5f, 1f, 8f);
         this.gameObject.transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
         _playerStats.TotalTime += timeSpent;
         _fpsCam.enabled = true;
         _isFrozen = false;
         _playerStats.ResetEnergy();
-        timer.NewSemester();
+        _playerStats.NewSem = false;        
         _npcList.InitializeMoreTeachers();
         _npcList.PowerUpNPCs();
-
-        // trigger semester event for UI
-        EventParams param = new EventParams();
-        param.text = "You have finished the level. Keep working hard in the next semester! Your time: " + timeSpent.ToString();
-        EventManager.TriggerEvent("SemesterOver", param);
+        timer.NewSemester();
     }
     #endregion
 }

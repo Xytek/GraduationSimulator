@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cd75498f97fb444da520f6507de7bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coffeeStrength: 15
+  _coffeeStrength: 25
   _standardShader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   _outlineShader: {fileID: 4800000, guid: c9ae121aa99944f4e9413f1ce4912d93, type: 3}
 --- !u!136 &1603671565
