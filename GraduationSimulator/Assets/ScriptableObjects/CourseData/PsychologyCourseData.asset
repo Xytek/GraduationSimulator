@@ -17,5 +17,5 @@ MonoBehaviour:
   - Get the ability to place apples to distract teachers.
   - Decreases the cool-down of the apples.
   - Gives you the immunity to getting caught once.
-  prices: 0a000000050000000a000000
+  prices: 030000000500000064000000
   icon: {fileID: 21300000, guid: 26cb12355f257da4bba1a31ebb9f9fe0, type: 3}

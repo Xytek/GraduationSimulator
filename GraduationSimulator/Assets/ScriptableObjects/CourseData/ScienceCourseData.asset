@@ -17,5 +17,5 @@ MonoBehaviour:
   - This upgrade gives you permission to enter the science lab.
   - This upgrade gives you the ability to make an explosion
   - Make an even faster explosion
-  prices: 0a0000000500000002000000
+  prices: 030000000500000064000000
   icon: {fileID: 21300000, guid: f41cc2ef841f8ef48952e49513d0ba6e, type: 3}

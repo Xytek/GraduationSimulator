@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   UpgradeDescriptions:
-  - This upgrade gives you exit to the library
+  - This upgrade gives you access to the library
   - Enables you to read books and get credits from them.
   - Read books faster.
-  prices: 0a000000190000001e000000
+  prices: 050000000a00000005000000
   icon: {fileID: 21300000, guid: 4b6665b99a19595479500dfad0cac910, type: 3}

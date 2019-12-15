@@ -20,7 +20,7 @@ public class Teacher : MonoBehaviour
     private NavMeshAgent _agent;                            // The npc agent
     private Animator _anim;                                 // The npc state machine
     private FieldOfView _fow;                               // The npc field of view
-    private float _prevSpeed;                               // Holds animation speed when pausing
+    private float _prevSpeed = 1f;                          // Holds animation speed when pausing
 
     private void Awake()
     {
@@ -130,8 +130,9 @@ public class Teacher : MonoBehaviour
     {
         Pause = true;
         _agent.isStopped = true;
-        _prevSpeed = _anim.speed;
-        _anim.speed = 0;
+        if(_anim.speed != 0f)
+            _prevSpeed = _anim.speed;
+        _anim.speed = 0f;
     }
     public void Resume()
     {

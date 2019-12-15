@@ -17,5 +17,5 @@ MonoBehaviour:
   - This upgrade makes your energy drain slower.
   - This upgrade makes you run faster.
   - Gives you the ability to knock-out a teacher for some seconds.
-  prices: 0a000000190000001e000000
+  prices: 03000000050000000a000000
   icon: {fileID: 21300000, guid: 194e3e58736c0324e994d8b2a1d83e83, type: 3}
