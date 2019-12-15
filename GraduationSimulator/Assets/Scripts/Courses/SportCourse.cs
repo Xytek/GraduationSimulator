@@ -13,7 +13,7 @@
                 break;
             case 2:
                 // speed
-                param.floatNr = 10f;
+                param.floatNr = 5f;
                 EventManager.TriggerEvent("Sport2Unlocked", param);
                 break;
             case 3:
