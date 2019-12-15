@@ -25,22 +25,20 @@ public class PlayerStats : MonoBehaviour
     public void UpdateCredits(int amount)
     {
         // Update credit count
-        Credits += amount;  
+        Credits += amount;
 
         // increase total-credits in case credits have increased
-        if(amount > 0)
+        if (amount > 0)
         {
             _totalCredits += amount;
+            // If 30 credits have been collected, start new semester
+            if (_totalCredits % 30 == 0 && !NewSem)
+                NewSem = true;
         }
-   
+
         // Visualize it in the HUD
         _creditText.text = Credits.ToString();
 
-        // If 30 credits have been collected, start new semester
-        if (_totalCredits % 30 == 0 && !NewSem)
-        {            
-            NewSem = true;
-        }
     }
 
     public void UpdateEnergy(float amount)

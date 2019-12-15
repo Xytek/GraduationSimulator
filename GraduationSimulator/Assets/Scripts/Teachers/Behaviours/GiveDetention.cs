@@ -8,11 +8,14 @@ public class GiveDetention : StateMachineBehaviour
     private Teacher _teacher;
     private Transform _target;
     private Player _player;
+    private bool _caught;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         InitializeVariables(animator);
+
+        animator.SetBool("isChasing", false);
 
         if (_target != null && _target.tag == "Player")
         {
@@ -20,9 +23,12 @@ public class GiveDetention : StateMachineBehaviour
             // Make the teacher stop and face the target until we exit the state
             _player.StopAndLookAt(_npc);
             StopAndFaceTarget();
-        }
 
-        animator.SetBool("isChasing", false);
+            // Check on entry if the player has already been caught by another teacher
+            _caught = _player.Caught;
+            if (_caught == false)
+                _player.Caught = true;
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -30,7 +36,9 @@ public class GiveDetention : StateMachineBehaviour
     {
         _teacher.target = null;
         _agent.isStopped = false;
-        _player.Detention();
+
+        if (_caught == false)
+            _player.Detention();
     }
 
     private void InitializeVariables(Animator animator)

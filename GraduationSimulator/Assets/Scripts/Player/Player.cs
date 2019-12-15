@@ -4,6 +4,8 @@ using System.Collections;
 using System.IO;
 public class Player : MonoBehaviour
 {
+    public bool Caught { get; set; } = false;            // To avoid multiple teachers giving seperate detention
+
     private ILookAtHandler _lastLookAtObject = null;    // For interactable objects
     private FPSCam _fpsCam;                             // The camera that's a child of player
     private PlayerStats _playerStats;                   // Speed/Energy/Credits and UI work
@@ -255,7 +257,7 @@ public class Player : MonoBehaviour
         this.gameObject.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
         _fpsCam.enabled = true;
         _isFrozen = false;
-
+        Caught = true;
         // reduce time
         timer.CurrentTime = timer.CurrentTime - 30;
 
