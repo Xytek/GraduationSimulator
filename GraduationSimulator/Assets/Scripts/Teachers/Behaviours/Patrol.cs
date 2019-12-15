@@ -16,6 +16,9 @@ public class Patrol : StateMachineBehaviour
 
         _agent.speed = _teacher.PatrolSpeed;
         _timeElapsed = Time.time;
+
+        animator.SetBool("isPatrolling", true);
+        animator.ResetTrigger("giveDetention");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

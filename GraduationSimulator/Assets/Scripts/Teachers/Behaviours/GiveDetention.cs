@@ -21,11 +21,14 @@ public class GiveDetention : StateMachineBehaviour
             _player.StopAndLookAt(_npc);
             StopAndFaceTarget();
         }
+
+        animator.SetBool("isChasing", false);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        _teacher.target = null;
         _agent.isStopped = false;
         _player.Detention();
     }
