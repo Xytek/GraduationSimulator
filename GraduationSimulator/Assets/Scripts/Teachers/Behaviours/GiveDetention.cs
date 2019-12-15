@@ -38,7 +38,10 @@ public class GiveDetention : StateMachineBehaviour
         _agent.isStopped = false;
 
         if (_caught == false)
+        {
             _player.Detention();
+            _player.Caught = false;
+        }
     }
 
     private void InitializeVariables(Animator animator)
