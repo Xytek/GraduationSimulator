@@ -10,7 +10,7 @@ public class Teacher : MonoBehaviour
         idle
     }
     public float PatrolSpeed { get; set; } = 1f;            // NPC speed when patrolling
-    public float ChaseSpeed { get; set; } = 3f;             // NPC speed when chasing  
+    public float ChaseSpeed { get; set; } = 2.5f;             // NPC speed when chasing  
     public bool Pause { get; private set; }                 // NPC state of being paused
     public Transform target;                                // The prioritized npc target, defaulting to null
     public bool restart;                                    // Resets patrols

@@ -4,7 +4,7 @@ public class PlayerStats : MonoBehaviour
 {
     [SerializeField] private Image _energyBar = default;    // UI object for the energy bar
     [SerializeField] private Text _creditText = default;    // Text object for the credit count
-    public float Speed { get; set; } = 5f;                  // Player movement speed
+    public float Speed { get; set; } = 3f;                  // Player movement speed
     public int Credits { get; private set; } = 0;           // Player credit count
     public float Energy { get; private set; }               // Player energy
     public float TotalTime { get; set; } = 0;               // The total time spent accross semesters
